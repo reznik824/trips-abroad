@@ -2002,12 +2002,12 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 <script>
   // Global location map: timeline location → section ID per tab
   var locationMap = {
-    'munich':     { trip:'sec-munich-in',  food:'food-munich',    attractions:'attr-munich',   accom:'accom-munich'    },
-    'neus':       { trip:'sec-neus',        food:null,             attractions:'attr-route',    accom:null              },
-    'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal'    },
-    'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal' },
-    'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null              },
-    'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null              }
+    'munich':     { trip:'sec-munich-in',  food:'food-munich',    attractions:'attr-munich',   accom:'accom-munich',    car:null, outlets:null, map:null },
+    'neus':       { trip:'sec-neus',        food:null,             attractions:'attr-route',    accom:null,              car:null, outlets:null, map:null },
+    'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal',    car:null, outlets:null, map:null },
+    'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal', car:null, outlets:null, map:null },
+    'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null,              car:null, outlets:null, map:null },
+    'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null,              car:null, outlets:null, map:null }
   };
 
   function navigateTo(loc) {
