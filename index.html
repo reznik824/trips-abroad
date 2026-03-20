@@ -2046,7 +2046,10 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
     if (name === 'map') {
       setTimeout(function(){
         if (window._initTripMap) { window._initTripMap(); window._initTripMap = null; }
-        if (window._tripMap) window._tripMap.invalidateSize();
+        if (window._tripMap) {
+          window._tripMap.invalidateSize();
+          if (window._tripMapBounds) window._tripMap.fitBounds(window._tripMapBounds, { padding: [20, 20] });
+        }
       }, 60);
     }
   }
@@ -2236,7 +2239,7 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
     var el = document.getElementById('trip-map');
     if (!el || typeof L === 'undefined') return;
 
-    var map = window._tripMap = L.map('trip-map', { scrollWheelZoom: false });
+    var map = window._tripMap = L.map('trip-map', { scrollWheelZoom: false }).setView([47.5, 11.3], 8);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -2270,7 +2273,8 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
     L.polyline(routeLL, { color:'#1a2332', weight:2.5, opacity:0.55, dashArray:'8,6' }).addTo(map);
 
     L.control.layers(null, overlays, { collapsed: false, position: 'topright' }).addTo(map);
-    map.fitBounds(L.latLngBounds(allLL), { padding: [20, 20] });
+    window._tripMapBounds = L.latLngBounds(allLL);
+    map.fitBounds(window._tripMapBounds, { padding: [20, 20] });
   }
 
   window._initTripMap = initMap;
