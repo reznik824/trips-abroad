@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>בדיקת טאבים – מינימלי</title>
+<style>
+body{font-family:system-ui,Segoe UI,Arial,sans-serif;padding:16px}
+.tnb{padding:8px 14px;border:2px solid #ccc;border-radius:999px;background:#fff;cursor:pointer;font-weight:700;margin-left:8px}
+.tnb.active{background:#111;color:#fff;border-color:#111}
+.tab-pane{display:none;margin-top:12px;padding:12px;border:1px solid #eee;border-radius:8px}
+.tab-pane.active{display:block}
+</style>
+<h1>בדיקת טאבים – GitHub Pages</h1>
+<div>
+  <button class="tnb active" data-tab="a">טאב א</button>
+  <button class="tnb" data-tab="b">טאב ב</button>
+</div>
+<div id="tab-a" class="tab-pane active">תוכן א</div>
+<div id="tab-b" class="tab-pane">תוכן ב</div>
+<script>
+(function(){
+  function switchTab(name, btn){
+    document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+    document.getElementById('tab-'+name).classList.add('active');
+    document.querySelectorAll('.tnb').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  document.querySelectorAll('.tnb').forEach(btn=>{
+    btn.addEventListener('click', ()=>switchTab(btn.dataset.tab, btn));
+  });
+})();
+</script>
+</html>
