@@ -734,3 +734,21 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
         </div>
       </div>
       <!-- Truncated due to length -->
+
+<!-- Minimal tab script appended to restore functionality on GH Pages -->
+<script>
+(function(){
+  function switchTab(name, btn){
+    document.querySelectorAll('.tab-pane').forEach(function(p){ p.classList.remove('active'); });
+    var pane=document.getElementById('tab-'+name); if(pane) pane.classList.add('active');
+    document.querySelectorAll('.tnb').forEach(function(b){ b.classList.remove('active'); });
+    if(btn) btn.classList.add('active');
+    var fab=document.getElementById('add-place-fab'); if(fab) fab.style.display = (name==='food')?'block':'none';
+  }
+  window.switchTab = switchTab;
+})();
+</script>
+</div><!-- #clip -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="חזור למעלה">↑</button>
+</body>
+</html>
