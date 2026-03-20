@@ -1759,8 +1759,62 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
     <!-- LOCATION NAV -->
     <div id="food-nav" style="display:flex;gap:8px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;">
       <button onclick="scrollToFood('food-munich')" style="flex-shrink:0;background:#1a2332;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">🏙️ מינכן</button>
+      <button onclick="scrollToFood('food-neus')" style="flex-shrink:0;background:#8b2500;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">🏰 Neuschwanstein</button>
       <button onclick="scrollToFood('food-otztal')" style="flex-shrink:0;background:#1a5276;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">🏔️ Ötztal</button>
       <button onclick="scrollToFood('food-zillertal')" style="flex-shrink:0;background:#145a32;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">⛷️ Zillertal</button>
+    </div>
+
+    <!-- ===== NEUSCHWANSTEIN / FÜSSEN ===== -->
+    <div id="food-neus" style="margin-bottom:28px;">
+      <div style="font-size:15px;font-weight:900;color:#8b2500;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid #8b2500;">🏰 Füssen / Schwangau – 28.7 בוקר</div>
+
+      <!-- Zum Hechten -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Gasthof Zum Hechten</div>
+          <span style="background:#eaf4fb;color:#1a5276;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🐟 בווארי / דגי אגם</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.4</span>
+          <span style="font-size:11px;color:#6c757d;">(1,200+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">מסעדה מסורתית בלב העיר העתיקה של Füssen מהמאה ה-17. מתמחה בדגי אגם טריים (פורל, פייק) לצד Schnitzel ומאכלי בוואריה קלאסיים. מבנה היסטורי מרשים ואווירה אותנטית רחוק מהתיירות של הטירה.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Ritterstr. 6, 87629 Füssen</div>
+        <a href="https://www.google.com/maps?q=Gasthof+Zum+Hechten+Fussen&ll=47.5707,10.7018" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Braustüberl Füssen -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Braustüberl Füssen</div>
+          <span style="background:#fef9e7;color:#b7950b;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🍺 פאב בווארי</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.2</span>
+          <span style="font-size:11px;color:#6c757d;">(800+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">הפאב המקומי של Füssen – לא תיירותי, בווארי אמיתי. בירה טרייה מהחבית, Schweinshaxe, Obatzda וסלטים. מושלם לצהריים לאחר ביקור בטירה לפני הנסיעה לÖtztal. מקומיים רבים – סימן טוב.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Ritter-von-Eisenbühl-Str. 1, 87629 Füssen</div>
+        <a href="https://www.google.com/maps?q=Braustuberl+Fussen&ll=47.5715,10.7025" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Café Neuschwanstein -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Restaurant Schlosskrug</div>
+          <span style="background:#fdf2f8;color:#76448a;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">☕ קפה / קל</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.1</span>
+          <span style="font-size:11px;color:#6c757d;">(600+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">בית קפה ומסעדה קלה בכפר Hohenschwangau בסמוך לטירה – הכי קרוב למתחם. מתאים לכריך, קפה או גלידה עם הילדים בין הטירה לחניון. לא כדאי לצהריים מלאים אבל אידיאלי לנשנוש מהיר.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Alpseestr. 2, 87645 Hohenschwangau</div>
+        <a href="https://www.google.com/maps?q=Schlosskrug+Hohenschwangau&ll=47.5573,10.7444" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
     </div>
 
     <!-- ===== MUNICH ===== -->
@@ -2003,7 +2057,7 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
   // Global location map: timeline location → section ID per tab
   var locationMap = {
     'munich':     { trip:'sec-munich-in',  food:'food-munich',    attractions:'attr-munich',   accom:'accom-munich',    car:null, outlets:null, map:null },
-    'neus':       { trip:'sec-neus',        food:null,             attractions:'attr-route',    accom:null,              car:null, outlets:null, map:null },
+    'neus':       { trip:'sec-neus',        food:'food-neus',      attractions:'attr-route',    accom:null,              car:null, outlets:null, map:null },
     'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal',    car:null, outlets:null, map:null },
     'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal', car:null, outlets:null, map:null },
     'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null,              car:null, outlets:null, map:null },
