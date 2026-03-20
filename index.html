@@ -2002,27 +2002,30 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 <script>
   // Global location map: timeline location → section ID per tab
   var locationMap = {
-    'munich':     { trip:'sec-munich-in',  food:'food-munich',    attractions:'attr-munich',   accom:'accom-otztal' },
-    'neus':       { trip:'sec-neus',        food:null,             attractions:'attr-route',    accom:null           },
-    'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal' },
+    'munich':     { trip:'sec-munich-in',  food:'food-munich',    attractions:'attr-munich',   accom:'accom-munich'    },
+    'neus':       { trip:'sec-neus',        food:null,             attractions:'attr-route',    accom:null              },
+    'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal'    },
     'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal' },
-    'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null           },
-    'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null           }
+    'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null              },
+    'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null              }
   };
 
   function navigateTo(loc) {
     var map = locationMap[loc];
     if (!map) return;
-    // Find current active tab name
     var activeTab = document.querySelector('.tab-pane.active');
     var tabId = activeTab ? activeTab.id.replace('tab-','') : 'trip';
     var targetId = map[tabId];
     if (targetId && document.getElementById(targetId)) {
+      // Tab has a mapped section — scroll to it
       setTimeout(function() {
         document.getElementById(targetId).scrollIntoView({ behavior:'smooth', block:'start' });
       }, 50);
+    } else if (tabId in map) {
+      // Tab is mapped but this location has no section in it — do nothing
+      return;
     } else if (map['trip']) {
-      // Fallback: switch to trip tab and scroll
+      // Tab has no mapping at all (car, outlets, map) — fall back to trip tab
       switchTab('trip', document.querySelector('.tnb'));
       setTimeout(function() {
         var el = document.getElementById(map['trip']);
