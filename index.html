@@ -2041,8 +2041,11 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
     if (btn) btn.classList.add('active');
     var fab = document.getElementById('add-place-fab');
     if (fab) fab.style.display = (name === 'food') ? 'block' : 'none';
-    if (name === 'map' && window._tripMap) {
-      setTimeout(function(){ window._tripMap.invalidateSize(); }, 50);
+    if (name === 'map') {
+      setTimeout(function(){
+        if (window._initTripMap) { window._initTripMap(); window._initTripMap = null; }
+        if (window._tripMap) window._tripMap.invalidateSize();
+      }, 50);
     }
   }
 
@@ -2183,10 +2186,11 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
   }
 
   function initMap() {
+    if (window._tripMap) return; // already initialized
     var mapEl = document.getElementById('trip-map');
-    if (!mapEl) return;
+    if (!mapEl || typeof L === 'undefined') return;
 
-    var map = window._tripMap = L.map('trip-map', { zoomControl: true, scrollWheelZoom: false }).setView([47.6, 11.2], 8);
+    var map = window._tripMap = L.map('trip-map', { zoomControl: true, scrollWheelZoom: false });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -2194,10 +2198,10 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
     }).addTo(map);
 
     var routeCoords = stops.map(function(s){ return s.latlng; });
-    routeCoords.push(stops[0].latlng); // close loop back to Munich
+    routeCoords.push(stops[0].latlng);
     L.polyline(routeCoords, { color: '#1a2332', weight: 3, opacity: 0.7, dashArray: '8,6' }).addTo(map);
 
-    stops.forEach(function(s, i) {
+    stops.forEach(function(s) {
       var popup = '<div style="font-family:Heebo,sans-serif;direction:rtl;text-align:right;min-width:150px;">'
         + '<div style="font-size:13px;font-weight:800;color:#1a2332;margin-bottom:2px;">' + s.label + '</div>'
         + '<div style="font-size:11px;color:#6c757d;margin-bottom:8px;">' + s.sub + '</div>'
@@ -2208,16 +2212,11 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
         .bindPopup(popup, { maxWidth: 220 });
     });
 
-    // Fit map to all stops
     map.fitBounds(L.latLngBounds(stops.map(function(s){ return s.latlng; })), { padding: [30, 30] });
-
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMap);
-  } else {
-    initMap();
-  }
+  // Lazy init: only run when the map tab is actually visible
+  window._initTripMap = initMap;
 })();
 </script>
 </body>
