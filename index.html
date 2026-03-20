@@ -232,6 +232,10 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
   .attr-tag-purple{ background:#f3e5f5; color:#6c3483; }
   #btt { position: fixed; }
   
+
+/* Fix: ensure top tab nav is above overlapping elements */
+.tab-nav-wrap, .tab-nav { position: relative; z-index: 10; }
+.timeline { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
