@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'><rect width='3' height='2' fill='%23ED2939'/><rect width='3' height='0.667' y='0.667' fill='white'/></svg>'>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'><rect width='3' height='2' fill='%23ED2939'/><rect width='3' height='0.667' y='0.667' fill='white'/></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>אוסטריה – קיץ 2026 🇦🇹</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -153,7 +153,7 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
   .accard-imgs { display:flex; gap:3px; height:140px; overflow:hidden; }
   .accard-imgs img { flex:1; object-fit:cover; min-width:0; }
   .accard-imgs img:first-child { flex:2; }
-  .accard-
+  .accard-body { padding: 14px 16px; }
   .accard-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:6px; }
   .accard-name { font-size:16px; font-weight:900; }
   .accard-location { font-size:12px; color:var(--muted); margin-top:1px; }
@@ -689,17 +689,30 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 
     </div>
 
-    <!-- EMBEDDED MAP -->
-    <div style="border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.1);margin-bottom:18px;">
-      <iframe
-        src="https://maps.google.com/maps?f=d&source=s_d&saddr=Munich+Airport+MUC+Germany&daddr=Neuschwanstein+Castle+Germany+to:Umhausen+Otztal+Austria+to:Mayrhofen+Zillertal+Austria+to:Achensee+Tyrol+Austria+to:Munich+Airport+MUC+Germany&hl=iw&output=embed"
-        width="100%"
-        height="360"
-        style="border:0;display:block;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+    <!-- ROUTE VISUAL (replaces deprecated embed) -->
+    <div style="border-radius:14px;background:linear-gradient(135deg,#0d1b2a,#1a3a5c);padding:20px;margin-bottom:18px;box-shadow:0 2px 12px rgba(0,0,0,0.15);">
+      <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.6);margin-bottom:14px;text-align:center;">🗺️ מסלול הטיול – לחץ לפתיחה ב-Google Maps</div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(255,255,255,0.08);border-radius:10px 10px 0 0;border-bottom:1px solid rgba(255,255,255,0.07);">
+          <span style="font-size:18px;">✈️</span><div><div style="font-size:13px;font-weight:700;color:white;">שדה תעופה מינכן (MUC)</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">27.7 · נחיתה</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.07);">
+          <span style="font-size:18px;">🏰</span><div><div style="font-size:13px;font-weight:700;color:white;">Neuschwanstein</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">28.7 בוקר · ~1:20 שעות נסיעה</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(26,82,118,0.4);border-bottom:1px solid rgba(255,255,255,0.07);">
+          <span style="font-size:18px;">🏔️</span><div><div style="font-size:13px;font-weight:700;color:white;">Ötztal – Längenfeld</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">28.7–31.7 · 3 לילות · ~1:15 שעות</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(26,96,53,0.4);border-bottom:1px solid rgba(255,255,255,0.07);">
+          <span style="font-size:18px;">🌿</span><div><div style="font-size:13px;font-weight:700;color:white;">Zillertal – Mayrhofen</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">31.7–4.8 · 4 לילות · ~1:15 שעות</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(26,122,110,0.4);border-bottom:1px solid rgba(255,255,255,0.07);">
+          <span style="font-size:18px;">🏊</span><div><div style="font-size:13px;font-weight:700;color:white;">Achensee – Pertisau</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">4.8 · עצירה בדרך חזרה · ~45 דק'</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(255,255,255,0.08);border-radius:0 0 10px 10px;">
+          <span style="font-size:18px;">✈️</span><div><div style="font-size:13px;font-weight:700;color:white;">שדה תעופה מינכן (MUC)</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">4.8–6.8 · 2 לילות · טיסה 6.8 ~11:00</div></div>
+        </div>
+      </div>
+      <a href="https://www.google.com/maps/dir/Munich+Airport+MUC+Germany/Neuschwanstein+Castle+Schwangau+Germany/Umhausen+Otztal+Austria/Mayrhofen+Zillertal+Austria/Achensee+Pertisau+Austria/Munich+Airport+MUC+Germany" target="_blank" style="text-decoration:none;display:block;margin-top:14px;text-align:center;background:#4285F4;color:white;font-size:13px;font-weight:700;padding:11px;border-radius:10px;">🗺️ פתח מסלול מלא ב-Google Maps ↗</a>
     </div>
 
     <!-- STOPS LIST -->
@@ -718,7 +731,1289 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 
         </div>
       </div>
-      <!-- ... rest of content ... -->
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #8b2500;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">🏰 Neuschwanstein</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">28.7 בוקר – 4 שעות</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Neuschwanstein+Castle&ll=47.5576,10.7498" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.5576,10.7498&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #1a5276;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">🏔️ Ötztal – Umhausen</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">28.7–31.7 · 3 לילות · בסיס א׳</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Umhausen+%C3%96tztal&ll=47.1330,10.9270" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.133,10.927&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #1a5276;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">💦 Stuibenfall – מפל טירול</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">Ötztal · חינמי · מפל 159מ'</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Stuibenfall+Waterfall&ll=47.1283,10.9244" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.1283,10.9244&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #1a5276;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">🎢 AREA 47</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">Ötztal · פארק הרפתקאות</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=AREA+47+Adventure+Park&ll=47.2345,10.8456" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.2345,10.8456&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #1a5276;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">♨️ Aqua Dome – Längenfeld</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">Ötztal · ספא תרמי</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Aqua+Dome+L%C3%A4ngenfeld&ll=47.0696,10.9653" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.0696,10.9653&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #1a6035;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">🌿 Zillertal – Mayrhofen</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">31.7–4.8 · 4 לילות · בסיס ב׳</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Mayrhofen+Zillertal&ll=47.1669,11.8633" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.1669,11.8633&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #1a6035;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">💙 Schlegeis Stausee</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">Zillertal · מאגר טורקיז</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Schlegeis+Reservoir&ll=47.0333,11.7167" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.0333,11.7167&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #1a6035;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">🧊 Hintertux Glacier</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">Zillertal · רכבל + מערת קרח</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Hintertux+Glacier&ll=47.1000,11.6667" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.1,11.6667&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #1a6035;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">💦 Krimml Waterfalls</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">Zillertal · מפלים 380מ' – הגבוהים באירופה</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Krimml+Waterfalls&ll=47.2167,12.1667" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.2167,12.1667&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #6c3483;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">🏊 Achensee – Pertisau</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">4.8 – עצירת שחייה בדרך חזרה</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Achensee+Pertisau&ll=47.4667,11.7167" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=47.4667,11.7167&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🚗 Waze
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end tab-map -->
+
+
+  <div id="tab-accom" class="tab-pane">
+
+    <div style="margin-bottom:16px;">
+    <p style="font-size:13px;font-weight:700;margin-bottom:6px;">🔍 מחירים אמיתיים מ-Airbnb – מאומתים ידנית (מרץ 2026)</p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:0;">2 מבוגרים + 2 ילדים · כל משפחה בנפרד · תקציב ₪1,000/לילה</p>
+  </div>
+
+  <!-- PRICE REALITY CHECK -->
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;margin-bottom:20px;">
+    <div style="background:white;border-radius:14px;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
+      <div style="font-size:12px;font-weight:900;color:var(--oetz);margin-bottom:8px;">🏔️ Ötztal · 28.7–31.7 (3 לילות)</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">Umhausen · 2+2 · Airbnb</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;font-size:12px;"><span>✅ בתקציב</span><span style="font-weight:700;">5 דירות</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;font-size:12px;"><span>טווח ✅</span><span style="font-weight:700;color:#166534;">₪605–₪925/לילה</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;font-size:12px;"><span>≈ €/לילה</span><span style="font-weight:700;color:#166534;">€163–€249</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;font-size:12px;color:var(--muted);"><span>⚠️ קצת מעל</span><span>₪969–₪1,297</span></div>
+      </div>
+    </div>
+    <div style="background:white;border-radius:14px;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
+      <div style="font-size:12px;font-weight:900;color:var(--zill);margin-bottom:8px;">🌿 Zillertal · 31.7–4.8 (4 לילות)</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">Mayrhofen · 2+2 · Airbnb</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;font-size:12px;"><span>✅ בתקציב</span><span style="font-weight:700;">9 דירות</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;font-size:12px;"><span>טווח ✅</span><span style="font-weight:700;color:#166534;">₪454–₪911/לילה</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;font-size:12px;"><span>≈ €/לילה</span><span style="font-weight:700;color:#166534;">€122–€245</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;font-size:12px;color:var(--muted);"><span>⚠️ קצת מעל</span><span>₪973–₪1,264</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:12px 16px;margin-bottom:20px;font-size:12px;color:#166534;">
+    <strong>✅ מסקנה:</strong> התקציב ₪1,000/לילה ריאלי בשני האזורים. Mayrhofen אפילו זולה יותר מÖtztal. יש מבחר טוב – להזמין מוקדם כי יולי–אוגוסט מתמלא.
+  </div>
+
+  <!-- ===== MUNICH ===== -->
+  <div id="accom-munich" class="accom-section-title">
+    🏙️ מינכן – שתי עצירות
+    <span class="badge" style="background:#1a2332;color:white;">27.7 + 4–6.8</span>
+  </div>
+
+  <!-- Munich Night 1 -->
+  <div style="background:white;border:2px dashed #e74c3c;border-radius:16px;padding:16px;margin-bottom:10px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+      <div>
+        <div style="font-size:15px;font-weight:900;color:#1a2332;">🏨 מלון מינכן – לילה הגעה</div>
+        <div style="font-size:12px;color:#6c757d;margin-top:2px;">27.7 · לילה אחד · קרוב לרכבת תחתית מהשדה</div>
+      </div>
+      <span style="background:#fde8e8;color:#e74c3c;font-size:11px;font-weight:900;padding:4px 10px;border-radius:20px;white-space:nowrap;">⚠️ לא הוזמן</span>
+    </div>
+    <div style="background:#fff5f5;border-radius:10px;padding:10px;margin-bottom:12px;font-size:12px;color:#7f1d1d;">
+      💡 מגיעים בטיסה – ללא רכב עדיין. לחפש מלון ליד תחנת U-Bahn (קו 1 או 2 מ-MUC). לא צריך משהו יקר – רק לישון. מחיר סביר: €80–150 לחדר.
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <a href="https://www.booking.com/searchresults.html?ss=Munich&checkin=2026-07-27&checkout=2026-07-28&group_adults=2&group_children=2" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;background:#003580;color:white;font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;">🔍 חפש ב-Booking</a>
+      <a href="https://www.google.com/maps?q=hotels+near+Munich+city+center&ll=48.1374,11.5755" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;background:#f1f3f4;color:#1a2332;font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;">🗺️ Google Maps</a>
+    </div>
+  </div>
+
+  <!-- Munich Return 4-6.8 -->
+  <div style="background:white;border:2px dashed #e74c3c;border-radius:16px;padding:16px;margin-bottom:20px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+      <div>
+        <div style="font-size:15px;font-weight:900;color:#1a2332;">🏨 מלון מינכן – חזרה</div>
+        <div style="font-size:12px;color:#6c757d;margin-top:2px;">4–6.8 · 2 לילות · קרוב לשדה התעופה MUC</div>
+      </div>
+      <span style="background:#fde8e8;color:#e74c3c;font-size:11px;font-weight:900;padding:4px 10px;border-radius:20px;white-space:nowrap;">⚠️ לא הוזמן</span>
+    </div>
+    <div style="background:#fff5f5;border-radius:10px;padding:10px;margin-bottom:12px;font-size:12px;color:#7f1d1d;">
+      💡 מחזירים רכב ב-4.8. טיסה ב-6.8 ב-~11:00 – לצאת 8:30 באוטובוס. לחפש מלון עם שאטל לשדה או <strong>ממש ב-MUC</strong> (Novotel, Hilton Munich Airport). מחיר: €100–180 לחדר/לילה.
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <a href="https://www.booking.com/searchresults.html?ss=Munich+Airport&checkin=2026-08-04&checkout=2026-08-06&group_adults=2&group_children=2" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;background:#003580;color:white;font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;">🔍 חפש ב-Booking</a>
+      <a href="https://www.google.com/maps?q=hotels+near+Munich+Airport+MUC&ll=48.3537,11.7750" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;background:#f1f3f4;color:#1a2332;font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;">🗺️ Google Maps</a>
+    </div>
+  </div>
+
+  <!-- ===== ÖTZTAL ===== -->
+  <div id="accom-otztal" class="accom-section-title">
+    🏔️ בסיס א׳ – Ötztal (Umhausen)
+    <span class="badge badge-oetz">28.7–31.7 · 3 לילות</span>
+  </div>
+
+  <!-- CONFIRMED BOOKING -->
+  <div style="background:linear-gradient(135deg,#0f4c2a,#1a7a45);border-radius:16px;padding:16px;margin-bottom:14px;color:white;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:10px;left:14px;font-size:10px;font-weight:900;background:rgba(255,255,255,0.2);padding:3px 10px;border-radius:20px;letter-spacing:0.5px;">✅ הזמנה מאושרת</div>
+    <div style="margin-top:20px;">
+      <div style="font-size:17px;font-weight:900;margin-bottom:4px;">Apart Peppone</div>
+      <div style="font-size:12px;opacity:0.85;margin-bottom:12px;">📍 Oberlängenfeld 59, 6444 Längenfeld · Ötztal</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:8px;">
+          <div style="font-size:10px;opacity:0.8;margin-bottom:2px;">צ׳ק-אין</div>
+          <div style="font-size:13px;font-weight:800;">ג׳, 28.7.2026</div>
+          <div style="font-size:11px;opacity:0.8;">15:00–18:00</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:8px;">
+          <div style="font-size:10px;opacity:0.8;margin-bottom:2px;">צ׳ק-אאוט</div>
+          <div style="font-size:13px;font-weight:800;">ו׳, 31.7.2026</div>
+          <div style="font-size:11px;opacity:0.8;">עד 10:00</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;font-size:11px;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🛏️ 3 לילות</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">👨‍👩‍👧‍👦 2 מבוגרים + 2 ילדים</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🏠 דירה אחת</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🎿 Summer Card כלולה</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🍕 Pizzeria Don Camillo בבניין</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">♨️ הנחה ב-Aqua Dome</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🚌 סקי-בוס בפתח</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🛒 M-Preis ממול</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">⚠️ פיקדון €100 במזומן בהגעה</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://www.booking.com/hotel/at/appartmenthaus-christophorus.he.html" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;background:white;color:#0f4c2a;font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;">📋 Booking.com</a>
+        <a href="https://www.google.com/maps?q=Apart+Peppone+Langenfeld&ll=47.0706,10.9672" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.2);color:white;font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.4);">🗺️ Google Maps</a>
+        <a href="https://peppone.tirol/en/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.2);color:white;font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.4);">🌐 אתר רשמי</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== ZILLERTAL ===== -->
+  <div id="accom-zillertal" class="accom-section-title">
+    🌿 בסיס ב׳ – Zillertal (Ramsau im Zillertal)
+    <span class="badge badge-zill">31.7–4.8 · 4 לילות</span>
+  </div>
+
+  <!-- CONFIRMED BOOKING -->
+  <div style="background:linear-gradient(135deg,#145a32,#1e8449);border-radius:16px;padding:16px;margin-bottom:14px;color:white;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:10px;left:14px;font-size:10px;font-weight:900;background:rgba(255,255,255,0.2);padding:3px 10px;border-radius:20px;letter-spacing:0.5px;">✅ הזמנה מאושרת</div>
+    <div style="margin-top:20px;">
+      <div style="font-size:17px;font-weight:900;margin-bottom:2px;">Emma's kleines Hotel</div>
+      <div style="font-size:11px;opacity:0.7;margin-bottom:4px;">⭐ 9.5 Booking · 297 ביקורות</div>
+      <div style="font-size:12px;opacity:0.85;margin-bottom:12px;">📍 Talstrasse 55, 6284 Ramsau im Zillertal · 3 ק"מ מ-Mayrhofen</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+        <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:8px;">
+          <div style="font-size:10px;opacity:0.8;margin-bottom:2px;">צ'ק-אין</div>
+          <div style="font-size:13px;font-weight:800;">ו', 31.7.2026</div>
+          <div style="font-size:11px;opacity:0.8;">15:00–20:00</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:8px;">
+          <div style="font-size:10px;opacity:0.8;margin-bottom:2px;">צ'ק-אאוט</div>
+          <div style="font-size:13px;font-weight:800;">ג', 4.8.2026</div>
+          <div style="font-size:11px;opacity:0.8;">עד 10:00</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;font-size:11px;">
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🛏️ 4 לילות</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">👨‍👩‍👧‍👦 2 מבוגרים + 2 ילדים</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🏠 דירה פרטית</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🍳 ארוחת בוקר כלולה</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">♨️ ספא באתר</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🚌 סקי-בוס בפתח</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🎿 5 דק' מ-Horberg/Penken</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">🅿️ חניה חינם</span>
+        <span style="background:rgba(255,255,255,0.18);border-radius:8px;padding:3px 8px;">⚠️ תשלום מראש בהעברה בנקאית</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://www.booking.com/hotel/at/gasthof-pension-mariandl.html" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;background:white;color:#145a32;font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;">📋 Booking.com</a>
+        <a href="https://www.google.com/maps?q=Emma%27s+kleines+Hotel+Ramsau+im+Zillertal&ll=47.2064,11.8717" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.2);color:white;font-size:12px;font-weight:800;padding:8px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.4);">🗺️ Google Maps</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- TOTAL COST SUMMARY -->
+  <div style="background:var(--dark);color:white;border-radius:14px;padding:16px;margin-top:16px;">
+    <div style="font-size:13px;font-weight:900;margin-bottom:10px;">💰 סיכום עלות לינה לכל הטיול – שתי משפחות</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;font-size:12px;">
+      <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px;">
+        <div style="font-weight:700;margin-bottom:4px;">תרחיש חסכוני ✅</div>
+        <div>Ötztal: ₪605×2×3 = ₪3,630</div>
+        <div>Zillertal: ₪454×2×4 = ₪3,632</div>
+        <div style="font-weight:900;margin-top:6px;color:#86efac;">סה"כ: ~₪7,262</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px;">
+        <div style="font-weight:700;margin-bottom:4px;">תרחיש ממוצע ⚠️</div>
+        <div>Ötztal: ₪800×2×3 = ₪4,800</div>
+        <div>Zillertal: ₪700×2×4 = ₪5,600</div>
+        <div style="font-weight:900;margin-top:6px;color:#fde68a;">סה"כ: ~₪10,400</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:8px;">* לא כולל מס תיירות (~€4/אדם/לילה) וניקיון סופי</div>
+  </div>
+
+  </div><!-- end tab-accom -->
+
+  <div id="tab-car" class="tab-pane">
+
+    <div style="margin-bottom:16px;">
+      <p style="font-size:13px;font-weight:700;margin-bottom:4px;">🚗 השכרת רכב – מינכן שדה תעופה (MUC)</p>
+      <p style="font-size:12px;color:var(--muted);">איסוף 28.7 בבוקר · החזרה 4.8 · 7 ימים · SUV משפחתי</p>
+    </div>
+
+    <!-- PRICE ESTIMATE BOX -->
+    <div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,0.07);margin-bottom:16px;">
+      <div style="font-size:13px;font-weight:900;margin-bottom:12px;color:var(--dark);">💰 טווח מחירים משוער – SUV / רכב משפחתי גדול, 7 ימים</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%;margin-bottom:12px;">
+        <div style="background:#f0fdf4;border-radius:10px;padding:10px;text-align:center;">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">בסיס בלבד</div>
+          <div style="font-size:18px;font-weight:900;color:#166534;">€350–500</div>
+          <div style="font-size:11px;color:var(--muted);">~₪1,300–1,850</div>
+        </div>
+        <div style="background:#fef9c3;border-radius:10px;padding:10px;text-align:center;">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">+ ביטוח מלא</div>
+          <div style="font-size:18px;font-weight:900;color:#854d0e;">€600–800</div>
+          <div style="font-size:11px;color:var(--muted);">~₪2,200–3,000</div>
+        </div>
+        <div style="background:#fff7ed;border-radius:10px;padding:10px;text-align:center;">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">סה"כ בפועל</div>
+          <div style="font-size:18px;font-weight:900;color:#9a3412;">€700–1,000</div>
+          <div style="font-size:11px;color:var(--muted);">כולל הפתעות</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);background:var(--sand);border-radius:8px;padding:8px;">
+        ⚠️ מחירי יולי-אוגוסט הם שיא העונה – להזמין <strong>עכשיו</strong>. SUV גדול (7+ מושבים) מוגבל במלאי במינכן.
+      </div>
+    </div>
+
+    <!-- OFRAN -->
+    <div class="accard" style="border:2px solid var(--teal);">
+      <div class="accard-body">
+        <div class="accard-top">
+          <div>
+            <div class="accard-name">🇮🇱 אופרן – הטבת אלביט 14%</div>
+            <div class="accard-location">ofran.co.il · עובדי אלביט · שירות בעברית 24/7</div>
+          </div>
+          <div class="accard-rating">
+            <div class="accard-stars" style="background:var(--teal);">⭐ מומלץ</div>
+            <div class="accard-count">35 שנות ניסיון</div>
+          </div>
+        </div>
+        <div class="accard-pills">
+          <span class="acp acp-yes">✅ 14% הנחה לעובדי אלביט</span>
+          <span class="acp acp-yes">✅ שירות בעברית</span>
+          <span class="acp acp-yes">✅ כל חברות ההשכרה</span>
+          <span class="acp acp-yes">✅ תמיכה בעיכובי טיסה</span>
+          <span class="acp acp-maybe">⚠️ דמי טיפול €7–15 בהזמנה טלפונית</span>
+        </div>
+        <div class="accard-desc">ההטבה חלה על כל רכיבי ההזמנה חוץ מהחזר השתתפות עצמית. להזמין <strong>באתר הייעודי בלבד</strong> (לא באתר הרגיל). לציין שעובדי אלביט.</div>
+        <div class="accard-links">
+          <a class="acl acl-primary" href="https://ofran.co.il/elbit-wl" target="_blank">אתר אלביט-אופרן ↗</a>
+          <a class="acl acl-maps" style="background:#25D366;" href="tel:037951010">📞 03-7951010</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARISON SITES -->
+    <div style="font-size:13px;font-weight:900;margin:16px 0 10px;color:var(--dark);">🔍 אתרי השוואה מחירים</div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;margin-bottom:16px;overflow:hidden;">
+
+      <a style="display:block;min-width:0;" href="https://www.discovercars.com/germany/munich/muc?pickup_date=2026-07-28&dropoff_date=2026-08-04&pickup_time=10:00&dropoff_time=10:00" target="_blank" style="text-decoration:none;">
+        <div style="background:white;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border:1px solid var(--border);">
+          <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px;">DiscoverCars</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">השוואה + ביטול חינמי</div>
+          <div style="font-size:11px;font-weight:700;color:var(--teal);">discovercars.com ↗</div>
+        </div>
+      </a>
+
+      <a style="display:block;min-width:0;" href="https://www.kayak.com/cars/MUC/2026-07-28/10h00/2026-08-04/10h00" target="_blank" style="text-decoration:none;">
+        <div style="background:white;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border:1px solid var(--border);">
+          <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px;">KAYAK</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">השוואה מהירה</div>
+          <div style="font-size:11px;font-weight:700;color:var(--teal);">kayak.com ↗</div>
+        </div>
+      </a>
+
+      <a style="display:block;min-width:0;" href="https://www.sixt.com/car-rental/germany/munich/munich-airport/?carClass=L&pickup=2026-07-28T10:00&return=2026-08-04T10:00" target="_blank" style="text-decoration:none;">
+        <div style="background:white;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border:1px solid var(--border);">
+          <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px;">Sixt</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">מקומי גרמני · אמין</div>
+          <div style="font-size:11px;font-weight:700;color:var(--teal);">sixt.com ↗</div>
+        </div>
+      </a>
+
+      <a style="display:block;min-width:0;" href="https://www.hertz.com/rentacar/reservation/index.jsp?countryCode=DE&locationCode=MUCT50&locationLocale=en_US&MDPCID=US.LEISURE.GOOGLE.Google_NB_Brand_Exact.hertz" target="_blank" style="text-decoration:none;">
+        <div style="background:white;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border:1px solid var(--border);">
+          <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px;">Hertz</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">בינלאומי · אמין</div>
+          <div style="font-size:11px;font-weight:700;color:var(--teal);">hertz.com ↗</div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- CRITICAL CHECKLIST -->
+    <div style="font-size:13px;font-weight:900;margin:16px 0 10px;color:var(--dark);">⚠️ דברים קריטיים לבדוק בהזמנה</div>
+
+    <div style="background:white;border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,0.07);margin-bottom:12px;">
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;">
+
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">🛂</span>
+          <div style="min-width:0;overflow-wrap:break-word;">
+            <strong>מעבר גבול גרמניה↔אוסטריה</strong><br>
+            מדינות EU – בדרך כלל מותר וחינמי. <span style="color:#9a3412;font-weight:700;">חובה לציין בהזמנה שנוסעים לאוסטריה.</span> חלק מהחברות גובות €7.5–10/יום (מקסימום €30–150). לוודא בדף התנאים לפני תשלום.
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">📏</span>
+          <div style="min-width:0;overflow-wrap:break-word;">
+            <strong>הגבלת ק"מ</strong><br>
+            חלק מהחברות (כמו Alamo) מגבילות ל-<span style="color:#9a3412;font-weight:700;">1,500 ק"מ להשכרה</span> – לא מספיק לטיול הזה (אנחנו בסביבות 2,000 ק"מ). <strong>לחפש Unlimited Mileage.</strong> Sixt וEuropcar בד"כ מציעים ללא הגבלה.
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">🪪</span>
+          <div style="min-width:0;overflow-wrap:break-word;">
+            <strong>רישיון נהיגה בינלאומי (IDP)</strong><br>
+            <span style="color:#9a3412;font-weight:700;">חובה לישראלים בגרמניה!</span> הרישיון הישראלי לבד לא מספיק – גרמניה דורשת IDP לרישיונות שאינם EU. לקבל ב-AA אגד לפני הטיסה (~₪40).
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">🏷️</span>
+          <div style="min-width:0;overflow-wrap:break-word;">
+            <strong>ויניט אוסטריה (Vignette)</strong><br>
+            <span style="color:#9a3412;font-weight:700;">חובה לנסיעה על כבישים מהירים באוסטריה.</span> ~€10 לעשרה ימים. לקנות בתחנת דלק ראשונה בגרמניה לפני הכניסה לאוסטריה. קנס ללא ויניט: €120+.
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">🛡️</span>
+          <div style="min-width:0;overflow-wrap:break-word;">
+            <strong>ביטוח – השתתפות עצמית</strong><br>
+            CDW (Collision Damage Waiver) מפחית את ההשתתפות העצמית אבל לא מבטל. לשלם נוסף על <strong>Super CDW / Full Coverage</strong> כדי לאפס אותה לחלוטין – שווה את זה עם ילדים בהרים. עלות ~€15–25/יום.
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">🚙</span>
+          <div style="min-width:0;overflow-wrap:break-word;">
+            <strong>גודל הרכב</strong><br>
+            4 מבוגרים + 4 ילדים + מזוודות = <span style="color:#9a3412;font-weight:700;">מינימום SUV גדול (7 מושבים) או מיניוון.</span> לא להסתפק ב"SUV" סטנדרטי 5 מושבים. לחפש: VW Touran, Ford Galaxy, Seat Alhambra, BMW X5, Skoda Kodiaq.
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-size:16px;flex-shrink:0;">📸</span>
+          <div style="min-width:0;overflow-wrap:break-word;">
+            <strong>בעת איסוף הרכב</strong><br>
+            לצלם את כל צדדי הרכב לפני יציאה מהחניון, כולל גג, תחתית וחלונות. לוודא שכל נזק מתועד בחוזה. חברות אחדות גבו כסף על "נזק" שהיה כבר.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TOLL ROADS -->
+    <div style="background:#f8f4ef;border-radius:12px;padding:12px 16px;margin-bottom:12px;font-size:12px;">
+      <strong>🛣️ כבישי אגרה במסלול שלנו:</strong><br>
+      <div style="margin-top:6px;display:flex;flex-direction:column;gap:4px;">
+        <div>• <strong>אוסטריה ויניט</strong> – €10 לעשרה ימים (חובה)</div>
+        <div>• <strong>Timmelsjoch</strong> – €14.50 (אופציה, כביש הר)</div>
+        <div>• <strong>Schlegeis Alpenstraße</strong> – €18/רכב (מזומן בלבד!)</div>
+        <div>• <strong>Gerlos Pass → Krimml</strong> – €11/רכב</div>
+        <div>• <strong>גרמניה</strong> – אין אגרה לרכבים פרטיים</div>
+      </div>
+    </div>
+
+    <!-- DISTANCE ESTIMATE -->
+    <div style="background:var(--dark);color:white;border-radius:14px;padding:14px 16px;font-size:12px;">
+      <div style="font-weight:900;margin-bottom:8px;font-size:13px;">🗺️ אומדן ק"מ לכל הטיול</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;"><span>מינכן → Neuschwanstein</span><span style="font-weight:700;">~120 ק"מ</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;"><span>Neuschwanstein → Ötztal</span><span style="font-weight:700;">~80 ק"מ</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;"><span>טיולי כוכב Ötztal (3 ימים)</span><span style="font-weight:700;">~250 ק"מ</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;"><span>Ötztal → Zillertal</span><span style="font-weight:700;">~100 ק"מ</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;"><span>טיולי כוכב Zillertal (4 ימים)</span><span style="font-weight:700;">~400 ק"מ</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;"><span>Zillertal → Achensee → מינכן</span><span style="font-weight:700;">~150 ק"מ</span></div>
+        <div style="display:flex;justify-content:space-between;min-width:0;gap:8px;border-top:1px solid rgba(255,255,255,0.3);padding-top:6px;margin-top:4px;"><span style="font-weight:900;">סה"כ משוער</span><span style="font-weight:900;color:#fde68a;">~1,100–1,300 ק"מ</span></div>
+      </div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:8px;">✅ בגבול של 1,500 ק"מ – אבל עדיף unlimited על כל צרה</div>
+    </div>
+
+  </div><!-- end tab-car -->
+
+  <div id="tab-outlets" class="tab-pane">
+
+    <p style="font-size:12px;color:var(--muted);margin-bottom:16px;">5 אאוטלטים לאורך המסלול · ממוינים לפי מיקום בטיול · ביום ראשון כולם סגורים</p>
+
+    <!-- ROUTE LEGEND -->
+    <div style="background:white;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+      <div style="font-weight:700;margin-bottom:8px;">🗺️ מסלול + מיקום האאוטלטים</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:11px;">
+        <span style="background:#7b4d12;color:white;padding:3px 8px;border-radius:10px;">מינכן 27.7</span>
+        <span style="font-size:14px;">→</span>
+        <span style="background:#c0392b;color:white;padding:3px 8px;border-radius:10px;">Neuschwanstein 28.7</span>
+        <span style="font-size:14px;">→</span>
+        <span style="background:var(--oetz);color:white;padding:3px 8px;border-radius:10px;">Ötztal 28–31.7</span>
+        <span style="font-size:14px;">→</span>
+        <span style="background:var(--zill);color:white;padding:3px 8px;border-radius:10px;">Zillertal 31.7–4.8</span>
+        <span style="font-size:14px;">→</span>
+        <span style="background:#7b4d12;color:white;padding:3px 8px;border-radius:10px;">מינכן 4–6.8</span>
+      </div>
+    </div>
+
+    <!-- 1. INGOLSTADT -->
+    <div class="accard">
+      <div class="accard-body">
+        <div class="accard-top">
+          <div>
+            <div class="accard-name">🏪 Ingolstadt Village</div>
+            <div class="accard-location">📍 Ingolstadt, Bavaria · <strong>בדרך מינכן → Neuschwanstein</strong> (+45 דק' עיקוף) <em>או בדרך חזרה</em></div>
+          </div>
+          <div class="accard-rating">
+            <div class="accard-stars">⭐ 4.3</div>
+            <div class="accard-count">17,815 ביקורות</div>
+          </div>
+        </div>
+        <div class="accard-pills">
+          <span class="acp acp-yes">✅ 110+ מותגים</span>
+          <span class="acp acp-yes">✅ חצר כפרית פתוחה</span>
+          <span class="acp acp-yes">✅ Tax Free לישראלים</span>
+          <span class="acp acp-yes">✅ Nike, Adidas, Michael Kors, Lindt</span>
+          <span class="acp acp-no">❌ סגור ראשון</span>
+        </div>
+        <div class="accard-desc">אאוטלט מעוצב בסגנון כפר אירופאי, פתוח. 110+ מותגי יוקרה וספורט עד 60% הנחה. פארק ילדים באתר. חנייה חינמית. <strong>הכי קרוב למסלול שלנו.</strong> שעות: ב-ו 10:00–20:00.</div>
+        <div class="accard-links">
+          <a class="acl acl-primary" href="https://www.ingolstadt-village.com" target="_blank">אתר הבית ↗</a>
+          <a class="acl acl-maps" href="https://www.google.com/maps?q=Ingolstadt+Village+Outlet&ll=48.7591,11.4280" target="_blank">Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. PIDING (NIKE + ADIDAS) -->
+    <div class="accard">
+      <div class="accard-body">
+        <div class="accard-top">
+          <div>
+            <div class="accard-name">👟 Nike + Adidas Outlet – Piding</div>
+            <div class="accard-location">📍 Piding, Bavaria · <strong>בדרך Ötztal → Zillertal</strong> (5 דק' מהכביש הראשי)</div>
+          </div>
+          <div class="accard-rating">
+            <div class="accard-stars">⭐ 4.4 / 4.2</div>
+            <div class="accard-count">Nike 1,209 · Adidas 2,296</div>
+          </div>
+        </div>
+        <div class="accard-pills">
+          <span class="acp acp-yes">✅ Nike Factory Store</span>
+          <span class="acp acp-yes">✅ Adidas Outlet</span>
+          <span class="acp acp-yes">✅ ממש ליד האוטובן</span>
+          <span class="acp acp-yes">✅ מחירים מעולים לילדים</span>
+          <span class="acp acp-no">❌ סגור ראשון</span>
+        </div>
+        <div class="accard-desc">שני חנויות outlet ענק בצד כביש A8 (מינכן–זלצבורג). Nike עם הנחות מטורפות על נעליים (נמצאו נעליים ב-€23!). Adidas עם 30%+ על ₪100+. <strong>Perfect stop בדרך Ötztal → Zillertal.</strong> שעות: ב-ו 10:00–19:00, ש 9:00–18:00.</div>
+        <div class="accard-links">
+          <a class="acl acl-primary" href="https://www.google.com/maps?q=Nike+Factory+Store+Piding&ll=47.7667,12.9167" target="_blank">Nike – Google Maps ↗</a>
+          <a class="acl acl-maps" href="https://www.google.com/maps?q=Adidas+Factory+Outlet+Piding&ll=47.7667,12.9167" target="_blank">Adidas – Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. MCARTHURGLEN SALZBURG -->
+    <div class="accard">
+      <div class="accard-body">
+        <div class="accard-top">
+          <div>
+            <div class="accard-name">🏬 McArthurGlen Designer Outlet Salzburg</div>
+            <div class="accard-location">📍 Wals-Himmelreich · <strong>בדרך Ötztal → Zillertal</strong> (+20 דק' עיקוף) <em>או Zillertal → מינכן</em></div>
+          </div>
+          <div class="accard-rating">
+            <div class="accard-stars">⭐ 4.3</div>
+            <div class="accard-count">16,804 ביקורות</div>
+          </div>
+        </div>
+        <div class="accard-pills">
+          <span class="acp acp-yes">✅ 100+ חנויות</span>
+          <span class="acp acp-yes">✅ מקורה – גם בגשם</span>
+          <span class="acp acp-yes">✅ 30–70% הנחה</span>
+          <span class="acp acp-yes">✅ Clarks, Crocs, Escada, Karl Lagerfeld</span>
+          <span class="acp acp-yes">✅ 5 דק' מנמל תעופה זלצבורג</span>
+          <span class="acp acp-no">❌ סגור ראשון</span>
+        </div>
+        <div class="accard-desc">אאוטלט מקורה גדול בפאתי זלצבורג. 100+ מותגים, מחירים טובים במיוחד על נעליים ובגדים רגילים (לא רק יוקרה). שילוב מושלם עם עצירת חצי יום בזלצבורג. שעות: ב-ש 9:00–19:00 (ו עד 19:00, ש עד 18:00).</div>
+        <div class="accard-links">
+          <a class="acl acl-primary" href="https://www.mcarthurglen.com/en/outlets/at/designer-outlet-salzburg/" target="_blank">אתר הבית ↗</a>
+          <a class="acl acl-maps" href="https://www.google.com/maps?q=McArthurGlen+Designer+Outlet+Salzburg&ll=47.7833,13.0833" target="_blank">Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. SWAROVSKI INNSBRUCK -->
+    <div class="accard">
+      <div class="accard-body">
+        <div class="accard-top">
+          <div>
+            <div class="accard-name">💎 Swarovski – אינסברוק</div>
+            <div class="accard-location">📍 מרכז אינסברוק · <strong>בדרך Ötztal ↔ Zillertal</strong> (30 דק' מ-Umhausen)</div>
+          </div>
+          <div class="accard-rating">
+            <div class="accard-stars">⭐ 4.3</div>
+            <div class="accard-count">5,501 ביקורות</div>
+          </div>
+        </div>
+        <div class="accard-pills">
+          <span class="acp acp-yes">✅ פתוח ראשון!</span>
+          <span class="acp acp-yes">✅ מחירים נמוכים ממדינות אחרות</span>
+          <span class="acp acp-yes">✅ מרכז אינסברוק</span>
+          <span class="acp acp-maybe">⚠️ לא outlet קלאסי – חנות ראשית</span>
+        </div>
+        <div class="accard-desc">חנות הדגל של Swarovski בלב העיר ההיסטורית של אינסברוק. לא אאוטלט מחירים אבל מחיר מקומי נמוך יותר ממה שמוכרים בישראל, ומגוון ענק. <strong>פתוח גם ראשון 8:30–18:00</strong> – בונוס נדיר! שילוב עם טיול קצר במרכז אינסברוק.</div>
+        <div class="accard-links">
+          <a class="acl acl-primary" href="https://www.swarovski.com/en-IL/c-store-finder/" target="_blank">מצא חנות ↗</a>
+          <a class="acl acl-maps" href="https://www.google.com/maps?q=Swarovski+Crystal+Worlds+Innsbruck&ll=47.3023,11.3957" target="_blank">Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. ROSENHEIM -->
+    <div class="accard">
+      <div class="accard-body">
+        <div class="accard-top">
+          <div>
+            <div class="accard-name">🏪 Aicherpark Outlet – Rosenheim</div>
+            <div class="accard-location">📍 Rosenheim, Bavaria · <strong>בדרך Zillertal → מינכן</strong> (ישיר על A93)</div>
+          </div>
+          <div class="accard-rating">
+            <div class="accard-stars">⭐ 4.4</div>
+            <div class="accard-count">343 ביקורות</div>
+          </div>
+        </div>
+        <div class="accard-pills">
+          <span class="acp acp-yes">✅ ישיר בדרך חזרה למינכן</span>
+          <span class="acp acp-yes">✅ מחירים טובים</span>
+          <span class="acp acp-maybe">⚠️ אאוטלט קטן יחסית</span>
+          <span class="acp acp-no">❌ סגור ראשון</span>
+        </div>
+        <div class="accard-desc">אאוטלט קטן אבל שימושי – ממש בדרך חזרה מ-Zillertal למינכן על כביש A93. "One stop shopping" עם מחירים טובים. שעות: ב-ש 9:00–18:00.</div>
+        <div class="accard-links">
+          <a class="acl acl-maps" href="https://www.google.com/maps?q=Aicherpark+Rosenheim&ll=47.8588,12.1019" target="_blank">Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAP -->
+    <div style="font-size:13px;font-weight:900;margin:16px 0 10px;color:var(--dark);">🗺️ מפת האאוטלטים לאורך המסלול</div>
+    <div style="background:white;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:12px;overflow-x:auto;">
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;"><table style="width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed;">
+        <tr style="background:var(--sand);">
+          <th style="padding:8px;text-align:right;font-weight:700;">אאוטלט</th>
+          <th style="padding:8px;text-align:center;font-weight:700;">מתי במסלול</th>
+          <th style="padding:8px;text-align:center;font-weight:700;">עיקוף</th>
+          <th style="padding:8px;text-align:center;font-weight:700;">ראשון</th>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px;font-weight:700;">Ingolstadt Village</td>
+          <td style="padding:8px;text-align:center;">28.7 בדרך / 4–6.8 מינכן</td>
+          <td style="padding:8px;text-align:center;">+45 דק'</td>
+          <td style="padding:8px;text-align:center;color:#dc2626;">❌ סגור</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px;font-weight:700;">Nike + Adidas Piding</td>
+          <td style="padding:8px;text-align:center;">Ötztal → Zillertal (31.7)</td>
+          <td style="padding:8px;text-align:center;color:#166534;font-weight:700;">5 דק' בלבד!</td>
+          <td style="padding:8px;text-align:center;color:#dc2626;">❌ סגור</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px;font-weight:700;">McArthurGlen Salzburg</td>
+          <td style="padding:8px;text-align:center;">Ötztal → Zillertal (31.7)</td>
+          <td style="padding:8px;text-align:center;">+20 דק'</td>
+          <td style="padding:8px;text-align:center;color:#dc2626;">❌ סגור</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px;font-weight:700;">Swarovski אינסברוק</td>
+          <td style="padding:8px;text-align:center;">כל שלב (30 דק' מÖtztal)</td>
+          <td style="padding:8px;text-align:center;">+30 דק'</td>
+          <td style="padding:8px;text-align:center;color:#166534;font-weight:700;">✅ פתוח!</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;font-weight:700;">Aicherpark Rosenheim</td>
+          <td style="padding:8px;text-align:center;">Zillertal → מינכן (4.8)</td>
+          <td style="padding:8px;text-align:center;color:#166534;font-weight:700;">ישיר במסלול</td>
+          <td style="padding:8px;text-align:center;color:#dc2626;">❌ סגור</td>
+        </tr>
+      </table>
+</div>
+    </div>
+
+    <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 16px;font-size:12px;color:#9a3412;">
+      <strong>⚠️ כולם סגורים ביום ראשון</strong> חוץ מ-Swarovski אינסברוק. ה-31.7.2026 הוא יום שישי – <strong>יום מושלם</strong> ל-Piding + McArthurGlen Salzburg בדרך מÖtztal לZillertal.
+    </div>
+
+  </div><!-- end tab-outlets -->
+
+  <!-- ===== TAB: מסעדות ===== -->
+  <!-- ===== TAB: פארקים ואטרקציות ===== -->
+  <div id="tab-attractions" class="tab-pane">
+
+    <div style="background:linear-gradient(135deg,#1a5276,#2980b9);border-radius:16px;padding:16px;color:white;margin-bottom:16px;text-align:right;">
+      <div style="font-size:17px;font-weight:900;margin-bottom:4px;">🎢 פארקים ואטרקציות לילדים</div>
+      <div style="font-size:12px;opacity:0.85;">4 ילדים · גילאים 7–11 · מחירים ושעות מאומתים 2025</div>
+    </div>
+
+    <!-- LOCATION NAV -->
+    <div style="display:flex;gap:8px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;">
+      <button onclick="document.getElementById('attr-munich').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#1a2332;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">🏙️ מינכן</button>
+      <button onclick="document.getElementById('attr-otztal').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#1a5276;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">🏔️ Ötztal</button>
+      <button onclick="document.getElementById('attr-zillertal').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#145a32;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">⛷️ Zillertal</button>
+      <button onclick="document.getElementById('attr-route').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#7b4d12;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">🚗 בדרך</button>
+    </div>
+
+    <!-- ===== MUNICH ===== -->
+    <div id="attr-munich" style="margin-bottom:28px;">
+      <div style="font-size:15px;font-weight:900;color:#1a2332;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid #1a2332;">🏙️ מינכן – 27.7 + 4–6.8</div>
+
+      <!-- English Garden -->
+      <div class="attr-card" style="border-right:4px solid #27ae60;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">English Garden + Eisbach Surfer</div>
+          <span class="attr-badge attr-tag-green">🌿 טבע / חינם</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-green">✅ חינם לחלוטין</span>
+          <span class="attr-badge attr-tag-blue">🕐 פתוח תמיד</span>
+          <span class="attr-badge attr-tag-orange">👶 מגיל 0</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">פארק גדול מלונדון בגודלו, עם מגלשות מים טבעיות, אגם שחייה (Kleinhesseloher See), ובנוסף – גולשי הגלים של Eisbach, גל מלאכותי קבוע בתוך תעלה עירונית שמאות גולשים באים לראות. הילדים לא יזוזו. מושלם לארוחת צהריים על הדשא.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 English Garden, 80538 München</div>
+        <a href="https://www.google.com/maps?q=English+Garden+Munich&ll=48.1642,11.6056" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Deutsches Museum -->
+      <div class="attr-card" style="border-right:4px solid #2980b9;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Deutsches Museum</div>
+          <span class="attr-badge attr-tag-blue">🔬 מוזיאון מדע</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">מבוגר €16 | ילד (6–17) €7</span>
+          <span class="attr-badge attr-tag-blue">🕐 09:00–17:00 יומי</span>
+          <span class="attr-badge attr-tag-orange">👶 מגיל 6+</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">מוזיאון המדע הגדול בעולם. מטוסים, רקטות, מכרות פחם, ספינות, חשמל ואלקטרוניקה – כולם אינטראקטיביים. ילדים בגיל 7–11 לא ישחררו אתכם מפה. מינימום 4 שעות. כדאי לבוא ב-27.7 אחרי נחיתה.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Museumsinsel 1, 80538 München</div>
+        <a href="https://www.google.com/maps?q=Deutsches+Museum+Munich&ll=48.1299,11.5833" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- BMW Welt -->
+      <div class="attr-card" style="border-right:4px solid #e74c3c;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">BMW Welt + Museum</div>
+          <span class="attr-badge attr-tag-red">🚗 רכב / מוזיאון</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-green">BMW Welt – חינם! Museum €10/€7</span>
+          <span class="attr-badge attr-tag-blue">🕐 07:30–00:00 יומי (Museum 10:00–18:00)</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">מרכז חוויה של BMW – ילדים משתגעים מהמכוניות. BMW Welt עצמו חינם לגמרי, רק המוזיאון בתשלום. בדרך חזרה לשדה בתאריך 4–6.8. מומלץ לשלב עם טיול לOlympiapark הסמוך.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Am Olympiapark 2, 80809 München</div>
+        <a href="https://www.google.com/maps?q=BMW+Welt+Munich&ll=48.1770,11.5560" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+    </div>
+
+    <!-- ===== ÖTZTAL ===== -->
+    <div id="attr-otztal" style="margin-bottom:28px;">
+      <div style="font-size:15px;font-weight:900;color:#1a5276;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid #1a5276;">🏔️ Ötztal (28–31.7)</div>
+
+      <!-- AREA 47 -->
+      <div class="attr-card" style="border-right:4px solid #e74c3c;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">AREA 47 – Water Park</div>
+          <span class="attr-badge attr-tag-red">💦 פארק מים / הרפתקאות</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">מבוגר €30 | ילד (6–15) €20</span>
+          <span class="attr-badge attr-tag-blue">🕐 10:00–19:00 יומי (29.5–7.9)</span>
+          <span class="attr-badge attr-tag-orange">⚠️ גובה מינימום לחלק מהמגלשות</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">פארק ההרפתקאות הגדול באוסטריה. מגלשות ענק, Blob (קפיצה לאגם), Slip'n'Slide, Wakeboard, Zip-line. 20,000 מ"ר של מים. כרטיס אחד כולל את כל Water Area. הילדים בגיל 7–11 – מושלם. ⚠️ נתיבי Ropes Course מגיל 12.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:4px;">📍 Ötztaler Achstraße 1, 6430 Ötztal Bahnhof</div>
+        <div style="font-size:11px;color:#27ae60;font-weight:700;margin-bottom:8px;">💰 4 ילדים + 4 מבוגרים = €200 | הזמינו מראש באתר</div>
+        <a href="https://www.google.com/maps?q=Area+47+Otztal&ll=47.2345,10.8456" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Stuibenfall -->
+      <div class="attr-card" style="border-right:4px solid #27ae60;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Stuibenfall – מפל Ötztal</div>
+          <span class="attr-badge attr-tag-green">🌊 טבע / מפל</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-green">✅ חינם לחלוטין</span>
+          <span class="attr-badge attr-tag-blue">🕐 פתוח כל השנה</span>
+          <span class="attr-badge attr-tag-orange">👶 מגיל 7+ (Via Ferrata מגיל 10 בלבד)</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">המפל הגבוה ביותר בטירול – 159 מטר. שביל עם גשרי חבלים ומסלול Via Ferrata בצמוד למפל. הילדים ירטבו מהאדים ויהנו ממש. הליכה כ-40 דק' מהחניה. קל לנוח על הסלעים ולאכול אמצע הדרך.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Umhausen, 6441 Ötztal</div>
+        <a href="https://www.google.com/maps?q=Stuibenfall+Waterfall+Umhausen&ll=47.1283,10.9244" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Ötzi Dorf -->
+      <div class="attr-card" style="border-right:4px solid #8e44ad;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Ötzi-Dorf – כפר אדם הקרח</div>
+          <span class="attr-badge attr-tag-purple">🏹 היסטוריה / ילדים</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">מבוגר ~€12 | ילד ~€7</span>
+          <span class="attr-badge attr-tag-blue">🕐 יולי–אוגוסט: 10:00–17:00</span>
+          <span class="attr-badge attr-tag-orange">👶 מגיל 6+ – אידיאלי</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">כפר מחיה מתקופת האבן (5,000 שנה). מדליקים אש, קלעים, גרזני סיליקס – הילדים חיים את זה. בגיל 7–11 זו חוויה שהם לא ישכחו. מבוסס על ממצאי "איצי", האדם הקפוא שנמצא ב-1991.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Umhausen, Ötztal</div>
+        <a href="https://www.google.com/maps?q=Otzi+Dorf+Umhausen&ll=47.1310,10.9287" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Piburger See -->
+      <div class="attr-card" style="border-right:4px solid #27ae60;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Piburger See – אגם שחייה</div>
+          <span class="attr-badge attr-tag-green">🏊 שחייה / טבע</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-green">✅ כניסה חינם (חניה בלבד)</span>
+          <span class="attr-badge attr-tag-blue">🕐 פתוח כל היום (⚠️ הגיעו לפני 09:00 בקיץ)</span>
+          <span class="attr-badge attr-tag-orange">👶 מכל גיל</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">אגם טבעי חמים להפליא (22–25°C בקיץ). מים צלולים, מזח קטן, שטח דשא לפיקניק. מאוד עמוס בשיא – הגיעו לפני 9:00 לחניה ומקום. אחד המקומות היפים ביותר לשחייה בטירול כולו.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Piburg, 6433 Oetz</div>
+        <a href="https://www.google.com/maps?q=Piburger+See+Oetz&ll=47.1500,10.9000" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Aqua Dome -->
+      <div class="attr-card" style="border-right:4px solid #2980b9;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Aqua Dome – ספא תרמי</div>
+          <span class="attr-badge attr-tag-blue">♨️ תרמי / ספא</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">מבוגר ~€32–38 | ילד ~€20–26 (תלוי שעות)</span>
+          <span class="attr-badge attr-tag-blue">🕐 09:00–23:00 יומי</span>
+          <span class="attr-badge attr-tag-orange">⚠️ חלק מאזורי הספא מגיל 16+</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">ספא תרמי מרהיב עם בריכות חיצוניות על רקע הרים. ילדים עד 14 יכולים לנגוע ברוב הבריכות. מושלם לערב אחרי יום טיול. ⚠️ הזמינו מראש באתר aqua-dome.at – מתמלא מהר.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Oberlängenfeld 140, 6444 Längenfeld</div>
+        <a href="https://www.google.com/maps?q=Aqua+Dome+Langenfeld&ll=47.0696,10.9653" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+    </div>
+
+    <!-- ===== ZILLERTAL ===== -->
+    <div id="attr-zillertal" style="margin-bottom:28px;">
+      <div style="font-size:15px;font-weight:900;color:#145a32;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid #145a32;">⛷️ Zillertal – Mayrhofen (31.7–4.8)</div>
+
+      <!-- Ahornbahn + Flohpark -->
+      <div class="attr-card" style="border-right:4px solid #e67e22;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Ahornbahn + Flohpark 🏔️</div>
+          <span class="attr-badge attr-tag-orange">🚡 רכבל + פארק ילדים</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">הלוך-חזור: מבוגר €39 | ילד €22.50</span>
+          <span class="attr-badge attr-tag-blue">🕐 07:30–17:00 יומי (מ-13.6)</span>
+          <span class="attr-badge attr-tag-orange">👶 מכל גיל</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">הרכבל הגדול ביותר באוסטריה (160 נוסעים בגונדולה). עולים לרמת 2,000 מ' – משם פארק Flohpark עם גנים לילדים, גשרי חבלים, מגלשות ונוף אחד הכי יפה בזילרטל. גם בלי טיול נמרץ – שווה הרבה לנוף ולאוויר.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Ahornstraße 853, 6290 Mayrhofen</div>
+        <a href="https://www.google.com/maps?q=Ahornbahn+Mayrhofen&ll=47.1575,11.8617" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Schlegeis -->
+      <div class="attr-card" style="border-right:4px solid #1a5276;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Schlegeis Alpenstraße + אגם</div>
+          <span class="attr-badge attr-tag-blue">🏔️ כביש אלפיני / מדהים</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">⚠️ €18 לרכב – מזומן בלבד!</span>
+          <span class="attr-badge attr-tag-blue">🕐 פתוח מ-06:00 יולי-אוגוסט</span>
+          <span class="attr-badge attr-tag-orange">👶 הנוף מדבר בעד עצמו</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">כביש אלפיני אגדי עולה לסכר Schlegeis על 1,782 מ' – אגם טורקיז בלתי-נתפס עם גלידאים ופסגות. אפשר לחנות ולהליך סביב האגם (שעה). הילדים ישאירו מלב לדאוג ויפתחו עיניים גדולות. כדאי להגיע בבוקר מוקדם לפני העננים.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:4px;">📍 Schlegeis Stausee, Zillertal</div>
+        <div style="font-size:11px;color:#e74c3c;font-weight:700;margin-bottom:8px;">⚠️ מזומן בלבד! קנו מראש כרטיס אונליין</div>
+        <a href="https://www.google.com/maps?q=Schlegeis+Reservoir+Zillertal&ll=47.0333,11.7167" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Krimml Waterfalls -->
+      <div class="attr-card" style="border-right:4px solid #27ae60;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">מפלי Krimml – המפלים הגבוהים באירופה</div>
+          <span class="attr-badge attr-tag-green">🌊 טבע / מפל</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">מבוגר €9 | ילד (6–15) €6.90</span>
+          <span class="attr-badge attr-tag-blue">🕐 פתוח יומי מאמצע אפריל עד אוקטובר</span>
+          <span class="attr-badge attr-tag-orange">👶 מגיל 8+ לטיפוס מלא (1.5 שעה)</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">380 מטר גובה – הגבוהים באירופה, חמישיים בעולם. שלושה מפלים, 11 נקודות תצפית. שביל מסומן 4 ק"מ. הילדים ירטבו מהאדים ויחוו כוח הטבע ממש מקרוב. הביאו ג'קט גשם קל. 1.5–2.5 שעות הליכה לעלייה.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:4px;">📍 5743 Krimml, Austria</div>
+        <div style="font-size:11px;color:#27ae60;font-weight:700;margin-bottom:8px;">💰 4 ילדים + 4 מבוגרים = ~€60 | כלול חניה בכרטיס</div>
+        <a href="https://www.google.com/maps?q=Krimml+Waterfalls&ll=47.2167,12.1667" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Hintertux Glacier + Ice Cave -->
+      <div class="attr-card" style="border-right:4px solid #2980b9;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Hintertux Glacier + מערת קרח</div>
+          <span class="attr-badge attr-tag-blue">🧊 גלידאר / מערה</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">רכבל הלוך-חזור: מבוגר ~€50 | ילד ~€32</span>
+          <span class="attr-badge attr-tag-blue">🕐 08:15–16:30 יומי כל השנה</span>
+          <span class="attr-badge attr-tag-orange">⚠️ אין סקי ביולי-אוגוסט – אבל מערת הקרח פתוחה!</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">הגלידאר היחיד בעולם הפתוח כל השנה. עולים לגובה 3,250 מ' – שלג ביולי! מערת הקרח (NaturEisPalast) – חוויה מרהיבה לילדים. נוף של 80 פסגות אלפיניות. ⚠️ לבשו שכבות חמות אפילו בקיץ.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Hintertux 800, 6295 Tux</div>
+        <a href="https://www.google.com/maps?q=Hintertux+Glacier+Cable+Car&ll=47.1000,11.6667" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Achensee -->
+      <div class="attr-card" style="border-right:4px solid #27ae60;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Achensee – האגם הגדול של טירול</div>
+          <span class="attr-badge attr-tag-green">🏊 שחייה / אגם</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-green">שחייה חינם בחלקי האגם הפתוחים</span>
+          <span class="attr-badge attr-tag-blue">🕐 כל שעות היום</span>
+          <span class="attr-badge attr-tag-orange">📅 עצירת דרך ב-4.8 בחזרה למינכן</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">האגם הגדול והיפה ביותר בטירול. מים תכולים מרהיבים, חוף שחייה, שיטת סירות קאיאקים להשכרה. עצירה מושלמת ב-4.8 בדרך חזרה למינכן. להביא בגדי ים נגישים בתיק.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Pertisau am Achensee, 6213 Tirol</div>
+        <a href="https://www.google.com/maps?q=Achensee+Pertisau&ll=47.4667,11.7167" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+    </div>
+
+    <!-- ===== ROUTE ===== -->
+    <div id="attr-route" style="margin-bottom:28px;">
+      <div style="font-size:15px;font-weight:900;color:#7b4d12;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid #7b4d12;">🚗 בדרך – עצירות שווה לתכנן</div>
+
+      <!-- Neuschwanstein -->
+      <div class="attr-card" style="border-right:4px solid #c0392b;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">🏰 Neuschwanstein Castle</div>
+          <span class="attr-badge attr-tag-red">🏰 טירה / חובה</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">מבוגר €20+€2.50 | ילד מתחת 18 חינם+€2.50</span>
+          <span class="attr-badge attr-tag-blue">🕐 09:00–18:00 יומי (28.3–15.10)</span>
+          <span class="attr-badge attr-tag-orange">📅 28.7 – בדרך מהשדה לÖtztal</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">הטירה שעליה בנויה הטירה של דיסני. 10,000 מבקרים ביום בקיץ – מוכרחים להזמין מראש ב-hohenschwangau.de. ילדים בחינם! ⚠️ ההדרכה מיוחדת באנגלית ובגרמנית בלבד – אבל יש אוד-יו בעברית! טיפוס 30–40 דק' ברגל מהחניה.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:4px;">📍 Neuschwansteinstraße 20, 87645 Schwangau</div>
+        <div style="font-size:11px;color:#e74c3c;font-weight:700;margin-bottom:8px;">⚠️ חובה להזמין מראש! נמכר לפעמים חודשים מראש בקיץ</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Neuschwanstein+Castle&ll=47.5576,10.7498" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+          <a href="https://www.hohenschwangau.de/en/tours-tickets/official-tickets-neuschwanstein-hohenschwangau" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#c0392b;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🎟️ קנו כרטיסים</a>
+        </div>
+      </div>
+
+      <!-- Timmelsjoch -->
+      <div class="attr-card" style="border-right:4px solid #7b4d12;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Timmelsjoch – כביש גבול אוסטריה-איטליה</div>
+          <span class="attr-badge attr-tag-orange">🏔️ כביש אלפיני</span>
+        </div>
+        <div class="attr-price-row">
+          <span class="attr-badge attr-tag-red">€14.50 לרכב (כביש אגרה)</span>
+          <span class="attr-badge attr-tag-blue">🕐 פתוח יוני–אוקטובר</span>
+          <span class="attr-badge attr-tag-orange">📅 יום טיול מÖtztal (29–30.7)</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:8px;">כביש עולה ל-2,509 מ' – גבול אוסטריה-איטליה. נוף אלפיני מרהיב ולגמרי לא מציאותי. אפשר לרדת לצד האיטלקי ולאכול פיצה ואז לחזור. חוויה שהילדים יזכרו: "עמדנו בגבול ב-2,509 מטרים".</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Timmelsjoch pass, 6450 Sölden area</div>
+        <a href="https://www.google.com/maps?q=Timmelsjoch+Pass&ll=46.8983,11.0317" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+    </div>
+
+    <!-- PRICE SUMMARY -->
+    <div style="background:#f8f9fa;border-radius:14px;padding:14px;margin-bottom:16px;text-align:right;">
+      <div style="font-size:13px;font-weight:900;color:#1a2332;margin-bottom:10px;">💰 אומדן עלויות אטרקציות – 2 משפחות (4 מבוגרים + 4 ילדים)</div>
+      <div style="font-size:12px;color:#444;line-height:1.8;">
+        🎢 AREA 47: <strong>€200</strong> (4×€30 + 4×€20)<br>
+        🚡 Ahornbahn: <strong>€245</strong> (4×€39 + 4×€22.50)<br>
+        🌊 Krimml: <strong>~€64</strong> (4×€9 + 4×€7)<br>
+        🏰 Neuschwanstein: <strong>€90</strong> (4×€22.50 מבוגרים | ילדים חינם+€10)<br>
+        🧊 Hintertux: <strong>~€330</strong> (4×€50 + 4×€32)<br>
+        ♨️ Aqua Dome: <strong>~€220</strong> (4×€35 + 4×€20)<br>
+        🌊 Stuibenfall + Piburger See + Achensee: <strong>חינם</strong><br>
+        <hr style="border:none;border-top:1px solid #dee2e6;margin:8px 0;">
+        <strong>סה"כ אטרקציות בתשלום ~€1,150</strong> – לשתי המשפחות ביחד, לכל הטיול
+      </div>
+    </div>
+
+  </div><!-- end tab-attractions -->
+
+  <div id="tab-food" class="tab-pane">
+
+    <!-- INTRO -->
+    <div style="background:linear-gradient(135deg,#7b4d12,#c0834e);border-radius:16px;padding:16px;color:white;margin-bottom:16px;text-align:right;">
+      <div style="font-size:17px;font-weight:900;margin-bottom:4px;">🍽️ מסעדות ובתי קפה מומלצים</div>
+      <div style="font-size:12px;opacity:0.85;">רק דירוג 4.0+ | קואורדינטות עובדות על כל מכשיר</div>
+    </div>
+
+    <!-- LOCATION NAV -->
+    <div id="food-nav" style="display:flex;gap:8px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;">
+      <button onclick="scrollToFood('food-munich')" style="flex-shrink:0;background:#1a2332;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">🏙️ מינכן</button>
+      <button onclick="scrollToFood('food-otztal')" style="flex-shrink:0;background:#1a5276;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">🏔️ Ötztal</button>
+      <button onclick="scrollToFood('food-zillertal')" style="flex-shrink:0;background:#145a32;color:white;border:none;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;">⛷️ Zillertal</button>
+    </div>
+
+    <!-- ===== MUNICH ===== -->
+    <div id="food-munich" style="margin-bottom:28px;">
+      <div style="font-size:15px;font-weight:900;color:#1a2332;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid #1a2332;">🏙️ מינכן – 27.7 + 4–6.8</div>
+
+      <!-- Hofbräuhaus -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Hofbräuhaus München</div>
+          <span style="background:#fef9e7;color:#b7950b;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🍺 בית בירה בווארי</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.3</span>
+          <span style="font-size:11px;color:#6c757d;">(56,000+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">אייקון מינכן מאז 1589. Weißwurst, Schnitzel, Schweinshaxe. מוזיקה בווארית חיה. טוריסטי אבל חובה לפחות פעם אחת. קיים מאז 1589.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Platzl 9, 80331 München</div>
+        <a href="https://www.google.com/maps?q=Hofbrauhaus+Munich&ll=48.1378,11.5799" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Augustiner Keller -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Augustiner Keller</div>
+          <span style="background:#fef9e7;color:#b7950b;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🍺 גן בירה / מסעדה</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.4</span>
+          <span style="font-size:11px;color:#6c757d;">(8,500+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">גן הבירה הכי אותנטי במינכן מ-1812. בירה Augustiner מחבית עץ – נדיר ומיוחד. Schweinshaxe, ברווז, Schnitzel. 5,000 מקומות ישיבה בצל עצי ערמון. מומלץ להזמין מקום מראש.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Arnulfstr. 52, 80335 München</div>
+        <a href="https://www.google.com/maps?q=Augustiner+Keller+Munich&ll=48.1453,11.5540" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Weißes Bräuhaus -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Weißes Bräuhaus</div>
+          <span style="background:#eaf4fb;color:#1a5276;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🥨 בווארי קלאסי</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.3</span>
+          <span style="font-size:11px;color:#6c757d;">(5,000+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">מקום ה-Weißwurst הכי מפורסם במינכן מאז 1872. ארוחת בוקר עם Weißwurst, פרצל ובירה חיטה – כמו מקומיים. פתוח מ-08:00 עד חצות.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Tal 7, 80331 München</div>
+        <a href="https://www.google.com/maps?q=Weisses+Brauhaus+Munich&ll=48.1359,11.5794" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Café Rischart -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Café Rischart</div>
+          <span style="background:#fdf2f8;color:#76448a;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">☕ קפה ומאפים</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.4</span>
+          <span style="font-size:11px;color:#6c757d;">(2,000+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4daa;font-weight:700;">€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">מאפייה-קפה בלב Marienplatz. Pretzels, עוגות, בייגלה מתוק, קפה. מושלם לארוחת בוקר קלה לפני טיול העיר. ישיבה בחוץ עם נוף על Rathaus.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Marienplatz 18, 80331 München</div>
+        <a href="https://www.google.com/maps?q=Cafe+Rischart+Marienplatz+Munich&ll=48.1370,11.5763" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+    </div>
+
+    <!-- ===== ÖTZTAL ===== -->
+    <div id="food-otztal" style="margin-bottom:28px;">
+      <div style="font-size:15px;font-weight:900;color:#1a5276;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid #1a5276;">🏔️ Ötztal – Umhausen / Längenfeld (28–31.7)</div>
+
+      <!-- Gasthof Krone Umhausen -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Gasthof Krone Umhausen</div>
+          <span style="background:#eaf4fb;color:#1a5276;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🥩 אוסטרי קלאסי</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.6</span>
+          <span style="font-size:11px;color:#6c757d;">(200+ ביקורות)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+          <span style="background:#d5f5e3;color:#1e8449;font-size:10px;font-weight:700;padding:2px 6px;border-radius:8px;">#1 ב-Umhausen</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">אכסנייה אוסטרית מ-1790 – מהישנות באזור. מטבח טירולי מסורתי עם מגע עכשווי. Schnitzel, כבד עגל, Apfelstrudel, יין מדרום טירול. תפריט יומי משתנה. מומלץ להזמין.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:4px;">📍 Dorf 30, 6441 Umhausen</div>
+        <div style="font-size:11px;color:#e74c3c;margin-bottom:8px;">⏰ סגור ראשון-שלישי | פתוח רביעי-שבת 12:00–14:00, 17:30–21:00</div>
+        <a href="https://www.google.com/maps?q=Gasthof+Krone+Umhausen&ll=47.1293,10.9285" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Restaurant Pizzeria Infang -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Restaurant Pizzeria Infang</div>
+          <span style="background:#fdedec;color:#c0392b;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🍕 פיצה / אוסטרי</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.7</span>
+          <span style="font-size:11px;color:#6c757d;">(690+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+          <span style="background:#d5f5e3;color:#1e8449;font-size:10px;font-weight:700;padding:2px 6px;border-radius:8px;">#1 ב-Längenfeld</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">הספוט הכי מדורג באזור Ötztal. פיצה דקה מהמם, שישי Schnitzel, סטייק, מנות אוסטריות. טרסה עם נוף להרים. מבקרים חוזרים טיול אחרי טיול. הזמינו שולחן!</div>
+        <div style="font-size:11px;color:#888;margin-bottom:4px;">📍 Unterlängenfeld 220a, 6444 Längenfeld</div>
+        <div style="font-size:11px;color:#e74c3c;margin-bottom:8px;">⏰ ⚠️ סגור ראשון-שלישי | רביעי–ראשון 17:00–22:00</div>
+        <a href="https://www.google.com/maps?q=Pizzeria+Infang+Langenfeld+Otztal&ll=47.0722,10.9661" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Gasthaus Mesnerstuben -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Gasthaus Mesnerstuben</div>
+          <span style="background:#eaf4fb;color:#1a5276;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🥩 אוסטרי אלגנטי</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.5</span>
+          <span style="font-size:11px;color:#6c757d;">(150+ ביקורות)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">בית חווה טירולי מקסים עם אלגנטיות עדינה. צלופח מעושן ביתי – ספשיאלטי, מנות עשירות ומוגשות יפה. יין אוסטרי מבחר. שירות באנגלית.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Längenfeld, Tirol</div>
+        <a href="https://www.google.com/maps?q=Gasthaus+Mesnerstuben+Langenfeld&ll=47.0694,10.9619" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+    </div>
+
+    <!-- ===== ZILLERTAL ===== -->
+    <div id="food-zillertal" style="margin-bottom:28px;">
+      <div style="font-size:15px;font-weight:900;color:#145a32;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid #145a32;">⛷️ Zillertal – Mayrhofen (31.7–4.8)</div>
+
+      <!-- Goldkind -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Goldkind</div>
+          <span style="background:#eafaf1;color:#1e8449;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🥗 אינטרנציונלי / טבעוני</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.7</span>
+          <span style="font-size:11px;color:#6c757d;">(3,100+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+          <span style="background:#d5f5e3;color:#1e8449;font-size:10px;font-weight:700;padding:2px 6px;border-radius:8px;">#1 ב-Mayrhofen</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">המסעדה הכי מדורגת ב-Mayrhofen ברחק גדול. שף טבעוני – מנות בשר ויגן כאחד מדהימות. Ribs, המבורגרים, קארי אדום, טרופי gnocchi. ישיבה בחוץ. יש להזמין שבוע מראש בשיא.</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Hauptstraße 449, 6290 Mayrhofen</div>
+        <a href="https://www.google.com/maps?q=Goldkind+Mayrhofen&ll=47.1670,11.8631" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Ernesto's Lounge -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Ernesto's – Die Tiroler Stuben</div>
+          <span style="background:#eaf4fb;color:#1a5276;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🏠 Stube טירולית</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.5</span>
+          <span style="font-size:11px;color:#6c757d;">(300+ ביקורות)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">פנינה קולינרית במרכז Mayrhofen. פונדו גבינה זילרטלי, Zillertaler Krapfen, Graukäse – טעמים מקומיים אמיתיים. בשר בקר מבושל עם פירה – מטורף. אווירה חמימה עם תנור עצים. "האוכל הכי טוב שאכלנו ב-Mayrhofen".</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Landhaus Carla, Mayrhofen</div>
+        <a href="https://www.google.com/maps?q=Ernesto+Tiroler+Stuben+Mayrhofen&ll=47.1668,11.8630" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Pane e Vino da Michelle -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Pane e Vino da Michelle</div>
+          <span style="background:#fdedec;color:#c0392b;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🇮🇹 איטלקי אותנטי</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.6</span>
+          <span style="font-size:11px;color:#6c757d;">(400+ ביקורות)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">מישל הבעלים מביאה מוצרים טריים ממיטב הספקים. פסטה שמבושלת בדיוק, ברוסקטה מדהימה, טעמי ים תיכון מעולים. "אם רוצים לאכול איטלקי אמיתי – לא צריך לטוס לאיטליה".</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Mayrhofen, Zillertal</div>
+        <a href="https://www.google.com/maps?q=Pane+e+Vino+da+Michelle+Mayrhofen&ll=47.1667,11.8628" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+
+      <!-- Pizzeria Mamma Mia -->
+      <div class="food-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div style="font-size:14px;font-weight:800;color:#1a2332;">Pizzeria Mamma Mia</div>
+          <span style="background:#fdedec;color:#c0392b;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">🍕 פיצה / פסטה</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="color:#f39c12;font-size:13px;">★ 4.3</span>
+          <span style="font-size:11px;color:#6c757d;">(500+ ביקורות Google)</span>
+          <span style="font-size:11px;color:#7b4d12;font-weight:700;">€</span>
+        </div>
+        <div style="font-size:12px;color:#444;margin-bottom:10px;">האופציה הזולה ביותר ב-Mayrhofen עם פיצה טרייה מעולה. גם להוציא – מושלם אחרי טיול ארוך. שירות מהיר ונעים. "הכי זול וכנראה הכי כדאי לרוב הארוחות".</div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">📍 Mayrhofen (מרכז)</div>
+        <a href="https://www.google.com/maps?q=Pizzeria+Mamma+Mia+Mayrhofen&ll=47.1669,11.8633" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>
+      </div>
+    </div>
+
+    <!-- USER CARDS SECTION -->
+    <div id="user-food-section" style="display:none;margin-bottom:16px;">
+      <div style="font-size:15px;font-weight:900;color:#6c3483;margin-bottom:12px;padding-bottom:8px;border-bottom:3px solid #6c3483;">📌 המקומות שלי</div>
+      <div id="user-food-cards"></div>
+    </div>
+
+    <!-- ADD PLACE NOTE -->
+    <div style="font-size:11px;color:#888;text-align:center;margin-bottom:8px;">לחץ על + להוספת מקום מגוגל מפס</div>
+
+  </div><!-- end tab-food -->
+
+  <!-- ADD PLACE FAB -->
+  <button id="add-place-fab" onclick="openAddModal()" style="display:none;position:fixed;bottom:80px;left:16px;width:52px;height:52px;border-radius:50%;background:#6c3483;color:white;font-size:24px;font-weight:300;border:none;box-shadow:0 4px 16px rgba(108,52,131,0.5);cursor:pointer;z-index:200;line-height:1;">+</button>
+
+  <!-- ADD PLACE MODAL -->
+  <div id="add-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:300;align-items:center;justify-content:center;padding:16px;">
+    <div style="background:white;border-radius:20px;padding:20px;width:100%;max-width:460px;max-height:90vh;overflow-y:auto;" dir="rtl">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div style="font-size:16px;font-weight:900;color:#1a2332;">📍 הוספת מקום</div>
+        <button onclick="closeAddModal()" style="background:none;border:none;font-size:22px;cursor:pointer;color:#888;">✕</button>
+      </div>
+      <div style="font-size:12px;color:#666;margin-bottom:12px;">הדבק לינק של גוגל מפס (כל פורמט) ואני אפרסר את כל הפרטים אוטומטית</div>
+      <textarea id="gmaps-url" placeholder="https://www.google.com/maps/place/..." style="width:100%;box-sizing:border-box;border:2px solid #e0e0e0;border-radius:10px;padding:10px;font-size:13px;font-family:inherit;resize:vertical;min-height:70px;margin-bottom:12px;direction:ltr;"></textarea>
+      <div style="font-size:12px;color:#666;margin-bottom:8px;">אזור (לסידור בקטגוריה הנכונה):</div>
+      <select id="place-region" style="width:100%;box-sizing:border-box;border:2px solid #e0e0e0;border-radius:10px;padding:8px;font-size:13px;font-family:inherit;margin-bottom:16px;">
+        <option value="munich">🏙️ מינכן</option>
+        <option value="otztal">🏔️ Ötztal</option>
+        <option value="zillertal">⛷️ Zillertal</option>
+        <option value="user">📌 המקומות שלי</option>
+      </select>
+      <button onclick="parseAndAddPlace()" style="width:100%;background:#6c3483;color:white;border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">✨ צור כרטיסייה</button>
+      <div id="modal-status" style="margin-top:12px;font-size:12px;text-align:center;"></div>
+    </div>
+  </div>
+
+</div><!-- end wrap -->
+
+
 </div>
 
 <script>
@@ -796,15 +2091,19 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
     var placeName = '';
     var coordMatch = url.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
     if (coordMatch) coords = coordMatch[1] + ',' + coordMatch[2];
-    var nameMatch = url.match(/\/maps\/place\/([^\/@?]+)/);
+    var nameMatch = url.match(/\/maps\/place\/([^/@?]+)/);
     if (nameMatch) placeName = decodeURIComponent(nameMatch[1].replace(/\+/g,' ').replace(/-/g,' '));
 
     try {
       var prompt = "A user pasted this Google Maps URL: " + url + "\n\n" +
         (placeName ? "Detected place name from URL: " + placeName + "\n" : "") +
         (coords ? "Detected coordinates: " + coords + "\n" : "") +
-        "\nExtract or infer from this URL and your knowledge: the restaurant/cafe full name, Google rating (as number), approximate number of reviews, price range (€, €€, or €€€), type/cuisine label (short, in Hebrew or mixed), a 2-sentence Hebrew description mentioning what they serve and what makes them special, the address, and whether it opened in 2025 (isNew: true/false).\n\nRespond ONLY with valid JSON, no markdown:\n{\\"name\\":\\"...\\",\\"rating\\":4.5,\\"reviews\\":\\"500+\\",\\"price\\":\\"€€\\",\\"type\\":\\"🍕 פיצה\\",\\"description\\":\\"...\\",\\"address\\":\\"...\\",\\"coords\\":\\"lat,lng\\",\\"isNew\\":false}";
+        "\nExtract or infer from this URL and your knowledge: the restaurant/cafe full name, Google rating (as number), approximate number of reviews, price range (€, €€, or €€€), type/cuisine label (short, in Hebrew or mixed), a 2-sentence Hebrew description mentioning what they serve and what makes them special, the address, and whether it opened in 2025 (isNew: true/false).\n\nRespond ONLY with valid JSON, no markdown:\n{\"name\":\"...\",\"rating\":4.5,\"reviews\":\"500+\",\"price\":\"€€\",\"type\":\"🍕 פיצה\",\"description\":\"...\",\"address\":\"...\",\"coords\":\"lat,lng\",\"isNew\":false}";
 
+      // NOTE: Direct Anthropic API calls from a browser are blocked by CORS.
+      // This feature requires a backend proxy with an API key.
+      status.innerHTML = '<span style="color:#e74c3c">⚠️ פיצ\'ר זה דורש מפתח API – לא זמין בגרסה הציבורית</span>';
+      return;
       var resp = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -827,7 +2126,7 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
       var latLng = newCoords.split(',');
       var mapsUrl = "https://www.google.com/maps?q=" + encodeURIComponent(info.name) + "&ll=" + newCoords;
 
-      var newBadge = info.isNew ? '<span style="background:#fef3cd;color:#856404;font-size:10px;font-weight:700;padding:2px 6px;border-radius:8px;margin-right:4px;'>🆕 חדש 2025</span>' : '';
+      var newBadge = info.isNew ? '<span style="background:#fef3cd;color:#856404;font-size:10px;font-weight:700;padding:2px 6px;border-radius:8px;margin-right:4px;">🆕 חדש 2025</span>' : '';
       var card = '<div class="food-card">' +
         '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">' +
         '<div style="font-size:14px;font-weight:800;color:#1a2332;">' + info.name + '</div>' +
