@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>אוסטריה – קיץ 2026 🇦🇹</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.min.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <style>
 :root {
   --dark: #1a2332;
@@ -689,31 +690,11 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 
     </div>
 
-    <!-- ROUTE VISUAL (replaces deprecated embed) -->
-    <div style="border-radius:14px;background:linear-gradient(135deg,#0d1b2a,#1a3a5c);padding:20px;margin-bottom:18px;box-shadow:0 2px 12px rgba(0,0,0,0.15);">
-      <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.6);margin-bottom:14px;text-align:center;">🗺️ מסלול הטיול – לחץ לפתיחה ב-Google Maps</div>
-      <div style="display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(255,255,255,0.08);border-radius:10px 10px 0 0;border-bottom:1px solid rgba(255,255,255,0.07);">
-          <span style="font-size:18px;">✈️</span><div><div style="font-size:13px;font-weight:700;color:white;">שדה תעופה מינכן (MUC)</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">27.7 · נחיתה</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.07);">
-          <span style="font-size:18px;">🏰</span><div><div style="font-size:13px;font-weight:700;color:white;">Neuschwanstein</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">28.7 בוקר · ~1:20 שעות נסיעה</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(26,82,118,0.4);border-bottom:1px solid rgba(255,255,255,0.07);">
-          <span style="font-size:18px;">🏔️</span><div><div style="font-size:13px;font-weight:700;color:white;">Ötztal – Längenfeld</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">28.7–31.7 · 3 לילות · ~1:15 שעות</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(26,96,53,0.4);border-bottom:1px solid rgba(255,255,255,0.07);">
-          <span style="font-size:18px;">🌿</span><div><div style="font-size:13px;font-weight:700;color:white;">Zillertal – Mayrhofen</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">31.7–4.8 · 4 לילות · ~1:15 שעות</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(26,122,110,0.4);border-bottom:1px solid rgba(255,255,255,0.07);">
-          <span style="font-size:18px;">🏊</span><div><div style="font-size:13px;font-weight:700;color:white;">Achensee – Pertisau</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">4.8 · עצירה בדרך חזרה · ~45 דק'</div></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(255,255,255,0.08);border-radius:0 0 10px 10px;">
-          <span style="font-size:18px;">✈️</span><div><div style="font-size:13px;font-weight:700;color:white;">שדה תעופה מינכן (MUC)</div><div style="font-size:11px;color:rgba(255,255,255,0.5);">4.8–6.8 · 2 לילות · טיסה 6.8 ~11:00</div></div>
-        </div>
-      </div>
-      <a href="https://www.google.com/maps/dir/Munich+Airport+MUC+Germany/Neuschwanstein+Castle+Schwangau+Germany/Umhausen+Otztal+Austria/Mayrhofen+Zillertal+Austria/Achensee+Pertisau+Austria/Munich+Airport+MUC+Germany" target="_blank" style="text-decoration:none;display:block;margin-top:14px;text-align:center;background:#4285F4;color:white;font-size:13px;font-weight:700;padding:11px;border-radius:10px;">🗺️ פתח מסלול מלא ב-Google Maps ↗</a>
+    <!-- INTERACTIVE MAP (Leaflet + OpenStreetMap – no API key needed) -->
+    <div style="border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.12);margin-bottom:18px;">
+      <div id="trip-map" style="height:360px;width:100%;"></div>
     </div>
+    <a href="https://www.google.com/maps/dir/Munich+Airport+MUC+Germany/Neuschwanstein+Castle+Schwangau+Germany/Umhausen+Otztal+Austria/Mayrhofen+Zillertal+Austria/Achensee+Pertisau+Austria/Munich+Airport+MUC+Germany" target="_blank" style="text-decoration:none;display:block;margin-bottom:18px;text-align:center;background:#4285F4;color:white;font-size:13px;font-weight:700;padding:11px;border-radius:10px;">🗺️ פתח מסלול מלא ב-Google Maps ↗</a>
 
     <!-- STOPS LIST -->
     <div style="font-size:13px;font-weight:900;margin-bottom:10px;color:var(--dark);">📍 כל העצירות – Google Maps + Waze</div>
@@ -2060,6 +2041,9 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
     if (btn) btn.classList.add('active');
     var fab = document.getElementById('add-place-fab');
     if (fab) fab.style.display = (name === 'food') ? 'block' : 'none';
+    if (name === 'map' && window._tripMap) {
+      setTimeout(function(){ window._tripMap.invalidateSize(); }, 50);
+    }
   }
 
   function scrollToFood(id) {
@@ -2172,5 +2156,69 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 
 </div><!-- #clip -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="חזור למעלה">↑</button>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.min.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLcE=" crossorigin=""></script>
+<script>
+(function() {
+  var stops = [
+    { latlng: [48.3537, 11.7750], label: '✈️ מינכן – שד״ת MUC',      sub: '27.7 נחיתה | 4–6.8 חזרה',    color: '#7b4d12', gmaps: 'https://www.google.com/maps?q=Munich+Airport&ll=48.3537,11.7750' },
+    { latlng: [47.5576, 10.7498], label: '🏰 Neuschwanstein',          sub: '28.7 בוקר · ~1:20 שעות',     color: '#8b2500', gmaps: 'https://www.google.com/maps?q=Neuschwanstein+Castle&ll=47.5576,10.7498' },
+    { latlng: [47.0706, 10.9672], label: '🏔️ Ötztal – Längenfeld',     sub: '28.7–31.7 · 3 לילות',        color: '#1a5276', gmaps: 'https://www.google.com/maps?q=Langenfeld+Otztal&ll=47.0706,10.9672' },
+    { latlng: [47.1685, 11.8657], label: '🌿 Zillertal – Mayrhofen',   sub: '31.7–4.8 · 4 לילות',         color: '#1a6035', gmaps: 'https://www.google.com/maps?q=Mayrhofen+Zillertal&ll=47.1685,11.8657' },
+    { latlng: [47.4304, 11.7258], label: '🏊 Achensee – Pertisau',     sub: '4.8 · עצירה בדרך חזרה',      color: '#1e8c8c', gmaps: 'https://www.google.com/maps?q=Pertisau+Achensee&ll=47.4304,11.7258' }
+  ];
+
+  function makeIcon(color) {
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" width="24" height="36">'
+      + '<path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 24 12 24S24 21 24 12C24 5.4 18.6 0 12 0z" fill="' + color + '" stroke="white" stroke-width="1.5"/>'
+      + '<circle cx="12" cy="12" r="5" fill="white" opacity="0.9"/>'
+      + '</svg>';
+    return L.divIcon({
+      html: svg,
+      className: '',
+      iconSize: [24, 36],
+      iconAnchor: [12, 36],
+      popupAnchor: [0, -38]
+    });
+  }
+
+  function initMap() {
+    var mapEl = document.getElementById('trip-map');
+    if (!mapEl) return;
+
+    var map = window._tripMap = L.map('trip-map', { zoomControl: true, scrollWheelZoom: false }).setView([47.6, 11.2], 8);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18
+    }).addTo(map);
+
+    var routeCoords = stops.map(function(s){ return s.latlng; });
+    routeCoords.push(stops[0].latlng); // close loop back to Munich
+    L.polyline(routeCoords, { color: '#1a2332', weight: 3, opacity: 0.7, dashArray: '8,6' }).addTo(map);
+
+    stops.forEach(function(s, i) {
+      var popup = '<div style="font-family:Heebo,sans-serif;direction:rtl;text-align:right;min-width:150px;">'
+        + '<div style="font-size:13px;font-weight:800;color:#1a2332;margin-bottom:2px;">' + s.label + '</div>'
+        + '<div style="font-size:11px;color:#6c757d;margin-bottom:8px;">' + s.sub + '</div>'
+        + '<a href="' + s.gmaps + '" target="_blank" style="text-decoration:none;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:4px 10px;border-radius:14px;">Google Maps ↗</a>'
+        + '</div>';
+      L.marker(s.latlng, { icon: makeIcon(s.color) })
+        .addTo(map)
+        .bindPopup(popup, { maxWidth: 220 });
+    });
+
+    // Fit map to all stops
+    map.fitBounds(L.latLngBounds(stops.map(function(s){ return s.latlng; })), { padding: [30, 30] });
+
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    initMap();
+  }
+})();
+</script>
 </body>
 </html>
