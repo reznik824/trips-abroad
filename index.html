@@ -129,8 +129,7 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 .hbox h4 { font-size:13px; font-weight:900; margin-bottom:4px; }
 .hbox p { font-size:12px; opacity:0.9; line-height:1.5; }
 
-@media (max-width:480px) { .db { width:50px; } .dt { font-size:13px !important; } .tls { min-width:70px; font-size:10px; padding:8px 8px; } .tls .td { font-size:8px; }
-}
+@media (max-width:480px) { .db { width:50px; } .dt { font-size:13px !important; } .tls { min-width:70px; font-size:10px; padding:8px 8px; } .tls .td { font-size:8px; } }
 @media (max-width:400px) { [style*="grid-template-columns:repeat(2,minmax(0,1fr))"] { grid-template-columns:1fr !important; } }
 
   /* TAB NAV */
@@ -719,63 +718,160 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 
         </div>
       </div>
-      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #8b2500;">
-        <div style="margin-bottom:8px;">
-          <div style="font-size:13px;font-weight:700;color:#1a2332;">🏰 Neuschwanstein</div>
-          <div style="font-size:11px;color:#6c757d;margin-top:2px;">28.7 בוקר – 4 שעות</div>
-        </div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;">
-          <a href="https://www.google.com/maps?q=Neuschwanstein+Castle&ll=47.5576,10.7498" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
-            🗺️ Google Maps
-          </a>
-          <a href="https://waze.com/ul?ll=47.5576,10.7498&navigate=yes&zoom=17" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#33CCFF;color:#1a2332;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
-            🚗 Waze
-          </a>
-        </div>
-      </div>
-      <!-- Truncated due to length -->
+      <!-- ... rest of content ... -->
+</div>
 
-<!-- Minimal tab script appended to restore functionality on GH Pages -->
 <script>
-(function(){
-  function switchTab(name, btn){
-    document.querySelectorAll('.tab-pane').forEach(function(p){ p.classList.remove('active'); });
-    var pane=document.getElementById('tab-'+name); if(pane) pane.classList.add('active');
-    document.querySelectorAll('.tnb').forEach(function(b){ b.classList.remove('active'); });
-    if(btn) btn.classList.add('active');
-    var fab=document.getElementById('add-place-fab'); if(fab) fab.style.display = (name==='food')?'block':'none';
+  // Global location map: timeline location → section ID per tab
+  var locationMap = {
+    'munich':     { trip:'sec-munich-in',  food:'food-munich',    attractions:'attr-munich',   accom:'accom-otztal' },
+    'neus':       { trip:'sec-neus',        food:null,             attractions:'attr-route',    accom:null           },
+    'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal' },
+    'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal' },
+    'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null           },
+    'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null           }
+  };
+
+  function navigateTo(loc) {
+    var map = locationMap[loc];
+    if (!map) return;
+    // Find current active tab name
+    var activeTab = document.querySelector('.tab-pane.active');
+    var tabId = activeTab ? activeTab.id.replace('tab-','') : 'trip';
+    var targetId = map[tabId];
+    if (targetId && document.getElementById(targetId)) {
+      setTimeout(function() {
+        document.getElementById(targetId).scrollIntoView({ behavior:'smooth', block:'start' });
+      }, 50);
+    } else if (map['trip']) {
+      // Fallback: switch to trip tab and scroll
+      switchTab('trip', document.querySelector('.tnb'));
+      setTimeout(function() {
+        var el = document.getElementById(map['trip']);
+        if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+      }, 100);
+    }
   }
-  window.switchTab = switchTab;
-})();
+
+  function scrollToSection(id) { // kept for backward compat
+    var el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-pane').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.tnb').forEach(function(b){ b.classList.remove('active'); });
+    document.getElementById('tab-' + name).classList.add('active');
+    if (btn) btn.classList.add('active');
+    var fab = document.getElementById('add-place-fab');
+    if (fab) fab.style.display = (name === 'food') ? 'block' : 'none';
+  }
+
+  function scrollToFood(id) {
+    var el = document.getElementById(id);
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }
+
+  function openAddModal() {
+    var m = document.getElementById('add-modal');
+    m.style.display = 'flex';
+    document.getElementById('gmaps-url').value = '';
+    document.getElementById('modal-status').innerHTML = '';
+  }
+
+  function closeAddModal() {
+    document.getElementById('add-modal').style.display = 'none';
+  }
+
+  async function parseAndAddPlace() {
+    var url = document.getElementById('gmaps-url').value.trim();
+    var region = document.getElementById('place-region').value;
+    var status = document.getElementById('modal-status');
+    if (!url) { status.innerHTML = '<span style="color:#e74c3c">הדבק לינק של גוגל מפס</span>'; return; }
+
+    status.innerHTML = '⏳ מנתח את המקום...';
+
+    // Extract name & coords from URL if possible
+    var coords = '';
+    var placeName = '';
+    var coordMatch = url.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+    if (coordMatch) coords = coordMatch[1] + ',' + coordMatch[2];
+    var nameMatch = url.match(/\/maps\/place\/([^\/@?]+)/);
+    if (nameMatch) placeName = decodeURIComponent(nameMatch[1].replace(/\+/g,' ').replace(/-/g,' '));
+
+    try {
+      var prompt = "A user pasted this Google Maps URL: " + url + "\n\n" +
+        (placeName ? "Detected place name from URL: " + placeName + "\n" : "") +
+        (coords ? "Detected coordinates: " + coords + "\n" : "") +
+        "\nExtract or infer from this URL and your knowledge: the restaurant/cafe full name, Google rating (as number), approximate number of reviews, price range (€, €€, or €€€), type/cuisine label (short, in Hebrew or mixed), a 2-sentence Hebrew description mentioning what they serve and what makes them special, the address, and whether it opened in 2025 (isNew: true/false).\n\nRespond ONLY with valid JSON, no markdown:\n{\\"name\\":\\"...\\",\\"rating\\":4.5,\\"reviews\\":\\"500+\\",\\"price\\":\\"€€\\",\\"type\\":\\"🍕 פיצה\\",\\"description\\":\\"...\\",\\"address\\":\\"...\\",\\"coords\\":\\"lat,lng\\",\\"isNew\\":false}";
+
+      var resp = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 1000,
+          messages: [{ role: "user", content: prompt }]
+        })
+      });
+      var data = await resp.json();
+      var text = data.content.map(function(i){ return i.text || ''; }).join('').replace(/```json|```/g,'').trim();
+      var info;
+      try { info = JSON.parse(text); } catch(e) {
+        status.innerHTML = '<span style="color:#e74c3c">לא הצלחתי לנתח – נסה לינק מלא מגוגל מפס</span>';
+        return;
+      }
+
+      if (!info.coords && coords) info.coords = coords;
+      var newCoords = info.coords || coords || '0,0';
+      var latLng = newCoords.split(',');
+      var mapsUrl = "https://www.google.com/maps?q=" + encodeURIComponent(info.name) + "&ll=" + newCoords;
+
+      var newBadge = info.isNew ? '<span style="background:#fef3cd;color:#856404;font-size:10px;font-weight:700;padding:2px 6px;border-radius:8px;margin-right:4px;'>🆕 חדש 2025</span>' : '';
+      var card = '<div class="food-card">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">' +
+        '<div style="font-size:14px;font-weight:800;color:#1a2332;">' + info.name + '</div>' +
+        '<span style="background:#f3e5f5;color:#6c3483;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">' + (info.type || '📍 מקום') + '</span>' +
+        '</div>' +
+        '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">' +
+        '<span style="color:#f39c12;font-size:13px;">★ ' + info.rating + '</span>' +
+        '<span style="font-size:11px;color:#6c757d;">(' + (info.reviews || '?') + ' ביקורות)</span>' +
+        '<span style="font-size:11px;color:#7b4d12;font-weight:700;">' + (info.price || '€€') + '</span>' +
+        newBadge +
+        '</div>' +
+        '<div style="font-size:12px;color:#444;margin-bottom:10px;">' + (info.description || '') + '</div>' +
+        '<div style="font-size:11px;color:#888;margin-bottom:8px;">📍 ' + (info.address || '') + '</div>' +
+        '<a href="' + mapsUrl + '" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>' +
+        '</div>';
+
+      // Add to correct section
+      var targetId = region === 'munich' ? 'food-munich' :
+                     region === 'otztal' ? 'food-otztal' :
+                     region === 'zillertal' ? 'food-zillertal' : 'user';
+      if (targetId === 'user') {
+        document.getElementById('user-food-section').style.display = 'block';
+        document.getElementById('user-food-cards').insertAdjacentHTML('beforeend', card);
+      } else {
+        document.getElementById(targetId).insertAdjacentHTML('beforeend', card);
+      }
+
+      status.innerHTML = '<span style="color:#1e8449">✅ נוסף בהצלחה!</span>';
+      setTimeout(function(){
+        closeAddModal();
+        document.getElementById(targetId === 'user' ? 'user-food-section' : targetId).scrollIntoView({ behavior: 'smooth' });
+      }, 800);
+
+    } catch(err) {
+      status.innerHTML = '<span style="color:#e74c3c">שגיאה: ' + err.message + '</span>';
+    }
+  }
+
+  window.addEventListener('scroll', function(){ document.getElementById('btt').classList.toggle('show', window.scrollY > 300); });
 </script>
+
+
+
 </div><!-- #clip -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="חזור למעלה">↑</button>
 </body>
 </html>
-<script>
-(function(){
-  function navigateTo(loc){
-    var map = {
-      'munich':     { trip:'sec-munich-in',  food:null,             attractions:'attr-munich',   accom:'accom-otztal' },
-      'neus':       { trip:'sec-neus',        food:null,             attractions:'attr-route',    accom:null           },
-      'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal' },
-      'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal' },
-      'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null           },
-      'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null           }
-    }[loc];
-    if(!map) return;
-    var active = document.querySelector('.tab-pane.active');
-    var tabId = active ? active.id.replace('tab-','') : 'trip';
-    var targetId = map[tabId] || map.trip;
-    if(!document.getElementById(targetId)){
-      // fallback: switch to trip then scroll
-      var firstTabBtn = document.querySelector('.tnb');
-      if(firstTabBtn) window.switchTab('trip', firstTabBtn);
-      setTimeout(function(){ var el = document.getElementById(map.trip); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 60);
-      return;
-    }
-    document.getElementById(targetId).scrollIntoView({behavior:'smooth', block:'start'});
-  }
-  window.navigateTo = navigateTo;
-})();
-</script>
