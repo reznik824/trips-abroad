@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'><rect width='3' height='2' fill='%23ED2939'/><rect width='3' height='0.667' y='0.667' fill='white'/></svg>'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אוסטריה – קיץ 2026 🇦🇹</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark: #1a2332;
+  --teal: #1e8c8c;
+  --gold: #d4a017;
+  --sand: #f5ede0;
+  --border: #e0d5c8;
+  --muted: #6c757d;
+  --munich:  #7b4d12;
+  --munich2: #c07c35;
+  --oetz:    #1a5276;
+  --oetz2:   #2471a3;
+  --zill:    #1a6035;
+  --zill2:   #27ae60;
+  --achen:   #6c3483;
+  --achen2:  #9b59b6;
+  --neus:    #8b2500;
+  --neus2:   #c0392b;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+*, *::before, *::after { box-sizing:border-box; max-width:100%; }
+.tab-pane div { min-width:0; }
+html { overflow-x:hidden; }
+body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark); margin:0; padding:0; width:100%; word-break:break-word; }
+#clip { overflow-x:hidden; width:100%; position:relative; }
+
+/* HERO */
+.hero { background:linear-gradient(135deg,#0d1b2a 0%,#1a3a5c 55%,#1e8c8c 100%); padding:26px 20px 20px; text-align:center; position:relative; overflow:hidden; }
+.hero::before { content:'⛰️'; position:absolute; font-size:180px; opacity:0.04; top:-20px; left:50%; transform:translateX(-50%); pointer-events:none; }
+.hero h1 { color:white; font-size:clamp(19px,5vw,30px); font-weight:900; margin-bottom:4px; }
+.hero .sub { color:rgba(255,255,255,0.7); font-size:12px; }
+.dates-pill { display:inline-flex; gap:8px; align-items:center; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:white; padding:5px 15px; border-radius:30px; font-size:12px; font-weight:600; margin-top:9px; }
+.meta-row { display:flex; justify-content:center; gap:7px; margin-top:8px; flex-wrap:wrap; }
+.mp { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.22); color:white; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:600; }
+
+/* TIMELINE */
+.timeline { background:white; border-bottom:1px solid var(--border); overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.timeline::-webkit-scrollbar { display:none; }
+.tl { display:flex; min-width:max-content; padding-right:16px; }
+.tls { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 12px; font-size:11px; font-weight:700; color:white; min-width:80px; text-align:center; border-left:2px solid rgba(255,255,255,0.2); cursor:default; }
+.tls:first-child { border-left:none; }
+.tls:hover { opacity:0.82; }
+.tls .td { font-size:9px; opacity:0.75; font-weight:400; margin-top:2px; }
+.tls.m { background:var(--munich); } .tls.o { background:var(--oetz); } .tls.z { background:var(--zill); } .tls.a { background:var(--achen); }
+.tls.n { background:var(--neus); }
+
+/* CONTAINER */
+.wrap { max-width:800px; margin:0 auto; padding:16px 14px 40px; width:100%; overflow-x:hidden; }
+
+/* SECTION HEADER */
+.sh { border-radius:15px; padding:16px 20px 14px; color:white; margin-bottom:4px; }
+.sh.m { background:linear-gradient(135deg,var(--munich),var(--munich2)); }
+.sh.o { background:linear-gradient(135deg,var(--oetz),var(--oetz2)); }
+.sh.z { background:linear-gradient(135deg,var(--zill),var(--zill2)); }
+.sh.a { background:linear-gradient(135deg,var(--achen),var(--achen2)); }
+.sh h2 { font-size:17px; font-weight:900; margin-bottom:3px; }
+.sh .tag { font-size:12px; opacity:0.85; }
+.sh .pills { display:flex; gap:6px; margin-top:9px; flex-wrap:wrap; }
+.sh .pill { background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.3); color:white; padding:3px 11px; border-radius:20px; font-size:11px; font-weight:600; }
+
+/* DRIVE ARROW */
+.darrow { display:flex; align-items:center; gap:9px; padding:8px 14px; margin:9px 0; background:white; border-radius:30px; border:1px dashed var(--border); font-size:12px; font-weight:600; color:var(--muted); width:fit-content; }
+.darrow strong { color:var(--dark); }
+
+/* APT BOX */
+.apt { background:#fef9e7; border:1px solid #f9e79f; border-radius:11px; padding:11px 15px; margin:9px 0; }
+.apt h5 { font-size:12px; font-weight:700; color:#b7770d; margin-bottom:4px; }
+.apt p { font-size:12px; line-height:1.5; }
+.alinks { display:flex; gap:7px; margin-top:6px; flex-wrap:wrap; }
+.al { font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; text-decoration:none; background:var(--dark); color:white; }
+
+/* STAR GRID */
+.sg-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin:12px 0 7px; }
+.sg { display:flex; flex-direction:column; gap:6px; margin-bottom:12px; }
+.si { display:flex; align-items:center; background:white; border-radius:13px; border:1px solid var(--border); overflow:hidden; text-decoration:none; color:inherit; transition:all 0.18s; }
+.si:hover { transform:translateX(-2px); box-shadow:0 3px 10px rgba(0,0,0,0.09); }
+.db { flex-shrink:0; display:flex; flex-direction:column; align-items:center; justify-content:center; width:58px; padding:10px 5px; text-align:center; font-size:10px; font-weight:900; color:white; }
+.db .dt { font-size:15px; font-weight:900; line-height:1; }
+.db .dl { font-size:9px; opacity:0.8; margin-top:1px; }
+.db.g { background:#27ae60; } .db.o2 { background:#e67e22; } .db.r { background:#c0392b; } .db.b { background:var(--teal); }
+.sb { flex:1; padding:9px 13px; }
+.sn { font-size:14px; font-weight:700; margin-bottom:2px; }
+.sd { font-size:12px; color:var(--muted); line-height:1.4; }
+.stags { display:flex; gap:4px; flex-wrap:wrap; margin-top:3px; }
+.st { font-size:10px; font-weight:700; padding:2px 7px; border-radius:9px; background:var(--sand); color:var(--muted); border:1px solid var(--border); }
+.sr { flex-shrink:0; padding:9px 11px; display:flex; flex-direction:column; align-items:flex-end; gap:3px; }
+.rb { background:var(--dark); color:var(--gold); font-size:11px; font-weight:700; padding:3px 7px; border-radius:18px; white-space:nowrap; }
+.ml { font-size:10px; color:var(--teal); font-weight:600; white-space:nowrap; }
+
+/* DAY PLAN */
+.dp { background:white; border-radius:13px; border:1px solid var(--border); overflow:hidden; margin-bottom:7px; }
+.dp-h { padding:9px 15px; font-size:12px; font-weight:700; color:white; }
+.dp-h.o { background:var(--oetz); } .dp-h.z { background:var(--zill); }
+.dp-b { padding:11px 15px; font-size:12px; line-height:1.7; }
+.dp-b strong { font-weight:700; }
+
+/* TIPS */
+.tips { background:linear-gradient(135deg,var(--dark),#2c3e50); color:white; border-radius:13px; padding:14px 17px; margin:5px 0 14px; }
+.tips h4 { font-size:11px; font-weight:700; opacity:0.5; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px; }
+.tips ul { list-style:none; display:flex; flex-direction:column; gap:5px; }
+.tips li { font-size:12px; padding-right:15px; position:relative; opacity:0.9; line-height:1.4; }
+.tips li::before { content:'→'; position:absolute; right:0; opacity:0.45; }
+
+/* SUMMARY TABLE */
+.sum { background:white; border-radius:14px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.07); margin:14px 0; }
+.sum table { width:100%; border-collapse:collapse; }
+.sum th { padding:9px 13px; font-size:11px; font-weight:700; text-align:right; }
+.sum td { padding:9px 13px; font-size:12px; background:white; border-bottom:1px solid var(--border); }
+.sum td:first-child { font-weight:700; background:var(--sand); }
+.sum tr:last-child td { border-bottom:none; }
+
+/* LEGEND */
+.leg { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:11px; }
+.li { display:flex; align-items:center; gap:4px; font-size:11px; font-weight:600; color:var(--muted); }
+.ld { width:9px; height:9px; border-radius:50%; }
+
+.sl { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin:14px 0 7px; }
+
+/* HIGHLIGHT BOX */
+.hbox { background:linear-gradient(135deg,#1a6035,#27ae60); color:white; border-radius:13px; padding:13px 16px; margin:8px 0; }
+.hbox h4 { font-size:13px; font-weight:900; margin-bottom:4px; }
+.hbox p { font-size:12px; opacity:0.9; line-height:1.5; }
+
+@media (max-width:480px) { .db { width:50px; } .dt { font-size:13px !important; } .tls { min-width:70px; font-size:10px; padding:8px 8px; } .tls .td { font-size:8px; } }
+@media (max-width:400px) { [style*="grid-template-columns:repeat(2,minmax(0,1fr))"] { grid-template-columns:1fr !important; } }
+
+  /* TAB NAV */
+  .tab-nav-wrap { margin:14px 0 18px; position:relative; }
+  .tab-nav-wrap::after { content:''; position:absolute; top:0; right:0; bottom:2px; width:30px; background:linear-gradient(to left, var(--sand), transparent); pointer-events:none; }
+  .tab-nav { display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:4px; }
+  .tab-nav::-webkit-scrollbar { display:none; }
+  .tnb { flex-shrink:0; padding:9px 16px; border-radius:50px; border:2px solid var(--border); font-family:'Heebo',sans-serif; font-size:13px; font-weight:700; cursor:pointer; background:white; color:var(--muted); transition:all 0.2s; white-space:nowrap; }
+  .tnb.active { background:var(--dark); color:white; border-color:var(--dark); }
+  .tab-pane { display:none; }
+  .tab-pane.active { display:block; animation:fadeIn 0.25s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ACCOMMODATION CARDS */
+  .accom-section-title { font-size:15px; font-weight:900; margin:18px 0 10px; display:flex; align-items:center; gap:8px; }
+  .accom-section-title .badge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; }
+  .badge-oetz { background:#dbeafe; color:#1a5276; border:1px solid #93c5fd; }
+  .badge-zill { background:#dcfce7; color:#1a6035; border:1px solid #86efac; }
+
+  .accard { background:white; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.07); margin-bottom:14px; width:100%; }
+  .accard-imgs { display:flex; gap:3px; height:140px; overflow:hidden; }
+  .accard-imgs img { flex:1; object-fit:cover; min-width:0; }
+  .accard-imgs img:first-child { flex:2; }
+  .accard-
+  .accard-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:6px; }
+  .accard-name { font-size:16px; font-weight:900; }
+  .accard-location { font-size:12px; color:var(--muted); margin-top:1px; }
+  .accard-rating { flex-shrink:0; display:flex; flex-direction:column; align-items:flex-end; gap:3px; }
+  .accard-stars { font-size:13px; font-weight:900; color:var(--gold); background:var(--dark); padding:3px 9px; border-radius:20px; white-space:nowrap; }
+  .accard-count { font-size:11px; color:var(--muted); }
+  .accard-desc { font-size:12px; color:#444; line-height:1.55; margin-bottom:10px; }
+  .accard-pills { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+  .acp { font-size:11px; font-weight:700; padding:3px 9px; border-radius:10px; }
+  .acp-yes { background:#dcfce7; color:#166534; border:1px solid #86efac; }
+  .acp-no  { background:#fee2e2; color:#991b1b; border:1px solid #fca5a5; }
+  .acp-maybe { background:#fef9c3; color:#854d0e; border:1px solid #fde68a; }
+  .accard-quote { background:var(--sand); border-radius:10px; padding:10px 12px; font-size:12px; color:#444; font-style:italic; line-height:1.5; margin-bottom:10px; }
+  .accard-quote::before { content:'"'; color:var(--teal); font-size:18px; font-style:normal; font-weight:900; line-height:0; vertical-align:-4px; margin-left:4px; }
+  .accard-links { display:flex; gap:7px; flex-wrap:wrap; width:100%; }
+  .acl { display:inline-block; font-size:12px; font-weight:700; padding:7px 14px; border-radius:25px; text-decoration:none; transition:opacity 0.15s; }
+  .acl:hover { opacity:0.85; }
+  .acl-primary { background:var(--dark); color:white; }
+  .acl-maps { background:var(--teal); color:white; }
+  .acl-book { background:#2563eb; color:white; }
+
+  .warning-accom { background:#fff7ed; border:1px solid #fed7aa; border-radius:12px; padding:12px 16px; font-size:12px; color:#9a3412; margin-bottom:12px; }
+  .warning-accom strong { font-weight:700; }
+  .vs-divider { display:flex; align-items:center; gap:10px; margin:16px 0; }
+  .vs-line { flex:1; height:1px; background:var(--border); }
+  .vs-text { font-size:12px; font-weight:700; color:var(--muted); white-space:nowrap; }
+
+  /* Back to top */
+  #btt { position:fixed; bottom:24px; left:20px; width:44px; height:44px; border-radius:50%; background:var(--dark); color:white; border:none; font-size:20px; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,0.25); opacity:0; transform:translateY(10px); transition:opacity 0.25s, transform 0.25s; z-index:999; display:flex; align-items:center; justify-content:center; }
+  #btt.show { opacity:1; transform:translateY(0); }
+  #btt:active { transform:scale(0.9); }
+
+  /* MOBILE OVERFLOW NUCLEAR FIX */
+  #tab-car > *, #tab-outlets > *, #tab-accom > *, #tab-map > *, #tab-food > *, #tab-attractions > * {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  #tab-car, #tab-outlets, #tab-accom, #tab-map, #tab-food, #tab-attractions {
+    overflow: hidden;
+    width: 100%;
+  }
+  .food-card {
+    background:white;
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.07);
+    border-right:4px solid #c0834e;
+  }
+  .attr-card {
+    background:white;
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.07);
+  }
+  .attr-price-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:8px;
+  }
+  .attr-badge {
+    font-size:10px;
+    font-weight:700;
+    padding:3px 9px;
+    border-radius:10px;
+    white-space:nowrap;
+  }
+  .attr-tag-green { background:#d5f5e3; color:#1e8449; }
+  .attr-tag-blue  { background:#d6eaf8; color:#1a5276; }
+  .attr-tag-red   { background:#fde8e8; color:#c0392b; }
+  .attr-tag-orange{ background:#fef0e6; color:#a04000; }
+  .attr-tag-purple{ background:#f3e5f5; color:#6c3483; }
+  #btt { position: fixed; }
+  
+</style>
+</head>
+<body>
+<div id="clip">
+
+<div class="hero">
+  <h1>🇦🇹 אוסטריה – קיץ 2026</h1>
+  <p class="sub">Ötztal · Zillertal · Achensee · ילדים 7–11</p>
+  <div class="dates-pill">✈️ 27.7 – 6.8.2026 &nbsp;·&nbsp; 10 לילות</div>
+  <div class="meta-row">
+    <div class="mp">🚗 עם רכב</div>
+    <div class="mp">🏨 מלון מינכן · 🏠 דירות בסיס</div>
+    <div class="mp">⭐ יום-טיולי כוכב</div>
+    <div class="mp">✈️ טיסה 6.8 ~ 11:00</div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+  <div class="tl">
+    <div class="tls m" onclick="navigateTo('munich')" style="cursor:pointer;">🛬 מינכן<div class="td">27.7 · 1 לילה</div></div>
+    <div class="tls n" onclick="navigateTo('neus')" style="cursor:pointer;">🏰 Neuschwanstein<div class="td">28.7 בוקר</div></div>
+    <div class="tls o" onclick="navigateTo('oetz')" style="cursor:pointer;">🏔️ Ötztal<div class="td">28.7–31.7 · 3 לילות</div></div>
+    <div class="tls z" onclick="navigateTo('zill')" style="cursor:pointer;">🌿 Zillertal<div class="td">31.7–4.8 · 4 לילות</div></div>
+    <div class="tls a" onclick="navigateTo('achen')" style="cursor:pointer;">🏊 Achensee<div class="td">4.8 · עצירה</div></div>
+    <div class="tls m" onclick="navigateTo('munich-out')" style="cursor:pointer;">🛫 מינכן<div class="td">4.8–6.8 · 2 לילות</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="tab-nav-wrap"><div class="tab-nav">
+    <button class="tnb active" onclick="switchTab('trip', this)">🗺️ תוכנית הטיול</button>
+    <button class="tnb" onclick="switchTab('map', this)">🗺️ מפת הטיול</button>
+    <button class="tnb" onclick="switchTab('food', this)">🍽️ מסעדות ובתי קפה</button>
+    <button class="tnb" onclick="switchTab('attractions', this)">🎢 פארקים ואטרקציות</button>
+    <button class="tnb" onclick="switchTab('accom', this)">🏨 מקומות לינה</button>
+    <button class="tnb" onclick="switchTab('car', this)">🚗 השכרת רכב</button>
+    <button class="tnb" onclick="switchTab('outlets', this)">🛍️ אאוטלטים</button>
+  </div></div>
+  <div id="tab-trip" class="tab-pane active">
+
+  <!-- INTERNAL TRIP NAV -->
+  <div style="display:flex;gap:8px;margin-bottom:16px;margin-top:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;">
+    <button onclick="document.getElementById('sec-munich-in').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#1a2332;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🛬 מינכן</button>
+    <button onclick="document.getElementById('sec-neus').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#5d2e8c;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏰 Neuschwanstein</button>
+    <button onclick="document.getElementById('sec-oetz').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#1a5276;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏔️ Ötztal</button>
+    <button onclick="document.getElementById('sec-zill').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#145a32;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🌿 Zillertal</button>
+    <button onclick="document.getElementById('sec-achen').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#1a7a6e;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏊 Achensee</button>
+    <button onclick="document.getElementById('sec-munich-out').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#1a2332;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🛫 מינכן חזרה</button>
+  </div>
+
+  <!-- MUNICH IN -->
+  <div id="sec-munich-in" class="sh m" style="margin-top:4px;">
+    <h2>🛬 מינכן – נחיתה</h2>
+    <p class="tag">27.7 · לילה אחד · לקחת רכב מיד בנחיתה</p>
+    <div class="pills">
+      <div class="pill">✈️ נחיתה ~אחה"צ</div>
+      <div class="pill">🚗 רכב רק מחר בבוקר</div>
+      <div class="pill">מחר: Neuschwanstein בדרך</div>
+    </div>
+  </div>
+
+  <div class="apt">
+    <h5>🏨 מלון – מינכן (לילה אחד)</h5>
+    <p>מלון פשוט קרוב למרכז – <strong>אין צורך ברכב הלילה הזה</strong>. לקחת U-Bahn/אוטובוס מהשדה. מחר בבוקר: לאסוף רכב מהשדה בדרך לנויישוונשטיין. מומלץ: Ibis, B&B Hotel, או Motel One.</p>
+    <div class="alinks">
+      <a class="al" href="https://www.booking.com/searchresults.html?ss=Munich+city+center&checkin=2025-07-27&checkout=2025-07-28&group_adults=8&nflt=class%3D2%3Bclass%3D3" target="_blank">Booking מלונות ↗</a>
+    </div>
+  </div>
+
+  <div class="sg">
+    <a class="si" href="https://www.google.com/maps?q=English+Garden+Munich&ll=48.1642,11.6056" target="_blank">
+      <div class="db b">🌳<div class="dl">הליכה</div></div>
+      <div class="sb"><div class="sn">English Garden</div><div class="sd">להסיר עייפות טיסה – גלשני גלים בנהר, ילדים פורקים אנרגיה אחרי הטיסה</div></div>
+      <div class="sr"><div class="rb">⭐ 4.7</div><div class="ml">Maps ↗</div></div>
+    </a>
+  </div>
+
+  <!-- NEUSCHWANSTEIN EN ROUTE -->
+  <div class="darrow">🚗 <span>28.7 בבוקר: לקחת U-Bahn → שדה תעופה → אסוף רכב ← <strong>~1:20 שעות</strong> לNeuschwanstein · A95 → B17</span></div>
+
+  <div id="sec-neus" class="sh" style="margin-top:6px; background:linear-gradient(135deg,var(--neus),var(--neus2)); color:white;">
+    <h2>🏰 Neuschwanstein – בדרך לÖtztal</h2>
+    <p class="tag">28.7 בוקר · אסוף רכב בשדה → Neuschwanstein ~4 שעות → Ötztal</p>
+    <div class="pills">
+      <div class="pill">🎟️ להזמין כניסה מראש!</div>
+      <div class="pill">בוקר מוקדם = פחות עומס</div>
+      <div class="pill">🚗 אוסף רכב בשדה מינכן</div>
+    </div>
+  </div>
+
+  <div class="sg" style="margin-top:8px;">
+    <a class="si" href="https://maps.google.com/maps?q=Neuschwanstein+Castle+Bavaria" target="_blank">
+      <div class="db b">🏰<div class="dl">Füssen</div></div>
+      <div class="sb">
+        <div class="sn">Schloss Neuschwanstein ✅ פתוח</div>
+        <div class="sd">הטירה שעליה מבוסס לוגו דיסני – ילדים מתפוצצים. לעלות רגלים (30 דק' עלייה). <strong>ילדים מתחת לגיל 18 – חינמי!</strong> מבוגרים €20.</div>
+        <div class="stags"><span class="st">⚠️ להזמין מראש – נגמר מוקדם!</span><span class="st">hohenschwangau.de</span><span class="st">סיור 30 דק'</span><span class="st">פתוח 9:00–18:00</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.7</div><div class="ml">Maps ↗</div></div>
+    </a>
+  </div>
+
+  <div class="darrow">🚗 <span>Neuschwanstein (Füssen) → Ötztal (<strong>Längenfeld</strong>): <strong>~1:15 שעות</strong> · B179 → A12 → Ötztal exit → Längenfeld</span></div>
+
+  <!-- ÖTZTAL BASE -->
+  <div id="sec-oetz" class="sh o" style="margin-top:6px;">
+    <h2>🏔️ בסיס א׳ – Ötztal</h2>
+    <p class="tag">28.7 אחה"צ – 31.7 · 3 לילות · עמק הקרחונות של טירול</p>
+    <div class="pills">
+      <div class="pill">3 לילות</div>
+      <div class="pill">🏠 Umhausen או Längenfeld</div>
+      <div class="pill">⭐ 4 יום-טיולי כוכב</div>
+    </div>
+  </div>
+
+  <div class="apt">
+    <h5>🏠 איפה לגור – Ötztal</h5>
+    <p>✅ <strong>הוזמן: Apart Peppone, Längenfeld</strong> (Oberlängenfeld 59). פיצריה Don Camillo בבניין, M-Preis ממול, סקי-בוס בפתח, הנחה ב-Aqua Dome. Summer Card כלולה מהיום השני. ⚠️ פיקדון €100 מזומן בהגעה.</p>
+    <div class="alinks">
+      <a class="al" href="https://www.booking.com/hotel/at/appartmenthaus-christophorus.he.html" target="_blank">Booking.com ↗</a>
+      <a class="al" href="https://peppone.tirol/en/" target="_blank">אתר רשמי ↗</a>
+      <a class="al" href="https://www.google.com/maps?q=Apart+Peppone+Langenfeld&ll=47.0706,10.9672" target="_blank">Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="leg">
+    <div class="li"><div class="ld" style="background:#27ae60"></div>עד 20 דק'</div>
+    <div class="li"><div class="ld" style="background:#e67e22"></div>20–50 דק'</div>
+    <div class="li"><div class="ld" style="background:#c0392b"></div>50–90 דק'</div>
+  </div>
+
+  <p class="sg-label">🗺️ יום-טיולי כוכב מÖtztal</p>
+  <div class="sg">
+
+    <a class="si" href="https://maps.google.com/maps?q=Stuibenfall+waterfall+Umhausen+Otztal" target="_blank">
+      <div class="db g">15<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">💦 Stuibenfall – מפל הגבוה של טירול ✅ פתוח</div>
+        <div class="sd">159 מ' גובה! מדרגות + גשר תלוי לכל גיל. Via Ferrata לגיל 10+ בלבד. בסיס: Ötzidorf עם בריכת שחייה ומסעדה. כניסה חינמית.</div>
+        <div class="stags"><span class="st">חינמי</span><span class="st">Via Ferrata גיל 10+ בלבד</span><span class="st">חניון בAumhausen €3</span><span class="st">כל ימות הקיץ</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.7</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Otzidorf+Umhausen+Otzi+museum" target="_blank">
+      <div class="db g">15<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">🏺 Ötzi-Dorf – כפר האיש הקפוא ✅ פתוח</div>
+        <div class="sd">מוזיאון חיצוני על אדם הקרח בן 5000 שנה – כפר ניאוליתי מחודש עם חיות, תצוגות נשק ותצוגות עופות דורסים.</div>
+        <div class="stags"><span class="st">ילדים אוהבים</span><span class="st">ביחד עם Stuibenfall</span><span class="st">פתוח קיץ 2025</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.4</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Piburger+See+Oetz+Austria+swimming" target="_blank">
+      <div class="db g">20<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">🏊 Piburger See – האגם החם של טירול ✅ פתוח</div>
+        <div class="sd">אגם הרים קטן עם מים עד 25°C בקיץ – הכי חם בטירול. שחייה, SUP, מסעדת דגים ביד האגם. חניון קטן ומתמלא ב-9:00.</div>
+        <div class="stags"><span class="st">שחייה מושלמת</span><span class="st">30 דק' הליכה מ-Oetz</span><span class="st">⚠️ לבוא לפני 9:00!</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.6</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Area+47+adventure+park+Otztal" target="_blank">
+      <div class="db g">20<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">🎢 Area 47 – פארק הרפתקאות ✅ פתוח</div>
+        <div class="sd">מגלשות מים ענקיות + ראפטינג + חבלים – פארק האדרנלין הגדול באוסטריה. Water Area פתוח <strong>29.5–7.9.2025 יומי 10:00–19:00</strong>.</div>
+        <div class="stags"><span class="st">מגלשות מים</span><span class="st">ראפטינג</span><span class="st">כניסה מ-13:00 = ~50% הנחה</span><span class="st">לגיל 7+</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.5</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Obergurgl+Hochgurgl+Otztal+glacier+cable+car" target="_blank">
+      <div class="db o2">35<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">🗻 Obergurgl – קרחון + כפר גבוה</div>
+        <div class="sd">הכפר הכנסייה הגבוה באוסטריה (2000 מ'). רכבל לקרחון, מסלולי הליכה בגובה, שלג בקיץ. נוף = אין מילים.</div>
+        <div class="stags"><span class="st">כפר הכי גבוה</span><span class="st">שלג בקיץ</span><span class="st">סוף העמק</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.7</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Timmelsjoch+High+Alpine+Road+Otztal" target="_blank">
+      <div class="db o2">35<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">🛣️ Timmelsjoch – כביש הר גבוה לאיטליה ✅ פתוח</div>
+        <div class="sd">הכביש ההר הגבוה ביותר באוסטריה (2474 מ') – מנהרות, גשרים, כפרי גבול. הלוך ושוב, לא צריך להיכנס לאיטליה.</div>
+        <div class="stags"><span class="st">נסיעה = חוויה</span><span class="st">€14.50 אגרה</span><span class="st">פתוח יוני–אוקטובר</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.6</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Aqua+Dome+Laengenfeld+thermal+spa" target="_blank">
+      <div class="db g">5<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">♨️ Aqua Dome – ספא תרמי בהרים ✅ פתוח</div>
+        <div class="sd">בריכות תרמיות חיצוניות עם נוף הרים בלתי אפשרי – 34–38°C. להורים. לילדים מגיל 8 בחלק מהבריכות. לא לשכוח להזמין מקום!</div>
+        <div class="stags"><span class="st">ליום גשום</span><span class="st">מומלץ ערב</span><span class="st">⭐ 600 מ' מהדירה!</span><span class="st">aqua-dome.at להזמין</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.5</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+  </div>
+
+  <p class="sl">📅 סידור 3 הימים – Ötztal</p>
+  <div class="dp"><div class="dp-h o">28.7 – הגעה</div><div class="dp-b">
+    <strong>בוקר:</strong> Neuschwanstein 🏰 (בדרך) → יציאה מ-Füssen ~13:00<br>
+    <strong>~14:30:</strong> הגעה ל-<strong>Apart Peppone, Längenfeld</strong> 🏠 · צ'ק-אין 15:00–18:00<br>
+    <strong>⚠️</strong> פיקדון €100 מזומן בהגעה · לנווט: <a href="https://www.google.com/maps?q=Apart+Peppone+Langenfeld&ll=47.0706,10.9672" target="_blank" style="color:inherit;">Oberlängenfeld 59</a><br>
+    <strong>אחה"צ מאוחר:</strong> פריקה + קניות ב-M-Preis (ממול) 🛒<br>
+    <strong>ערב:</strong> ארוחה ב-Don Camillo – הפיצריה שבבניין עצמו 🍕
+  </div></div>
+  <div class="dp"><div class="dp-h o">29.7 – יום Stuibenfall</div><div class="dp-b">
+    <strong>בוקר:</strong> Stuibenfall + Ötzi-Dorf – חצי יום 💦🏺<br>
+    <strong>צהריים:</strong> אוכל ב-Stuibenfall Gasthof (ממש שם)<br>
+    <strong>אחה"צ:</strong> Area 47 – מגלשות מים 🎢 (כניסה מ-13:00 = חצי מחיר!)
+  </div></div>
+  <div class="dp"><div class="dp-h o">30.7 – יום קרחון</div><div class="dp-b">
+    <strong>יום שלם:</strong> Obergurgl / Timmelsjoch – לעלות לסוף העמק 🗻<br>
+    <strong>בחזרה:</strong> Aqua Dome ב-Längenfeld – ½ שעה ספא לפני הארוחה ♨️<br>
+    <strong>ערב:</strong> לארוז לZillertal
+  </div></div>
+
+  <div class="tips">
+    <h4>💡 טיפים – Ötztal</h4>
+    <ul>
+      <li>Area 47: כניסה מ-13:00 = כ-50% הנחה. מספיק זמן לכל המגלשות</li>
+      <li>Piburger See: חניון קטן ומתמלא ב-9:00. לבוא מוקדם או לחנות ב-Oetz ולהלך 30 דק'</li>
+      <li>Obergurgl בקיץ: לבדוק שהרכבל פתוח – לפעמים סגור לתחזוקה. לבדוק obergurgl.com</li>
+      <li>Stuibenfall Via Ferrata (גיל 10+): ציוד אפשר לשכור ב-Umhausen, €15/סט</li>
+      <li>Vignette אוסטריה: €10 – לקנות בתחנת דלק במינכן לפני הכניסה לאוסטריה</li>
+    </ul>
+  </div>
+
+  <div class="darrow">🚗 <span>Ötztal (Umhausen) → Zillertal (Mayrhofen): <strong>~1:20 שעות</strong> · A12 מזרחה → Zillertal exit Zell am Ziller</span></div>
+
+  <!-- ZILLERTAL BASE -->
+  <div id="sec-zill" class="sh z" style="margin-top:6px;">
+    <h2>🌿 בסיס ב׳ – Zillertal</h2>
+    <p class="tag">31.7–4.8 · 4 לילות · Mayrhofen / Zell am Ziller</p>
+    <div class="pills">
+      <div class="pill">4 לילות</div>
+      <div class="pill">🏠 Mayrhofen</div>
+      <div class="pill">⭐ 5 יום-טיולי כוכב</div>
+    </div>
+  </div>
+
+  <div class="apt">
+    <h5>🏠 איפה לגור – Zillertal</h5>
+    <p>✅ <strong>הוזמן: Emma's kleines Hotel, Ramsau im Zillertal</strong> (Talstrasse 55). בוטיק הוטל טירולי · ⭐ 9.5 Booking · ארוחת בוקר כלולה · ספא · סקי-בוס בפתח · 3 ק"מ מ-Mayrhofen. ⚠️ תשלום מראש בהעברה בנקאית.</p>
+    <div class="alinks">
+      <a class="al" href="https://www.booking.com/hotel/at/gasthof-pension-mariandl.html" target="_blank">Booking.com ↗</a>
+      <a class="al" href="https://www.google.com/maps?q=Emma%27s+kleines+Hotel+Ramsau+im+Zillertal&ll=47.2064,11.8717" target="_blank">Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="leg">
+    <div class="li"><div class="ld" style="background:#27ae60"></div>עד 20 דק'</div>
+    <div class="li"><div class="ld" style="background:#e67e22"></div>20–50 דק'</div>
+    <div class="li"><div class="ld" style="background:#c0392b"></div>50–90 דק'</div>
+  </div>
+
+  <p class="sg-label">🗺️ יום-טיולי כוכב מZillertal</p>
+  <div class="sg">
+
+    <a class="si" href="https://maps.google.com/maps?q=Schlegeis+reservoir+Ginzling+Zillertal" target="_blank">
+      <div class="db o2">40<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">💙 Schlegeis Stausee – מאגר הכחול ✅ פתוח (16.5–31.10.2025)</div>
+        <div class="sd">מאגר טורקיז מוקף קרחונות ו-3000 מ'. גשר התלוי של Olpererhütte = אחד הצילומים הכי מפורסמים באלפים. פתוח מ-6:00 ביולי–אוגוסט.</div>
+        <div class="stags"><span class="st">⚠️ €18/רכב – מזומן בלבד!</span><span class="st">להזמין כרטיס אונליין</span><span class="st">הליכה לגשר ~3 שעות</span><span class="st">6:00–18:00 ביולי</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.8</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Hintertux+Glacier+Zillertal+Austria" target="_blank">
+      <div class="db o2">35<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">🧊 Hintertux – רכבל + מערת קרח ✅ פתוח</div>
+        <div class="sd">רכבל פתוח 365 יום, 8:15–16:30. <strong>⚠️ החוויה הכי טובה: מערת הקרח NaturEisPalast + סיור + נוף מהפסגה.</strong> גלישת שלג <u>לא</u> זמינה ביולי–אוגוסט בשנים האחרונות.</div>
+        <div class="stags"><span class="st">רכבל: €65.50 מבוגר / €29.50–52.50 ילד</span><span class="st">מערת קרח בנפרד</span><span class="st">⚠️ גלישה – לא ביולי-אוג</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.7</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Krimml+waterfalls+Austria+Hohe+Tauern" target="_blank">
+      <div class="db r">75<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">💦 Krimmler Wasserfälle – המפלים הגבוהים של אירופה ✅ פתוח</div>
+        <div class="sd">380 מ' גובה בשלושה שלבים – המפלים הגבוהים באירופה. מסלול 4 ק"מ. ביולי–אוגוסט = שיא הזרימה מהמסת הקרחונות. מביאים מעיל גשם!</div>
+        <div class="stags"><span class="st">€9/נפש כניסה</span><span class="st">פתוח 15/4–31/10</span><span class="st">2-3 שעות הלוך ושוב</span><span class="st">דרך Gerlos Pass €11</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.8</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Zillertaler+Hoehenstrasse+panoramic+road" target="_blank">
+      <div class="db g">10<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">🛣️ Zillertaler Höhenstraße – כביש פנורמה ✅ פתוח (29.5–31.10.2025)</div>
+        <div class="sd">כביש עולה ל-2000 מ' עם תצפית 360° על כל העמק – נסיעה + אוכל בחווה האלפינית Platzalm. €10 אגרה.</div>
+        <div class="stags"><span class="st">€10 אגרה</span><span class="st">Platzalm בפסגה</span><span class="st">חצי יום</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.6</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Ahorn+cable+car+Mayrhofen+playground" target="_blank">
+      <div class="db g">5<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">🚡 Ahornbahn + Flohpark Sommerberg ✅ פתוח (קיץ 2025)</div>
+        <div class="sd">רכבל מ-Mayrhofen ל-2000 מ' – פארק הרפתקאות לילדים בפסגה + אגמון + נוף עצום. חצי יום קל.</div>
+        <div class="stags"><span class="st">Mayrhofen Card כולל</span><span class="st">ילדים 7–11 מתאים</span><span class="st">mayrhofen.at לשעות</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.5</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+    <a class="si" href="https://maps.google.com/maps?q=Stilluptal+reservoir+Mayrhofen+hiking" target="_blank">
+      <div class="db g">20<div class="dl">דק'</div></div>
+      <div class="sb">
+        <div class="sn">🌲 Stilluptal – עמק צדדי שקט ✅ פתוח (31.5–1.10.2025)</div>
+        <div class="sd">עמק צדדי עם מאגר מים + טיול ביער לאורך נחל. קל לכל הגיל. €10 אגרה/רכב.</div>
+        <div class="stags"><span class="st">€10 אגרה</span><span class="st">שקט ופחות תיירים</span><span class="st">2-3 שעות</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.5</div><div class="ml">Maps ↗</div></div>
+    </a>
+
+  </div>
+
+  <p class="sl">📅 סידור 4 הימים – Zillertal</p>
+  <div class="dp"><div class="dp-h z">31.7 – הגעה + Höhenstraße</div><div class="dp-b">
+    <strong>בוקר:</strong> יציאה מ-Längenfeld ~9:00 · הגעה ל-<strong>Emma's kleines Hotel, Ramsau im Zillertal</strong> ~10:30 🏨<br>
+    <strong>⚠️</strong> צ'ק-אין 15:00–20:00 · לנווט: <a href="https://www.google.com/maps?q=Emma%27s+kleines+Hotel+Ramsau+im+Zillertal&ll=47.2064,11.8717" target="_blank" style="color:inherit;">Talstrasse 55, Ramsau im Zillertal</a><br>
+    <strong>עד הצ'ק-אין:</strong> פריקה ברכב + קניות בסופר Mayrhofen 🛒 (3 ק"מ)<br>
+    <strong>אחה"צ:</strong> Zillertaler Höhenstraße – כביש פנורמה + Platzalm 🛣️
+  </div></div>
+  <div class="dp"><div class="dp-h z">1.8 – יום Schlegeis</div><div class="dp-b">
+    <strong>יום שלם:</strong> Schlegeis Stausee 💙<br>
+    לצאת ב-8:00 לפני הפקקים בכביש האלפיני. גשר תלוי = צילום פותח שנה.<br>
+    <strong>ערב:</strong> ארוחה ב-Mayrhofen
+  </div></div>
+  <div class="dp"><div class="dp-h z">2.8 – יום קרחון / Krimml</div><div class="dp-b">
+    <strong>אופציה א׳:</strong> Hintertux 🧊 – רכבל לפסגה + מערת קרח NaturEisPalast (אין גלישה ביולי–אוג)<br>
+    <strong>אופציה ב׳:</strong> Krimml Waterfalls 💦 – מפלים הגבוהים + הליכה<br>
+    תחליטו לפי תחזית מזג אוויר. גשם = קרימל (ממילא רטובים). שמש = הינטרטוקס.
+  </div></div>
+  <div class="dp"><div class="dp-h z">3.8 – יום חופשי</div><div class="dp-b">
+    <strong>בוקר:</strong> Ahornbahn + Flohpark – רכבל קל לפסגה 🚡<br>
+    <strong>צהריים:</strong> שחייה ב-Stilluptal / Durlassboden 🏊<br>
+    <strong>ערב:</strong> לארוז למינכן
+  </div></div>
+
+  <div class="tips">
+    <h4>💡 טיפים – Zillertal</h4>
+    <ul>
+      <li>Schlegeis: לצאת ב-7:00 – כביש פתוח מ-6:00 ביולי. <strong>€18/רכב מזומן בלבד!</strong> מומלץ להזמין online ticket מראש ב-visit.verbund.com</li>
+      <li>Krimml: 75 דק' מ-Mayrhofen דרך Gerlos Pass (€10 אגרה). לצאת ב-8:00</li>
+      <li>Mayrhofen Card: שווה לבדוק אם כוסה רכבלים וכבישים לפי מה שמתכננים</li>
+      <li>Hintertux: רכבל + מערת קרח = <strong>כן</strong>. גלישת שלג ביולי–אוגוסט = <strong>לא קיימת בשנים האחרונות</strong> עקב חום. לכוון לרכבל + NaturEisPalast + הליכה. ביגוד חם חובה.</li>
+      <li>Durlassboden reservoir (קרוב ל-Gerlos): שחייה חינמית + חנייה, קל ויפה לילדים</li>
+    </ul>
+  </div>
+
+  <!-- ACHENSEE STOP -->
+  <div class="darrow">🚗 <span>Mayrhofen → Achensee: <strong>~35 דק'</strong> · A12 + B181 → Achensee</span></div>
+
+  <div id="sec-achen" class="sh a" style="margin-top:6px;">
+    <h2>🏊 Achensee – עצירה בדרך</h2>
+    <p class="tag">4.8 · עצירת חצי יום · אחר כך מינכן</p>
+    <div class="pills">
+      <div class="pill">האגם הגדול של טירול</div>
+      <div class="pill">שחייה + אוכל</div>
+      <div class="pill">לא ללון – להמשיך למינכן</div>
+    </div>
+  </div>
+
+  <div class="sg" style="margin-top:8px;">
+    <a class="si" href="https://maps.google.com/maps?q=Achensee+lake+Pertisau+Tyrol+swimming" target="_blank">
+      <div class="db b">🏊<div class="dl">Pertisau</div></div>
+      <div class="sb">
+        <div class="sn">Achensee – האגם הגדול של טירול</div>
+        <div class="sd">אגם טורקיז מוקף הרים – חוף שחייה ב-Pertisau, חינמי. עצירת ~3 שעות. עצירה כיפית בדרך למינכן.</div>
+        <div class="stags"><span class="st">חנייה Pertisau חינמית</span><span class="st">מסעדה בצד האגם</span><span class="st">3 שעות ← מינכן</span></div>
+      </div>
+      <div class="sr"><div class="rb">⭐ 4.7</div><div class="ml">Maps ↗</div></div>
+    </a>
+  </div>
+
+  <div class="darrow">🚗 <span>Achensee → מינכן: <strong>~1:20 שעות</strong> · A12 → A93 → A8</span></div>
+
+  <!-- MUNICH OUT -->
+  <div id="sec-munich-out" class="sh m" style="margin-top:6px;">
+    <h2>🛫 מינכן – 2 לילות לפני הטיסה</h2>
+    <p class="tag">4.8–6.8 · טיסה 6.8 ~11:00 · לצאת לשדה ב-8:30</p>
+    <div class="pills">
+      <div class="pill">2 לילות</div>
+      <div class="pill">🏠 קרוב לשדה תעופה</div>
+      <div class="pill">✈️ טיסה 11:00–12:00</div>
+    </div>
+  </div>
+
+  <div class="apt">
+    <h5>🏨 מלון – מינכן (2 לילות)</h5>
+    <p>מלון קרוב לשדה התעופה – <strong>Freising, Erding, או Airport area</strong>. להחזיר רכב בהגעה ב-4.8, ומשם ב-U-Bahn/shuttle לכל מקום. 5.8 – יום חופשי: Olympiapark, English Garden, קניות. 6.8 – shuttle לשדה ב-8:30.</p>
+    <div class="alinks">
+      <a class="al" href="https://www.booking.com/searchresults.html?ss=Munich+Airport&checkin=2025-08-04&checkout=2025-08-06&group_adults=8&nflt=class%3D2%3Bclass%3D3" target="_blank">Booking מלונות ↗</a>
+    </div>
+  </div>
+
+  <div class="hbox">
+    <h4>🎯 5.8 – היום החופשי במינכן</h4>
+    <p>Olympiapark (מגלשת גלים 🌊) + Olympic Tower + English Garden. ערב: ביירגרטן קלאסי. לישון מוקדם ✈️</p>
+  </div>
+
+  <!-- SUMMARY -->
+  <p class="sl">📊 סיכום הטיול</p>
+  <div class="sum">
+    <table>
+      <tr style="background:var(--dark);color:white;">
+        <th style="padding:9px 13px;font-size:11px;text-align:right;">תאריכים</th>
+        <th style="padding:9px 13px;font-size:11px;text-align:right;">בסיס</th>
+        <th style="padding:9px 13px;font-size:11px;text-align:right;">לילות</th>
+        <th style="padding:9px 13px;font-size:11px;text-align:right;">הייליטס</th>
+      </tr>
+      <tr><td>27.7</td><td>🛬 מינכן</td><td style="text-align:center;">1</td><td>English Garden · 🏨 מלון · רכב רק מחר</td></tr>
+      <tr><td>28.7 בוקר</td><td>🏰 Neuschwanstein</td><td style="text-align:center;">—</td><td>טירת דיסני בדרך לÖtztal</td></tr>
+      <tr><td>28.7–31.7</td><td style="color:var(--oetz);font-weight:700;">🏔️ Ötztal</td><td style="text-align:center;">3</td><td>Stuibenfall · Piburger See · Area 47 · Obergurgl</td></tr>
+      <tr><td>31.7–4.8</td><td style="color:var(--zill);font-weight:700;">🌿 Zillertal</td><td style="text-align:center;">4</td><td>Schlegeis · Hintertux · Krimml · Höhenstraße</td></tr>
+      <tr><td>4.8</td><td style="color:var(--achen);font-weight:700;">🏊 Achensee</td><td style="text-align:center;">—</td><td>שחייה + צהריים בדרך חזרה</td></tr>
+      <tr><td>4.8–6.8</td><td>🛫 מינכן</td><td style="text-align:center;">2</td><td>Olympiapark · English Garden · ✈️ 6.8 ~11:00</td></tr>
+    </table>
+  </div>
+
+  </div><!-- end tab-trip -->
+
+  <div id="tab-map" class="tab-pane">
+
+    <p style="font-size:12px;color:var(--muted);margin-bottom:14px;">לחץ על כל עצירה לפתיחה ב-Google Maps או ב-Waze לניווט ישיר</p>
+
+    <!-- ROUTE BUTTONS -->
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px;">
+
+      <a href="https://www.google.com/maps/dir/Munich+Airport+MUC+Germany/Neuschwanstein+Castle+Schwangau+Germany/Umhausen+Otztal+Austria/Mayrhofen+Zillertal+Austria/Achensee+Pertisau+Austria/Munich+Airport+MUC+Germany" target="_blank" style="text-decoration:none;display:block;">
+        <div style="background:var(--dark);color:white;border-radius:14px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <div style="font-size:13px;font-weight:900;">🗺️ מסלול מלא ב-Google Maps</div>
+            <div style="font-size:11px;opacity:0.65;margin-top:2px;">MUC → Neuschwanstein → Ötztal → Zillertal → Achensee → MUC</div>
+          </div>
+          <span style="font-size:20px;opacity:0.7;">↗</span>
+        </div>
+      </a>
+
+
+
+    </div>
+
+    <!-- EMBEDDED MAP -->
+    <div style="border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.1);margin-bottom:18px;">
+      <iframe
+        src="https://maps.google.com/maps?f=d&source=s_d&saddr=Munich+Airport+MUC+Germany&daddr=Neuschwanstein+Castle+Germany+to:Umhausen+Otztal+Austria+to:Mayrhofen+Zillertal+Austria+to:Achensee+Tyrol+Austria+to:Munich+Airport+MUC+Germany&hl=iw&output=embed"
+        width="100%"
+        height="360"
+        style="border:0;display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- STOPS LIST -->
+    <div style="font-size:13px;font-weight:900;margin-bottom:10px;color:var(--dark);">📍 כל העצירות – Google Maps + Waze</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      
+      <div style="background:white;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);border-right:4px solid #7b4d12;">
+        <div style="margin-bottom:8px;">
+          <div style="font-size:13px;font-weight:700;color:#1a2332;">✈️ מינכן – שד״ת MUC</div>
+          <div style="font-size:11px;color:#6c757d;margin-top:2px;">27.7 – נחיתה | 4–6.8 – החזרת רכב</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a href="https://www.google.com/maps?q=Munich+International+Airport&ll=48.3537,11.7750" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;">
+            🗺️ Google Maps
+          </a>
+
+        </div>
+      </div>
+      <!-- ... rest of content ... -->
+</div>
+
+<script>
+  // Global location map: timeline location → section ID per tab
+  var locationMap = {
+    'munich':     { trip:'sec-munich-in',  food:'food-munich',    attractions:'attr-munich',   accom:'accom-otztal' },
+    'neus':       { trip:'sec-neus',        food:null,             attractions:'attr-route',    accom:null           },
+    'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal' },
+    'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal' },
+    'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null           },
+    'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null           }
+  };
+
+  function navigateTo(loc) {
+    var map = locationMap[loc];
+    if (!map) return;
+    // Find current active tab name
+    var activeTab = document.querySelector('.tab-pane.active');
+    var tabId = activeTab ? activeTab.id.replace('tab-','') : 'trip';
+    var targetId = map[tabId];
+    if (targetId && document.getElementById(targetId)) {
+      setTimeout(function() {
+        document.getElementById(targetId).scrollIntoView({ behavior:'smooth', block:'start' });
+      }, 50);
+    } else if (map['trip']) {
+      // Fallback: switch to trip tab and scroll
+      switchTab('trip', document.querySelector('.tnb'));
+      setTimeout(function() {
+        var el = document.getElementById(map['trip']);
+        if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+      }, 100);
+    }
+  }
+
+  function scrollToSection(id) { // kept for backward compat
+    var el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-pane').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.tnb').forEach(function(b){ b.classList.remove('active'); });
+    document.getElementById('tab-' + name).classList.add('active');
+    if (btn) btn.classList.add('active');
+    var fab = document.getElementById('add-place-fab');
+    if (fab) fab.style.display = (name === 'food') ? 'block' : 'none';
+  }
+
+  function scrollToFood(id) {
+    var el = document.getElementById(id);
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }
+
+  function openAddModal() {
+    var m = document.getElementById('add-modal');
+    m.style.display = 'flex';
+    document.getElementById('gmaps-url').value = '';
+    document.getElementById('modal-status').innerHTML = '';
+  }
+
+  function closeAddModal() {
+    document.getElementById('add-modal').style.display = 'none';
+  }
+
+  async function parseAndAddPlace() {
+    var url = document.getElementById('gmaps-url').value.trim();
+    var region = document.getElementById('place-region').value;
+    var status = document.getElementById('modal-status');
+    if (!url) { status.innerHTML = '<span style="color:#e74c3c">הדבק לינק של גוגל מפס</span>'; return; }
+
+    status.innerHTML = '⏳ מנתח את המקום...';
+
+    // Extract name & coords from URL if possible
+    var coords = '';
+    var placeName = '';
+    var coordMatch = url.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+    if (coordMatch) coords = coordMatch[1] + ',' + coordMatch[2];
+    var nameMatch = url.match(/\/maps\/place\/([^\/@?]+)/);
+    if (nameMatch) placeName = decodeURIComponent(nameMatch[1].replace(/\+/g,' ').replace(/-/g,' '));
+
+    try {
+      var prompt = "A user pasted this Google Maps URL: " + url + "\n\n" +
+        (placeName ? "Detected place name from URL: " + placeName + "\n" : "") +
+        (coords ? "Detected coordinates: " + coords + "\n" : "") +
+        "\nExtract or infer from this URL and your knowledge: the restaurant/cafe full name, Google rating (as number), approximate number of reviews, price range (€, €€, or €€€), type/cuisine label (short, in Hebrew or mixed), a 2-sentence Hebrew description mentioning what they serve and what makes them special, the address, and whether it opened in 2025 (isNew: true/false).\n\nRespond ONLY with valid JSON, no markdown:\n{\\"name\\":\\"...\\",\\"rating\\":4.5,\\"reviews\\":\\"500+\\",\\"price\\":\\"€€\\",\\"type\\":\\"🍕 פיצה\\",\\"description\\":\\"...\\",\\"address\\":\\"...\\",\\"coords\\":\\"lat,lng\\",\\"isNew\\":false}";
+
+      var resp = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 1000,
+          messages: [{ role: "user", content: prompt }]
+        })
+      });
+      var data = await resp.json();
+      var text = data.content.map(function(i){ return i.text || ''; }).join('').replace(/```json|```/g,'').trim();
+      var info;
+      try { info = JSON.parse(text); } catch(e) {
+        status.innerHTML = '<span style="color:#e74c3c">לא הצלחתי לנתח – נסה לינק מלא מגוגל מפס</span>';
+        return;
+      }
+
+      if (!info.coords && coords) info.coords = coords;
+      var newCoords = info.coords || coords || '0,0';
+      var latLng = newCoords.split(',');
+      var mapsUrl = "https://www.google.com/maps?q=" + encodeURIComponent(info.name) + "&ll=" + newCoords;
+
+      var newBadge = info.isNew ? '<span style="background:#fef3cd;color:#856404;font-size:10px;font-weight:700;padding:2px 6px;border-radius:8px;margin-right:4px;'>🆕 חדש 2025</span>' : '';
+      var card = '<div class="food-card">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">' +
+        '<div style="font-size:14px;font-weight:800;color:#1a2332;">' + info.name + '</div>' +
+        '<span style="background:#f3e5f5;color:#6c3483;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">' + (info.type || '📍 מקום') + '</span>' +
+        '</div>' +
+        '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">' +
+        '<span style="color:#f39c12;font-size:13px;">★ ' + info.rating + '</span>' +
+        '<span style="font-size:11px;color:#6c757d;">(' + (info.reviews || '?') + ' ביקורות)</span>' +
+        '<span style="font-size:11px;color:#7b4d12;font-weight:700;">' + (info.price || '€€') + '</span>' +
+        newBadge +
+        '</div>' +
+        '<div style="font-size:12px;color:#444;margin-bottom:10px;">' + (info.description || '') + '</div>' +
+        '<div style="font-size:11px;color:#888;margin-bottom:8px;">📍 ' + (info.address || '') + '</div>' +
+        '<a href="' + mapsUrl + '" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:4px;background:#1a2332;color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;">🗺️ Google Maps</a>' +
+        '</div>';
+
+      // Add to correct section
+      var targetId = region === 'munich' ? 'food-munich' :
+                     region === 'otztal' ? 'food-otztal' :
+                     region === 'zillertal' ? 'food-zillertal' : 'user';
+      if (targetId === 'user') {
+        document.getElementById('user-food-section').style.display = 'block';
+        document.getElementById('user-food-cards').insertAdjacentHTML('beforeend', card);
+      } else {
+        document.getElementById(targetId).insertAdjacentHTML('beforeend', card);
+      }
+
+      status.innerHTML = '<span style="color:#1e8449">✅ נוסף בהצלחה!</span>';
+      setTimeout(function(){
+        closeAddModal();
+        document.getElementById(targetId === 'user' ? 'user-food-section' : targetId).scrollIntoView({ behavior: 'smooth' });
+      }, 800);
+
+    } catch(err) {
+      status.innerHTML = '<span style="color:#e74c3c">שגיאה: ' + err.message + '</span>';
+    }
+  }
+
+  window.addEventListener('scroll', function(){ document.getElementById('btt').classList.toggle('show', window.scrollY > 300); });
+</script>
+
+
+
+</div><!-- #clip -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="חזור למעלה">↑</button>
+</body>
+</html>
