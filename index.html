@@ -252,24 +252,24 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 <!-- TIMELINE -->
 <div class="timeline">
   <div class="tl">
-    <div class="tls m" onclick="navigateTo('munich')" style="cursor:pointer;">🛬 מינכן<div class="td">27.7 · 1 לילה</div></div>
-    <div class="tls n" onclick="navigateTo('neus')" style="cursor:pointer;">🏰 Neuschwanstein<div class="td">28.7 בוקר</div></div>
-    <div class="tls o" onclick="navigateTo('oetz')" style="cursor:pointer;">🏔️ Ötztal<div class="td">28.7–31.7 · 3 לילות</div></div>
-    <div class="tls z" onclick="navigateTo('zill')" style="cursor:pointer;">🌿 Zillertal<div class="td">31.7–4.8 · 4 לילות</div></div>
-    <div class="tls a" onclick="navigateTo('achen')" style="cursor:pointer;">🏊 Achensee<div class="td">4.8 · עצירה</div></div>
-    <div class="tls m" onclick="navigateTo('munich-out')" style="cursor:pointer;">🛫 מינכן<div class="td">4.8–6.8 · 2 לילות</div></div>
+    <div class="tls m" data-loc="munich" onclick="navigateTo('munich')" style="cursor:pointer;">🛬 מינכן<div class="td">27.7 · 1 לילה</div></div>
+    <div class="tls n" data-loc="neus" onclick="navigateTo('neus')" style="cursor:pointer;">🏰 Neuschwanstein<div class="td">28.7 בוקר</div></div>
+    <div class="tls o" data-loc="oetz" onclick="navigateTo('oetz')" style="cursor:pointer;">🏔️ Ötztal<div class="td">28.7–31.7 · 3 לילות</div></div>
+    <div class="tls z" data-loc="zill" onclick="navigateTo('zill')" style="cursor:pointer;">🌿 Zillertal<div class="td">31.7–4.8 · 4 לילות</div></div>
+    <div class="tls a" data-loc="achen" onclick="navigateTo('achen')" style="cursor:pointer;">🏊 Achensee<div class="td">4.8 · עצירה</div></div>
+    <div class="tls m" data-loc="munich-out" onclick="navigateTo('munich-out')" style="cursor:pointer;">🛫 מינכן<div class="td">4.8–6.8 · 2 לילות</div></div>
   </div>
 </div>
 
 <div class="wrap">
   <div class="tab-nav-wrap"><div class="tab-nav">
-    <button class="tnb active" onclick="switchTab('trip', this)">🗺️ תוכנית הטיול</button>
-    <button class="tnb" onclick="switchTab('map', this)">🗺️ מפת הטיול</button>
-    <button class="tnb" onclick="switchTab('food', this)">🍽️ מסעדות ובתי קפה</button>
-    <button class="tnb" onclick="switchTab('attractions', this)">🎢 פארקים ואטרקציות</button>
-    <button class="tnb" onclick="switchTab('accom', this)">🏨 מקומות לינה</button>
-    <button class="tnb" onclick="switchTab('car', this)">🚗 השכרת רכב</button>
-    <button class="tnb" onclick="switchTab('outlets', this)">🛍️ אאוטלטים</button>
+    <button class="tnb active" data-tab="trip" onclick="switchTab('trip', this)">🗺️ תוכנית הטיול</button>
+    <button class="tnb" data-tab="map" onclick="switchTab('map', this)">🗺️ מפת הטיול</button>
+    <button class="tnb" data-tab="food" onclick="switchTab('food', this)">🍽️ מסעדות ובתי קפה</button>
+    <button class="tnb" data-tab="attractions" onclick="switchTab('attractions', this)">🎢 פארקים ואטרקציות</button>
+    <button class="tnb" data-tab="accom" onclick="switchTab('accom', this)">🏨 מקומות לינה</button>
+    <button class="tnb" data-tab="car" onclick="switchTab('car', this)">🚗 השכרת רכב</button>
+    <button class="tnb" data-tab="outlets" onclick="switchTab('outlets', this)">🛍️ אאוטלטים</button>
   </div></div>
   <div id="tab-trip" class="tab-pane active">
 
