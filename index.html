@@ -752,3 +752,30 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="חזור למעלה">↑</button>
 </body>
 </html>
+<script>
+(function(){
+  function navigateTo(loc){
+    var map = {
+      'munich':     { trip:'sec-munich-in',  food:null,             attractions:'attr-munich',   accom:'accom-otztal' },
+      'neus':       { trip:'sec-neus',        food:null,             attractions:'attr-route',    accom:null           },
+      'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal' },
+      'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal' },
+      'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null           },
+      'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null           }
+    }[loc];
+    if(!map) return;
+    var active = document.querySelector('.tab-pane.active');
+    var tabId = active ? active.id.replace('tab-','') : 'trip';
+    var targetId = map[tabId] || map.trip;
+    if(!document.getElementById(targetId)){
+      // fallback: switch to trip then scroll
+      var firstTabBtn = document.querySelector('.tnb');
+      if(firstTabBtn) window.switchTab('trip', firstTabBtn);
+      setTimeout(function(){ var el = document.getElementById(map.trip); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 60);
+      return;
+    }
+    document.getElementById(targetId).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  window.navigateTo = navigateTo;
+})();
+</script>
