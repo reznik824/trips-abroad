@@ -190,13 +190,13 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
   #btt:active { transform:scale(0.9); }
 
   /* MOBILE OVERFLOW NUCLEAR FIX */
-  #tab-car > *, #tab-outlets > *, #tab-accom > *, #tab-map > *, #tab-food > *, #tab-attractions > * {
+  #tab-car > *, #tab-outlets > *, #tab-accom > *, #tab-map > *, #tab-food > *, #tab-attractions > *, #tab-info > * {
     max-width: 100%;
     box-sizing: border-box;
     overflow-wrap: break-word;
     word-break: break-word;
   }
-  #tab-car, #tab-outlets, #tab-accom, #tab-map, #tab-food, #tab-attractions {
+  #tab-car, #tab-outlets, #tab-accom, #tab-map, #tab-food, #tab-attractions, #tab-info {
     overflow: hidden;
     width: 100%;
   }
@@ -234,7 +234,42 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
   .attr-tag-orange{ background:#fef0e6; color:#a04000; }
   .attr-tag-purple{ background:#f3e5f5; color:#6c3483; }
   #btt { position: fixed; }
-  
+
+  /* INFO TAB */
+  .info-section-title { font-size:15px; font-weight:900; color:var(--dark); margin:22px 0 10px; padding-bottom:8px; border-bottom:2px solid var(--border); display:flex; align-items:center; gap:8px; }
+  .booking-card { background:white; border-radius:14px; padding:14px 16px; margin-bottom:10px; box-shadow:0 2px 10px rgba(0,0,0,0.07); display:flex; gap:14px; align-items:flex-start; }
+  .booking-status { flex-shrink:0; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; }
+  .bk-red    { background:#fee2e2; }
+  .bk-yellow { background:#fef9c3; }
+  .bk-green  { background:#dcfce7; }
+  .booking-body { flex:1; min-width:0; }
+  .booking-title { font-size:14px; font-weight:800; color:var(--dark); margin-bottom:2px; }
+  .booking-subtitle { font-size:11px; color:var(--muted); margin-bottom:6px; }
+  .booking-desc { font-size:12px; color:#444; line-height:1.5; margin-bottom:8px; }
+  .booking-link { display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:700; padding:5px 12px; border-radius:20px; text-decoration:none; background:var(--dark); color:white; }
+  .info-card { background:white; border-radius:14px; padding:14px 16px; margin-bottom:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .info-card-title { font-size:13px; font-weight:800; color:var(--dark); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+  .info-row { display:flex; justify-content:space-between; align-items:baseline; padding:6px 0; border-bottom:1px solid var(--border); font-size:12px; }
+  .info-row:last-child { border-bottom:none; padding-bottom:0; }
+  .info-row-label { color:var(--muted); font-weight:600; }
+  .info-row-val { font-weight:700; color:var(--dark); text-align:left; }
+  .emergency-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .emg-card { background:white; border-radius:12px; padding:12px 14px; border-right:4px solid #e74c3c; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .emg-number { font-size:22px; font-weight:900; color:#c0392b; line-height:1; margin-bottom:2px; }
+  .emg-label { font-size:11px; font-weight:700; color:var(--dark); }
+  .emg-sub { font-size:10px; color:var(--muted); margin-top:1px; }
+  .pack-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .pack-item { background:white; border-radius:10px; padding:10px 12px; font-size:12px; font-weight:600; display:flex; align-items:center; gap:8px; box-shadow:0 1px 6px rgba(0,0,0,0.05); }
+  .budget-table { width:100%; border-collapse:collapse; font-size:12px; }
+  .budget-table th { background:var(--dark); color:white; padding:9px 12px; text-align:right; font-size:11px; font-weight:700; }
+  .budget-table td { padding:9px 12px; border-bottom:1px solid var(--border); background:white; }
+  .budget-table tr:last-child td { border-bottom:none; }
+  .budget-table td:first-child { font-weight:700; background:var(--sand); }
+  .budget-table td:last-child { font-weight:800; color:#1a6035; text-align:left; }
+  .budget-total { background:var(--dark); color:white; border-radius:12px; padding:12px 16px; margin-top:10px; display:flex; justify-content:space-between; align-items:center; }
+  .budget-total-label { font-size:13px; font-weight:700; opacity:0.8; }
+  .budget-total-val { font-size:20px; font-weight:900; }
+
 </style>
 </head>
 <body>
@@ -273,6 +308,7 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
     <button class="tnb" onclick="switchTab('accom', this)">🏨 מקומות לינה</button>
     <button class="tnb" onclick="switchTab('car', this)">🚗 השכרת רכב</button>
     <button class="tnb" onclick="switchTab('outlets', this)">🛍️ אאוטלטים</button>
+    <button class="tnb" onclick="switchTab('info', this)">📋 מידע חשוב</button>
   </div></div>
   <div id="tab-trip" class="tab-pane active">
 
@@ -2026,6 +2062,198 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 
   </div><!-- end tab-food -->
 
+  <!-- ===== INFO TAB ===== -->
+  <div id="tab-info" class="tab-pane">
+
+    <!-- URGENT BANNER -->
+    <div style="background:linear-gradient(135deg,#7f1d1d,#b91c1c);color:white;border-radius:16px;padding:16px 18px;margin-bottom:6px;">
+      <div style="font-size:16px;font-weight:900;margin-bottom:4px;">🔴 הזמנות מראש – חובה לפני הטיול</div>
+      <div style="font-size:12px;opacity:0.85;line-height:1.5;">חלק מהאטרקציות מתמלאות חודשים מראש. אל תדחו – הזמינו עכשיו!</div>
+    </div>
+
+    <!-- PRE-BOOKINGS -->
+    <div class="info-section-title">🎟️ הזמנות מראש</div>
+
+    <!-- Neuschwanstein tickets -->
+    <div class="booking-card">
+      <div class="booking-status bk-red">🏰</div>
+      <div class="booking-body">
+        <div class="booking-title">כרטיסים לטירת Neuschwanstein</div>
+        <div class="booking-subtitle">28.7 · חובה מוחלטת – מתמלא חודשים מראש</div>
+        <div class="booking-desc">הכרטיסים נגמרים חודשים לפני הביקור, במיוחד בשיא הקיץ. ניתן להזמין רק דרך האתר הרשמי. הזמינו לפחות 3 חודשים מראש.</div>
+        <a href="https://www.hohenschwangau.de/en/tickets" target="_blank" class="booking-link">🎟️ הזמנה רשמית</a>
+      </div>
+    </div>
+
+    <!-- Neuschwanstein parking -->
+    <div class="booking-card">
+      <div class="booking-status bk-red">🚌</div>
+      <div class="booking-body">
+        <div class="booking-title">חניון + שאטל לטירה</div>
+        <div class="booking-subtitle">28.7 · יש לרכוש חניה ממוספרת מראש</div>
+        <div class="booking-desc">חניון Neuschwanstein מוגבל ונגמר מוקדם. כדאי לרכוש חניה ממוספרת באתר הרשמי. השאטל עולה לעלייה – ניתן לרדת ברגל. הגיעו לפני 9:00.</div>
+        <a href="https://www.hohenschwangau.de/en/arrival-parking" target="_blank" class="booking-link">🅿️ חניה + הגעה</a>
+      </div>
+    </div>
+
+    <!-- Aqua Dome -->
+    <div class="booking-card">
+      <div class="booking-status bk-yellow">💧</div>
+      <div class="booking-body">
+        <div class="booking-title">Aqua Dome Längenfeld</div>
+        <div class="booking-subtitle">29–31.7 · מומלץ לקנות כרטיסים מראש</div>
+        <div class="booking-desc">מרכז ספא ובריכות תרמיות ב-Ötztal – אחד הספאות הכי מרהיבים באוסטריה. בשיא הקיץ יש תורים ארוכים. כרטיסים מראש חוסכים המתנה.</div>
+        <a href="https://www.aqua-dome.at/en/tickets-prices" target="_blank" class="booking-link">💧 כרטיסים</a>
+      </div>
+    </div>
+
+    <!-- Zillertal gondola -->
+    <div class="booking-card">
+      <div class="booking-status bk-yellow">🚡</div>
+      <div class="booking-body">
+        <div class="booking-title">Penken Gondola / Erlebnisbahn Zillertal</div>
+        <div class="booking-subtitle">31.7–4.8 · כרטיסים זמינים אבל כדאי לבדוק מראש</div>
+        <div class="booking-desc">הגונדולה ל-Penken (תחנת הפסגה ב-Mayrhofen) פתוחה גם בקיץ. רכישה מראש באתר חוסכת פלאים בשיא. בדקו שעות פעילות לפי תאריך.</div>
+        <a href="https://www.mayrhofen.at/en/summer/cable-cars" target="_blank" class="booking-link">🚡 מידע וכרטיסים</a>
+      </div>
+    </div>
+
+    <!-- Restaurants -->
+    <div class="booking-card">
+      <div class="booking-status bk-yellow">🍽️</div>
+      <div class="booking-body">
+        <div class="booking-title">מסעדות – הזמינו שולחן</div>
+        <div class="booking-subtitle">מסעדות מובילות מתמלאות שבועות מראש בשיא</div>
+        <div class="booking-desc">Goldkind (Mayrhofen – אם פתוחה) – שבוע מראש לפחות. Augustiner Keller (מינכן) – כדאי להזמין. Gasthof Krone (Umhausen) – מומלץ להזמין, סגור א׳–ג׳. Pizzeria Infang (Längenfeld) – סגור א׳–ג׳.</div>
+      </div>
+    </div>
+
+    <!-- LOGISTICS -->
+    <div class="info-section-title">🚗 לוגיסטיקה ונסיעה</div>
+
+    <div class="info-card">
+      <div class="info-card-title">🇦🇹 ויניט אוסטרית – חובה!</div>
+      <div style="font-size:12px;color:#444;line-height:1.6;margin-bottom:10px;">אוסטריה גובה אגרה על כבישים מהירים. <strong>חובה לרכוש ויניט (Vignette) לפני הנסיעה</strong> – ניתן לקנות אונליין לפני הטיול או בתחנות דלק בכניסה לאוסטריה. מחיר: ~€14 ל-10 ימים.</div>
+      <a href="https://www.asfinag.at/en/toll/vignette/" target="_blank" class="booking-link" style="margin-bottom:0;">🛒 רכישה אונליין</a>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">📍 טיפי חניה ולוגיסטיקה לפי עיר</div>
+      <div class="info-row"><span class="info-row-label">מינכן – נחיתה</span><span class="info-row-val">מלון במרכז – השתמשו בתחבורה ציבורית ביום הראשון</span></div>
+      <div class="info-row"><span class="info-row-label">Neuschwanstein</span><span class="info-row-val">חניון ממוספר מראש – הגיעו לפני 9:00</span></div>
+      <div class="info-row"><span class="info-row-label">Ötztal (Umhausen/Längenfeld)</span><span class="info-row-val">חניה בדירה – כל האטרקציות נגישות ברכב</span></div>
+      <div class="info-row"><span class="info-row-label">Mayrhofen / Zillertal</span><span class="info-row-val">חניה ציבורית חינמית בשכונות – אסור להיכנס למרכז בשיא</span></div>
+      <div class="info-row"><span class="info-row-label">Achensee</span><span class="info-row-val">עצירה בדרך חזרה – חניה ליד האגם</span></div>
+      <div class="info-row"><span class="info-row-label">מינכן – יציאה</span><span class="info-row-val">החזר רכב בשדה התעופה – פנו שעתיים לפחות לפני הטיסה</span></div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">🛣️ מרחקי נסיעה</div>
+      <div class="info-row"><span class="info-row-label">מינכן ← Neuschwanstein</span><span class="info-row-val">~1:40 שעה (115 ק״מ)</span></div>
+      <div class="info-row"><span class="info-row-label">Neuschwanstein ← Ötztal</span><span class="info-row-val">~1:15 שעה (80 ק״מ)</span></div>
+      <div class="info-row"><span class="info-row-label">Ötztal ← Mayrhofen</span><span class="info-row-val">~1:00 שעה (60 ק״מ)</span></div>
+      <div class="info-row"><span class="info-row-label">Mayrhofen ← Achensee</span><span class="info-row-val">~40 דקות (35 ק״מ)</span></div>
+      <div class="info-row"><span class="info-row-label">Achensee ← מינכן</span><span class="info-row-val">~1:15 שעה (80 ק״מ)</span></div>
+    </div>
+
+    <!-- EMERGENCY -->
+    <div class="info-section-title">🚨 מידע חירום</div>
+
+    <div class="emergency-grid" style="margin-bottom:10px;">
+      <div class="emg-card">
+        <div class="emg-number">112</div>
+        <div class="emg-label">חירום כללי</div>
+        <div class="emg-sub">גרמניה + אוסטריה</div>
+      </div>
+      <div class="emg-card">
+        <div class="emg-number">144</div>
+        <div class="emg-label">אמבולנס</div>
+        <div class="emg-sub">אוסטריה</div>
+      </div>
+      <div class="emg-card">
+        <div class="emg-number">140</div>
+        <div class="emg-label">הצלה בהרים</div>
+        <div class="emg-sub">אוסטריה – Bergrettung</div>
+      </div>
+      <div class="emg-card">
+        <div class="emg-number">120</div>
+        <div class="emg-label">כיבוי אש</div>
+        <div class="emg-sub">אוסטריה</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">🏥 בתי חולים קרובים</div>
+      <div class="info-row"><span class="info-row-label">מינכן</span><span class="info-row-val">Klinikum rechts der Isar</span></div>
+      <div class="info-row"><span class="info-row-label">Ötztal (Imst)</span><span class="info-row-val">Bezirkskrankenhaus Imst – ~25 דק׳</span></div>
+      <div class="info-row"><span class="info-row-label">Zillertal (Schwaz)</span><span class="info-row-val">Krankenhaus Schwaz – ~30 דק׳</span></div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">🇮🇱 שגרירות ישראל</div>
+      <div class="info-row"><span class="info-row-label">ווינה (אוסטריה)</span><span class="info-row-val">+43 1 476 46 500</span></div>
+      <div class="info-row"><span class="info-row-label">ברלין (גרמניה – חירום)</span><span class="info-row-val">+49 30 8904 5555</span></div>
+      <div class="info-row"><span class="info-row-label">ביטוח נסיעות</span><span class="info-row-val">בדקו שיש כיסוי לספורט הרים</span></div>
+    </div>
+
+    <!-- WEATHER & PACKING -->
+    <div class="info-section-title">🌤️ מזג אוויר וציוד</div>
+
+    <div class="info-card">
+      <div class="info-card-title">🌡️ מזג אוויר – סוף יולי, אמצע אוגוסט</div>
+      <div class="info-row"><span class="info-row-label">מינכן</span><span class="info-row-val">24–28°C ביום, לחות נמוכה</span></div>
+      <div class="info-row"><span class="info-row-label">Ötztal (1,000–2,000מ׳)</span><span class="info-row-val">18–25°C ביום, 8–12°C בלילה</span></div>
+      <div class="info-row"><span class="info-row-label">Mayrhofen (630מ׳)</span><span class="info-row-val">22–26°C ביום, 12–15°C בלילה</span></div>
+      <div class="info-row"><span class="info-row-label">פסגות (+2,000מ׳)</span><span class="info-row-val">10–16°C – ברדסים חובה!</span></div>
+      <div style="font-size:11px;color:#e74c3c;margin-top:8px;font-weight:700;">⚠️ גשם אפשרי כל יום אחרי הצהריים – בדקו תחזית לפני כל טיול הרים</div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">🎒 מה לארוז</div>
+      <div class="pack-grid">
+        <div class="pack-item">🥾 נעלי הליכה לכולם</div>
+        <div class="pack-item">🧥 ברדס / ג׳קט דק</div>
+        <div class="pack-item">🧴 קרם שמש SPF50+</div>
+        <div class="pack-item">🕶️ משקפי שמש</div>
+        <div class="pack-item">🌂 מעיל גשם קל</div>
+        <div class="pack-item">💊 תרופות בסיסיות</div>
+        <div class="pack-item">🔌 מתאם שקע אירופה</div>
+        <div class="pack-item">💳 כרטיס אשראי + מזומן €</div>
+        <div class="pack-item">📱 כרטיס SIM אירופה</div>
+        <div class="pack-item">🩱 בגד ים (בריכות/ספא)</div>
+        <div class="pack-item">🎮 משחקים לילדים לנסיעה</div>
+        <div class="pack-item">📄 מסמכי ביטוח נסיעות</div>
+      </div>
+    </div>
+
+    <!-- BUDGET -->
+    <div class="info-section-title">💶 תקציב משוער</div>
+
+    <div style="overflow-x:auto;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.07);">
+      <table class="budget-table">
+        <thead><tr>
+          <th>הוצאה</th>
+          <th>פירוט</th>
+          <th style="text-align:left;">הערכה</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>🏨 לינה</td><td>10 לילות (מלון + דירות)</td><td>€800–1,400</td></tr>
+          <tr><td>🚗 רכב</td><td>10 ימים + ביטוח + דלק + ויניט</td><td>€400–600</td></tr>
+          <tr><td>🎟️ אטרקציות</td><td>Neuschwanstein, Aqua Dome, גונדולות</td><td>€150–250</td></tr>
+          <tr><td>🍽️ אוכל</td><td>4 נפשות × 10 ימים × €30–50/יום</td><td>€1,200–2,000</td></tr>
+          <tr><td>🛍️ קניות</td><td>אאוטלטים + מזכרות</td><td>€200–500</td></tr>
+          <tr><td>⚡ שונות</td><td>תרופות, טיפים, חניות, קפה</td><td>€100–200</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="budget-total">
+      <span class="budget-total-label">סה״כ משוער (4 נפשות)</span>
+      <span class="budget-total-val">€2,850 – 4,950</span>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:8px;text-align:center;">לא כולל טיסות וביטוח נסיעות</div>
+
+  </div><!-- end tab-info -->
+
   <!-- ADD PLACE FAB -->
   <button id="add-place-fab" onclick="openAddModal()" style="display:none;position:fixed;bottom:80px;left:16px;width:52px;height:52px;border-radius:50%;background:#6c3483;color:white;font-size:24px;font-weight:300;border:none;box-shadow:0 4px 16px rgba(108,52,131,0.5);cursor:pointer;z-index:200;line-height:1;">+</button>
 
@@ -2058,12 +2286,12 @@ body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--dark)
 <script>
   // Global location map: timeline location → section ID per tab
   var locationMap = {
-    'munich':     { trip:'sec-munich-in',  food:'food-munich',    attractions:'attr-munich',   accom:'accom-munich',    car:null, outlets:null, map:null },
-    'neus':       { trip:'sec-neus',        food:'food-neus',      attractions:'attr-route',    accom:null,              car:null, outlets:null, map:null },
-    'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal',    car:null, outlets:null, map:null },
-    'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal', car:null, outlets:null, map:null },
-    'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null,              car:null, outlets:null, map:null },
-    'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null,              car:null, outlets:null, map:null }
+    'munich':     { trip:'sec-munich-in',  food:'food-munich',    attractions:'attr-munich',   accom:'accom-munich',    car:null, outlets:null, map:null, info:null },
+    'neus':       { trip:'sec-neus',        food:'food-neus',      attractions:'attr-route',    accom:null,              car:null, outlets:null, map:null, info:null },
+    'oetz':       { trip:'sec-oetz',        food:'food-otztal',    attractions:'attr-otztal',   accom:'accom-otztal',    car:null, outlets:null, map:null, info:null },
+    'zill':       { trip:'sec-zill',        food:'food-zillertal', attractions:'attr-zillertal',accom:'accom-zillertal', car:null, outlets:null, map:null, info:null },
+    'achen':      { trip:'sec-achen',       food:null,             attractions:'attr-zillertal',accom:null,              car:null, outlets:null, map:null, info:null },
+    'munich-out': { trip:'sec-munich-out',  food:'food-munich',    attractions:'attr-munich',   accom:null,              car:null, outlets:null, map:null, info:null }
   };
 
   function navigateTo(loc) {
