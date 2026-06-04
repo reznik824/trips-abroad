@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'><rect width='3' height='2' fill='%23009246'/><rect x='1' width='1' height='2' fill='white'/><rect x='2' width='1' height='2' fill='%23CE2B37'/></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פוליה – קיץ 2026 🇮🇹 · 27.7–7.8</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root {
+  --dark: #1a2332;
+  --sea: #0077b6;
+  --terra: #c07c35;
+  --olive: #4a7c59;
+  --sand: #faf3e8;
+  --border: #e5d8c5;
+  --muted: #6c757d;
+  --gold: #d4a017;
+  --teal: #0e7490;
+  /* area colors */
+  --mono: #0077b6; --mono2: #00b4d8;
+  --itria: #4a7c59; --itria2: #6aae7c;
+  --lecce: #b45309; --lecce2: #d97706;
+  --otran: #0e7490; --otran2: #06b6d4;
+  --galli: #be185d; --galli2: #ec4899;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+*,*::before,*::after{box-sizing:border-box;max-width:100%;}
+html{overflow-x:hidden;}
+body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);margin:0;padding:0;width:100%;word-break:break-word;}
+#clip{overflow-x:hidden;width:100%;position:relative;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0d2137 0%,#0077b6 55%,#c07c35 100%);padding:26px 20px 20px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'🌊';position:absolute;font-size:180px;opacity:0.04;top:-20px;left:50%;transform:translateX(-50%);pointer-events:none;}
+.hero h1{color:white;font-size:clamp(19px,5vw,30px);font-weight:900;margin-bottom:4px;}
+.hero .sub{color:rgba(255,255,255,0.7);font-size:12px;}
+.dates-pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;padding:5px 15px;border-radius:30px;font-size:12px;font-weight:600;margin-top:9px;}
+.meta-row{display:flex;justify-content:center;gap:7px;margin-top:8px;flex-wrap:wrap;}
+.mp{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.22);color:white;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
+
+/* TIMELINE */
+.timeline{background:white;border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.timeline::-webkit-scrollbar{display:none;}
+.tl{display:flex;min-width:max-content;padding-left:16px;}
+.tls{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 12px;font-size:11px;font-weight:700;color:white;min-width:80px;text-align:center;border-right:2px solid rgba(255,255,255,0.2);cursor:pointer;}
+.tls:last-child{border-right:none;}
+.tls:hover{opacity:0.82;}
+.tls .td{font-size:9px;opacity:0.75;font-weight:400;margin-top:2px;}
+.tls.bari{background:#1a2332;}
+.tls.mono{background:var(--mono);}
+.tls.itria{background:var(--itria);}
+.tls.lecce{background:var(--lecce);}
+.tls.otran{background:var(--otran);}
+.tls.galli{background:var(--galli);}
+
+/* WRAP */
+.wrap{max-width:800px;margin:0 auto;padding:16px 14px 40px;width:100%;overflow-x:hidden;}
+
+/* SECTION HEADER */
+.sh{border-radius:15px;padding:16px 20px 14px;color:white;margin-bottom:4px;}
+.sh.mono{background:linear-gradient(135deg,var(--mono),var(--mono2));}
+.sh.itria{background:linear-gradient(135deg,var(--itria),var(--itria2));}
+.sh.lecce{background:linear-gradient(135deg,var(--lecce),var(--lecce2));}
+.sh.otran{background:linear-gradient(135deg,var(--otran),var(--otran2));}
+.sh.galli{background:linear-gradient(135deg,var(--galli),var(--galli2));}
+.sh.bari{background:linear-gradient(135deg,#1a2332,#2c3e50);}
+.sh h2{font-size:17px;font-weight:900;margin-bottom:3px;text-align:right;}
+.sh .tag{font-size:12px;opacity:0.85;}
+.sh .pills{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap;}
+.sh .pill{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);color:white;padding:3px 11px;border-radius:20px;font-size:11px;font-weight:600;}
+
+/* DRIVE ARROW */
+.darrow{display:flex;align-items:center;gap:9px;padding:8px 14px;margin:9px 0;background:white;border-radius:30px;border:1px dashed var(--border);font-size:12px;font-weight:600;color:var(--muted);width:fit-content;}
+.darrow strong{color:var(--dark);}
+
+/* TAB NAV */
+.tab-nav-wrap{margin:14px 0 18px;position:relative;}
+.tab-nav-wrap::after{content:'';position:absolute;top:0;left:0;bottom:2px;width:30px;background:linear-gradient(to right,var(--sand),transparent);pointer-events:none;}
+.tab-nav{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tnb{flex-shrink:0;padding:9px 16px;border-radius:50px;border:2px solid var(--border);font-family:'Heebo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:white;color:var(--muted);transition:all 0.2s;white-space:nowrap;}
+.tnb.active{background:var(--dark);color:white;border-color:var(--dark);}
+.tab-pane{display:none;}
+.tab-pane.active{display:block;animation:fadeIn 0.25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+/* STAR GRID */
+.sg{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
+.sl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:14px 0 7px;}
+.si{display:flex;align-items:center;background:white;border-radius:13px;border:1px solid var(--border);overflow:hidden;text-decoration:none;color:inherit;transition:all 0.18s;}
+.si:hover{transform:translateX(2px);box-shadow:0 3px 10px rgba(0,0,0,0.09);}
+.db{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;width:58px;padding:10px 5px;text-align:center;font-size:10px;font-weight:900;color:white;}
+.db .dt{font-size:15px;font-weight:900;line-height:1;}
+.db .dl{font-size:9px;opacity:0.8;margin-top:1px;}
+.db.blue{background:var(--mono);}
+.db.green{background:var(--itria);}
+.db.brown{background:#7c5c2e;}
+.db.pink{background:var(--galli);}
+.db.teal{background:var(--otran);}
+.sb{flex:1;padding:9px 13px;}
+.sn{font-size:14px;font-weight:700;margin-bottom:2px;}
+.sd{font-size:12px;color:var(--muted);line-height:1.4;}
+.stags{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px;}
+.st{font-size:10px;font-weight:700;padding:2px 7px;border-radius:9px;background:var(--sand);color:var(--muted);border:1px solid var(--border);}
+.sr{flex-shrink:0;padding:9px 11px;display:flex;flex-direction:column;align-items:flex-start;gap:3px;}
+.rb{background:var(--dark);color:var(--gold);font-size:11px;font-weight:700;padding:3px 7px;border-radius:18px;white-space:nowrap;}
+.ml{font-size:10px;color:var(--teal);font-weight:600;white-space:nowrap;}
+
+/* DAY PLAN */
+.dp{background:white;border-radius:13px;border:1px solid var(--border);overflow:hidden;margin-bottom:7px;}
+.dp-h{padding:9px 15px;font-size:12px;font-weight:700;color:white;}
+.dp-h.mono{background:var(--mono);}
+.dp-h.itria{background:var(--itria);}
+.dp-h.lecce{background:var(--lecce);}
+.dp-h.otran{background:var(--otran);}
+.dp-h.galli{background:var(--galli);}
+.dp-h.bari{background:#1a2332;}
+.dp-b{padding:11px 15px;font-size:12px;line-height:1.7;}
+.dp-b strong{font-weight:700;}
+
+/* TIPS */
+.tips{background:linear-gradient(135deg,var(--dark),#2c3e50);color:white;border-radius:13px;padding:14px 17px;margin:5px 0 14px;}
+.tips h4{font-size:11px;font-weight:700;opacity:0.5;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;}
+.tips ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.tips li{font-size:12px;padding-right:15px;position:relative;opacity:0.9;line-height:1.4;}
+.tips li::before{content:'→';position:absolute;right:0;opacity:0.45;}
+
+/* FOOD CARD */
+.food-card{background:white;border-radius:14px;padding:14px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.07);border-right:4px solid var(--terra);}
+.fc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px;}
+.fc-name{font-size:14px;font-weight:800;color:var(--dark);}
+.fc-location{font-size:11px;color:var(--muted);margin-top:1px;}
+.fc-badge{flex-shrink:0;font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;white-space:nowrap;}
+.fc-desc{font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;}
+.fc-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;}
+.fc-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:9px;background:var(--sand);color:var(--muted);border:1px solid var(--border);}
+.fc-tip{background:#fef9e7;border:1px solid #fde68a;border-radius:10px;padding:8px 11px;font-size:11px;color:#854d0e;margin-bottom:8px;}
+.fc-links{display:flex;gap:6px;flex-wrap:wrap;}
+.fc-link{font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;text-decoration:none;background:var(--dark);color:white;}
+.fc-link.maps{background:var(--teal);}
+
+/* ATTR CARD */
+.attr-card{background:white;border-radius:14px;padding:14px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,0.07);}
+.attr-price-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+.attr-badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;white-space:nowrap;}
+.attr-tag-green{background:#d5f5e3;color:#1e8449;}
+.attr-tag-blue{background:#d6eaf8;color:#1a5276;}
+.attr-tag-red{background:#fde8e8;color:#c0392b;}
+.attr-tag-orange{background:#fef0e6;color:#a04000;}
+.attr-tag-brown{background:#f5e6d3;color:#7c5c2e;}
+.attr-tag-pink{background:#fce7f3;color:#be185d;}
+
+/* ACCOM CARDS */
+.accard{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.07);margin-bottom:14px;width:100%;}
+.accard-body{padding:14px 16px;}
+.accard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px;}
+.accard-name{font-size:16px;font-weight:900;}
+.accard-location{font-size:12px;color:var(--muted);margin-top:1px;}
+.accard-stars{font-size:13px;font-weight:900;color:var(--gold);background:var(--dark);padding:3px 9px;border-radius:20px;white-space:nowrap;}
+.accard-desc{font-size:12px;color:#444;line-height:1.55;margin-bottom:10px;}
+.accard-pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+.acp{font-size:11px;font-weight:700;padding:3px 9px;border-radius:10px;}
+.acp-yes{background:#dcfce7;color:#166534;border:1px solid #86efac;}
+.acp-no{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;}
+.acp-maybe{background:#fef9c3;color:#854d0e;border:1px solid #fde68a;}
+.accard-quote{background:var(--sand);border-radius:10px;padding:10px 12px;font-size:12px;color:#444;font-style:italic;line-height:1.5;margin-bottom:10px;}
+.accard-links{display:flex;gap:7px;flex-wrap:wrap;width:100%;}
+.acl{display:inline-block;font-size:12px;font-weight:700;padding:7px 14px;border-radius:25px;text-decoration:none;transition:opacity 0.15s;}
+.acl:hover{opacity:0.85;}
+.acl-primary{background:var(--dark);color:white;}
+.acl-maps{background:var(--teal);color:white;}
+.acl-book{background:#2563eb;color:white;}
+
+/* INFO TAB */
+.info-section-title{font-size:15px;font-weight:900;color:var(--dark);margin:22px 0 10px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px;}
+.info-card{background:white;border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.info-card-title{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.info-row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.info-row:last-child{border-bottom:none;padding-bottom:0;}
+.info-row-label{color:var(--muted);font-weight:600;}
+.info-row-val{font-weight:700;color:var(--dark);text-align:left;}
+.emergency-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.emg-card{background:white;border-radius:12px;padding:12px 14px;border-right:4px solid #e74c3c;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.emg-number{font-size:22px;font-weight:900;color:#c0392b;line-height:1;margin-bottom:2px;}
+.emg-label{font-size:11px;font-weight:700;color:var(--dark);}
+.emg-sub{font-size:10px;color:var(--muted);margin-top:1px;}
+
+/* DRIVING TAB */
+.drive-card{background:white;border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.drive-card-title{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.route-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:4px;}
+.route-table th{background:var(--dark);color:white;padding:8px 11px;text-align:right;font-size:11px;font-weight:700;}
+.route-table td{padding:8px 11px;border-bottom:1px solid var(--border);background:white;}
+.route-table tr:last-child td{border-bottom:none;}
+.route-table td:first-child{font-weight:700;background:var(--sand);}
+.ztl-warning{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 16px;font-size:12px;color:#9a3412;margin-bottom:10px;}
+.ztl-warning strong{font-weight:700;}
+
+/* MAP */
+#map{height:420px;border-radius:14px;overflow:hidden;margin-bottom:10px;}
+
+/* BACK TO TOP */
+#btt{position:fixed;bottom:24px;left:20px;width:44px;height:44px;border-radius:50%;background:var(--dark);color:white;border:none;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.25);opacity:0;transform:translateY(10px);transition:opacity 0.25s,transform 0.25s;z-index:999;display:flex;align-items:center;justify-content:center;}
+#btt.show{opacity:1;transform:translateY(0);}
+
+/* LEGEND */
+.leg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:11px;}
+.li{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--muted);}
+.ld{width:9px;height:9px;border-radius:50%;}
+
+/* APT BOX */
+.apt{background:#fef9e7;border:1px solid #f9e79f;border-radius:11px;padding:11px 15px;margin:9px 0;}
+.apt h5{font-size:12px;font-weight:700;color:#b7770d;margin-bottom:4px;}
+.apt p{font-size:12px;line-height:1.5;}
+
+/* HBOX */
+.hbox{background:linear-gradient(135deg,var(--itria),var(--itria2));color:white;border-radius:13px;padding:13px 16px;margin:8px 0;}
+.hbox h4{font-size:13px;font-weight:900;margin-bottom:4px;}
+.hbox p{font-size:12px;opacity:0.9;line-height:1.5;}
+
+/* MOBILE */
+#tab-trip>*,#tab-map>*,#tab-food>*,#tab-attr>*,#tab-accom>*,#tab-drive>*,#tab-info>*{max-width:100%;box-sizing:border-box;overflow-wrap:break-word;word-break:break-word;}
+#tab-trip,#tab-map,#tab-food,#tab-attr,#tab-accom,#tab-drive,#tab-info{overflow:hidden;width:100%;}
+@media(max-width:480px){.db{width:50px;}.tls{min-width:70px;font-size:10px;padding:8px 8px;}.emergency-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="clip">
+
+<div class="hero">
+  <h1>🇮🇹 פוליה – קיץ 2026</h1>
+  <p class="sub">Bari · Monopoli · Alberobello · Lecce · Otranto · Gallipoli</p>
+  <div class="dates-pill">✈️ 27.7 – 7.8.2026 &nbsp;·&nbsp; 11 לילות</div>
+  <div class="meta-row">
+    <div class="mp">🛫 TLV→BRI 07:05 (6H361)</div>
+    <div class="mp">🛬 BRI→TLV 18:35 (6H362)</div>
+    <div class="mp">🚗 עם רכב</div>
+    <div class="mp">🌊 אדריאטי + יוני</div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+  <div class="tl">
+    <div class="tls bari" onclick="navigateTo('bari')">✈️ בארי<div class="td">הגעה/יציאה</div></div>
+    <div class="tls mono" onclick="navigateTo('monopoli')">🌊 Monopoli<div class="td">לילות 1–3</div></div>
+    <div class="tls itria" onclick="navigateTo('itria')">🫒 Valle d'Itria<div class="td">לילות 4–5</div></div>
+    <div class="tls lecce" onclick="navigateTo('lecce')">🏛️ Lecce<div class="td">בדרך דרומה</div></div>
+    <div class="tls otran" onclick="navigateTo('otranto')">🏰 Otranto<div class="td">לילות 6–8</div></div>
+    <div class="tls galli" onclick="navigateTo('gallipoli')">🏖️ Gallipoli<div class="td">לילות 9–10</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="tab-nav-wrap"><div class="tab-nav">
+  <button class="tnb active" onclick="switchTab('trip',this)">🗺️ תוכנית הטיול</button>
+  <button class="tnb" onclick="switchTab('map',this)">📍 מפה</button>
+  <button class="tnb" onclick="switchTab('food',this)">🍽️ אוכל ומסעדות</button>
+  <button class="tnb" onclick="switchTab('attr',this)">🎢 אטרקציות</button>
+  <button class="tnb" onclick="switchTab('accom',this)">🏡 לינה</button>
+  <button class="tnb" onclick="switchTab('drive',this)">🚗 נסיעה ונהיגה</button>
+  <button class="tnb" onclick="switchTab('info',this)">📋 מידע חשוב</button>
+</div></div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB: TRIP PLAN -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab-trip" class="tab-pane active">
+
+  <!-- internal nav -->
+  <div style="display:flex;gap:8px;margin-bottom:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;">
+    <button onclick="document.getElementById('sec-bari').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#1a2332;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">✈️ בארי</button>
+    <button onclick="document.getElementById('sec-monopoli').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--mono);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🌊 Monopoli</button>
+    <button onclick="document.getElementById('sec-itria').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--itria);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🫒 Valle d'Itria</button>
+    <button onclick="document.getElementById('sec-lecce').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--lecce);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏛️ Lecce</button>
+    <button onclick="document.getElementById('sec-otranto').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--otran);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏰 Otranto</button>
+    <button onclick="document.getElementById('sec-gallipoli').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--galli);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏖️ Gallipoli</button>
+  </div>
+
+  <!-- BARI -->
+  <div id="sec-bari" class="sh bari">
+    <h2>✈️ הגעה לבארי</h2>
+    <p class="tag">נמל תעופה BRI · יום 1</p>
+    <div class="pills"><span class="pill">~45 ד׳ לMonopoli</span><span class="pill">SS16 ללא אגרה</span></div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h bari">27.7 — הגעה לבארי + Polignano a Mare בדרך</div>
+    <div class="dp-b">
+      <strong>טיסה 6H361:</strong> המראה TLV 07:05 · נחיתה BRI 09:20<br><br>
+      <strong>SP204 → SS16 דרומה</strong> — מהנמל עד Polignano a Mare כ-35 ד׳. חנו ב-Parcheggio Marco Polo (€1.50/שעה) והורידו לרחובות הלבנים.<br><br>
+      <strong>Polignano a Mare:</strong> עיר מרהיבה מעל הצוקים. ירדו למדרגות לחוף <strong>Lama Monachile</strong> — אפילו בלי לשחות, הנוף מדהים. טיילו על שפת המצוק בשקיעה, ראו את פסל <strong>Domenico Modugno</strong> (מחבר Volare) עם הזרועות פתוחות לים.<br><br>
+      <strong>ערב:</strong> נסעו ל-Monopoli (20 ד׳) והתיישבו ב-Agriturismo Tenuta Chianchizza.
+    </div>
+  </div>
+
+  <div class="tips">
+    <h4>טיפים לבארי</h4>
+    <ul>
+      <li>כן לפוקצ׳ה בארית ולפנזרוטי אצל Di Cosimo בבארי וקיה בדרך (ראו לשונית אוכל)</li>
+      <li>ZTL 24/7 בPolignano — חנו רק בחניונים מסומנים, אל תיכנסו לרחוב הראשי ברכב</li>
+      <li>SS16 חינמי ומציורי; A14 מהירה יותר ב-15 ד׳ אך בתשלום (~€2)</li>
+    </ul>
+  </div>
+
+  <!-- MONOPOLI/FASANO -->
+  <div id="sec-monopoli" class="sh mono">
+    <h2>🌊 Monopoli / Fasano — בסיס צפוני</h2>
+    <p class="tag">לילות 1–3 · Agriturismo Tenuta Chianchizza</p>
+    <div class="pills"><span class="pill">🏊 בריכה בחווה</span><span class="pill">🦁 Zoosafari</span><span class="pill">💦 Acquapark</span></div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h mono">28.7 — Zoosafari Fasano (יום שלם)</div>
+    <div class="dp-b">
+      <strong>הגיעו ב-9:30</strong> בדיוק כשהשערים נפתחים — החיות הכי פעילות בבוקר לפני שמחפשות צל. הסיור ברכב בין החיות (~1 שעה) + אזורי הליכה.<br><br>
+      <strong>Fasanolandia</strong> (אטרקציות שעשועים) — תשלום נפרד לכל מתקן. מומלץ לתכנן מראש אילו רוצים.<br><br>
+      <strong>ערב:</strong> 20 ד׳ נסיעה ל-<strong>Cisternino</strong> לארוחת בשר ב-Fornello Pronto — ניסיון קולינרי ייחודי (ראו לשונית אוכל).
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h mono">29.7 — Acquapark Egnazia</div>
+    <div class="dp-b">
+      פארק מים ענק ב-Capitolo di Monopoli. פתוח מ-10:00. כניסה ~€23-28 מבוגר, €17 ילד (100-130 ס״מ), חינם מתחת ל-100 ס״מ.<br><br>
+      <strong>לאחר מכן:</strong> חוף חופשי בקרבת מקום, או נגיעה ב-<strong>Lido Capitolo</strong> לשעות הצהריים.<br><br>
+      <strong>ערב:</strong> ארוחה ב-Monopoli — מסעדות דגים טריים על הנמל.
+    </div>
+  </div>
+
+  <div class="darrow">🚗 <strong>~45 ד׳ → עמק איטריה</strong> · SP172 פנימה</div>
+
+  <!-- VALLE D'ITRIA -->
+  <div id="sec-itria" class="sh itria">
+    <h2>🫒 Valle d'Itria — עמק הטרולי</h2>
+    <p class="tag">לילות 4–5 · Alberobello · Cisternino · Locorotondo · Ostuni</p>
+    <div class="pills"><span class="pill">🍄 כפר הטרולי</span><span class="pill">🦇 מערות נטיפים</span><span class="pill">🏛️ העיר הלבנה</span></div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h itria">30.7 — Alberobello + Locorotondo + Cisternino</div>
+    <div class="dp-b">
+      <strong>לפני 9:00:</strong> הגיעו ל-Alberobello לפני ההמונים. חנו ב-Piazzale Indipendenza (€8/יום). Rione Aia Piccola — 200 טרולי נוספים, <strong>חינם</strong> ופחות צפוף.<br><br>
+      <strong>אחה"צ:</strong> 15 ד׳ נסיעה ל-<strong>Locorotondo</strong> — כפר לבן עם גגות אנגולריים ייחודיים. עלו ל-Belvedere לתצפית על עמק הזיתים.<br><br>
+      <strong>ערב:</strong> <strong>Cisternino</strong> — Fornello Pronto: בוחרים בשר גולמי מהקצב, הם צולים לכם. חובה לנסות <strong>bombetta</strong>.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h itria">31.7 — Grotte di Castellana + Ostuni</div>
+    <div class="dp-b">
+      <strong>בוקר:</strong> <strong>Grotte di Castellana</strong> — מערת הנטיפים. הזמינו מראש! סיור ארוך (3 ק"מ, 100 ד') ממש שווה — הגרוטה ביאנקה מדהימה. טמפרטורה פנים: 18°C — קחו שכבה נוספת.<br><br>
+      <strong>אחה"צ:</strong> 20 ד׳ ל-<strong>Ostuni</strong>, "העיר הלבנה". רחובות מפותלים, חומות עתיקות, קתדרלה עם חלון ורד. חנו ב-Via Specchia, ואפשר לקחת Ape (תלת-אופן) סיור עם הילדים.<br><br>
+      <strong>ערב:</strong> נסיעה דרומה לכיוון Lecce (~1 שעה).
+    </div>
+  </div>
+
+  <div class="darrow">🚗 <strong>~1:20 שעות → לצ׳ה</strong> · SP113 → SS379 → SS16</div>
+
+  <!-- LECCE -->
+  <div id="sec-lecce" class="sh lecce">
+    <h2>🏛️ Lecce — ברוק הפולייזי</h2>
+    <p class="tag">יום 6 · עצירה בדרך דרומה</p>
+    <div class="pills"><span class="pill">🏛️ אמפיתאטרון רומי</span><span class="pill">🏰 Castello Carlo V</span><span class="pill">⛪ כנסיות ברוק</span></div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h lecce">1.8 — לצ׳ה + נסיעה לאוטרנטו</div>
+    <div class="dp-b">
+      <strong>בוקר:</strong> חנו ב-Parcheggio Torre del Parco (מחוץ לZTL). לצ'ה מפורסמת ב"ברוק הלצ'י" — כנסיות מפוסלות מאבן גיר צהובה. <strong>Anfiteatro Romano</strong> (2,000 שנה) ממש במרכז. <strong>Castello Carlo V</strong> הגדול.<br><br>
+      <strong>ZTL:</strong> פעיל 13:00-16:00 ו-19:00-10:00 — אל תיכנסו ברכב לאזור ההיסטורי.<br><br>
+      <strong>אחה"צ:</strong> 40 ד' נסיעה לאוטרנטו ולמסריה Mongiò dell'Elefante.
+    </div>
+  </div>
+
+  <div class="darrow">🚗 <strong>~40 ד׳ → אוטרנטו</strong> · SP362</div>
+
+  <!-- OTRANTO -->
+  <div id="sec-otranto" class="sh otran">
+    <h2>🏰 Otranto / סלנטו</h2>
+    <p class="tag">לילות 6–8 · Masseria Mongiò dell'Elefante</p>
+    <div class="pills"><span class="pill">🟥 Cava di Bauxite</span><span class="pill">🌊 Baia dei Turchi</span><span class="pill">🏰 מבצר עתיק</span></div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h otran">2.8 — עיר אוטרנטו + Cava di Bauxite</div>
+    <div class="dp-b">
+      <strong>בוקר:</strong> עיר אוטרנטו — הקתדרלה עם הפסיפס הרצפתי מהמאה ה-12 (אחד המדהימים בישו"א, ילדים אוהבים!). מבצר ה-Castello Aragonese.<br><br>
+      <strong>אחה"צ:</strong> <strong>Cava di Bauxite</strong> — 2 ק"מ מהעיר. אגם טורקיז מוקף אדמה אדומה-כתומה, ניגוד צבעים מדהים. גישה להולכי רגל (חינם). שחייה אסורה. <strong>חשוב: בדקו מצב גישה לפני הנסיעה</strong> (ראו לשונית אטרקציות).<br><br>
+      <strong>ערב:</strong> ארוחת דגים טרי בעיר אוטרנטו.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h otran">3.8 — Baia dei Turchi + Specchia</div>
+    <div class="dp-b">
+      <strong>בוקר מוקדם (~8:00):</strong> <strong>Baia dei Turchi</strong> — 10-20 ד' הליכה דרך יער אורנים עד לחוף מרהיב. קחו ציוד שלכם (שמשייה, מחצלת). מתמלא עד 10:00.<br><br>
+      <strong>אחה"צ:</strong> <strong>Specchia</strong> — כפר סלנטינו קטן, "הכי יפה של סלנטו". הגשות בVia Fondo Maglio לטיול ב-טחנות שמן תת-קרקעיות. מגדל מהמאה ה-15.<br><br>
+      <strong>ערב:</strong> חזרה למסריה.
+    </div>
+  </div>
+
+  <div class="darrow">🚗 <strong>~55 ד׳ → גליפולי</strong> · כבישי חוף (עמוסים בשיא — צאו מוקדם)</div>
+
+  <!-- GALLIPOLI -->
+  <div id="sec-gallipoli" class="sh galli">
+    <h2>🏖️ Gallipoli / Pescoluse</h2>
+    <p class="tag">לילות 9–10 · החוף המערבי / שפיץ המגף</p>
+    <div class="pills"><span class="pill">💦 Splash Water Park</span><span class="pill">🌊 Pescoluse "מלדיביים"</span><span class="pill">🏝️ גליפולי עתיקה</span></div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h galli">4.8 — Splash Water Park + גליפולי</div>
+    <div class="dp-b">
+      <strong>בוקר-אחה"צ:</strong> <strong>Splash Parco Acquatico</strong> — 14 מגלשות כולל Kamikaze, Caribbean River (נהר צף), Fabilandia לקטנים. פתוח 10:00-18:30. €15/אדם, חינם מתחת ל-110 ס״מ.<br><br>
+      <strong>ערב:</strong> עיר גליפולי — מבצר על אי קטן מחובר לגשר, שוק ישן, מסעדות פירות ים. שקיעה צבאית על הים היוני.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h galli">5.8–6.8 — Pescoluse + יום רגוע</div>
+    <div class="dp-b">
+      יום שלם בחוף Pescoluse — חול לבן עדין, מים רדודים וטורקיזים, מושלם לילדים. <strong>הגיעו לפני 9:00</strong> לחנייה חינמית.<br><br>
+      לידים (€35-60 לשמשייה + 2 כורסאות) — <strong>כדאי להזמין מראש</strong> ביולי-אוגוסט ב-spiagge.it.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h bari">7.8 — חזרה לבארי ✈️ הביתה</div>
+    <div class="dp-b">
+      <strong>טיסה 6H362:</strong> יציאה BRI 18:35 · נחיתה TLV 22:35<br><br>
+      <strong>SS101 → A14 צפונה</strong> (~2:10 שעות). היכנסו לנמל לפחות 2 שעות לפני — המראה 18:35, כלומר ב-16:30 כבר בנמל.<br><br>
+      עצירת בוקר אפשרית ב-<strong>Grottaglie</strong> (כפר הקרמיקה, 15 ד' מTaranto) — ילדים יכולים לצבוע קרמיקה. הזמינו מראש! פתוח 9:00-12:30.
+    </div>
+  </div>
+
+</div><!-- /tab-trip -->
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB: MAP -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab-map" class="tab-pane">
+  <div id="map"></div>
+  <div class="leg">
+    <div class="li"><div class="ld" style="background:var(--mono)"></div>חופים/ים</div>
+    <div class="li"><div class="ld" style="background:var(--itria)"></div>טבע ומערות</div>
+    <div class="li"><div class="ld" style="background:#7c5c2e"></div>היסטוריה</div>
+    <div class="li"><div class="ld" style="background:var(--galli)"></div>אוכל</div>
+    <div class="li"><div class="ld" style="background:#9333ea"></div>לינה</div>
+    <div class="li"><div class="ld" style="background:var(--teal)"></div>פארקי מים</div>
+  </div>
+  <div class="tips">
+    <h4>ניווט במפה</h4>
+    <ul>
+      <li>לחיצה על סמן מציגה שם ופרטים</li>
+      <li>צבע = קטגוריה (ראו מקרא למעלה)</li>
+      <li>המסלול מצפון לדרום — BRI עד שפיץ המגף</li>
+    </ul>
+  </div>
+</div><!-- /tab-map -->
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB: FOOD -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab-food" class="tab-pane">
+
+  <div class="hbox">
+    <h4>💡 כלל הזהב של פוליה</h4>
+    <p>כל אוכל טוב פה עשוי ממרכיבים מינימליים וטריים. אורקיטה + cime di rapa, בורטה טרייה, פוקצ'ה בארית — פשוטות אך מדהימות.</p>
+  </div>
+
+  <div class="sl">בארי — עצירת אוכל בכניסה/יציאה</div>
+
+  <div class="food-card">
+    <div class="fc-head">
+      <div>
+        <div class="fc-name">Pizzeria Di Cosimo</div>
+        <div class="fc-location">Largo Albicocca 19, Bari Vecchia</div>
+      </div>
+      <div class="fc-badge attr-tag-blue">מאומת ✓</div>
+    </div>
+    <div class="fc-desc">קיוסק מיתולוגי בבארי וקיה. פנזרוטי ענקיים מטוגנים במוצרלה ועגבניות — €2.50 לחתיכה. קאונטר שירות עצמי, ישיבה בחוץ, אין הזמנות. מושלם לפתוח/לסגור את הטיול.</div>
+    <div class="fc-row">
+      <div class="fc-tag">ידידותי לילדים</div>
+      <div class="fc-tag">ללא הזמנה</div>
+      <div class="fc-tag">מ-18:30</div>
+      <div class="fc-tag">€2-7</div>
+    </div>
+    <div class="fc-tip">חובה לנסות: פנזרוטי + פוקצ'ה בארית (עגבניות שרי, זיתים) מכל פורנו בבארי וקיה</div>
+  </div>
+
+  <div class="sl">Cisternino — חווית הפורנלו פרונטו (ייחודית בעולם!)</div>
+
+  <div class="food-card" style="border-right-color:var(--terra)">
+    <div class="fc-head">
+      <div>
+        <div class="fc-name">Da Zio Pietro — Fornello Pronto</div>
+        <div class="fc-location">Via Duca D'Aosta 3, Cisternino</div>
+      </div>
+      <div class="fc-badge attr-tag-green">מאומת ✓</div>
+    </div>
+    <div class="fc-desc">
+      <strong>חוויה שאין בשום מקום אחר:</strong> קצביה שבערב הופכת למסעדה. בוחרים בשר גולמי מהדלפק (בומבטה, נקניקיות, gnummareddi), הם צולים על עצי זית בתנור אבן, אתם יושבים ומחכים.<br><br>
+      <strong>Bombetta</strong> — הדיש של ציסטרנינו: חתיכת capocollo מגולגלת סביב גבינה, פטרוזיליה ופלפל, צלויה בשיפוד. חובה מוחלט.
+    </div>
+    <div class="fc-row">
+      <div class="fc-tag">פתוח מ-18:30</div>
+      <div class="fc-tag">חמישי–ראשון</div>
+      <div class="fc-tag">ידידותי לילדים</div>
+      <div class="fc-tag">טל: 080 4448300</div>
+    </div>
+    <div class="fc-tip">הגיעו ב-18:30 — כשנגמר הבשר, נגמר. הכי טוב לצלצל יום קודם.</div>
+  </div>
+
+  <div class="sl">Alberobello</div>
+
+  <div class="food-card">
+    <div class="fc-head">
+      <div>
+        <div class="fc-name">Trattoria Terra Madre</div>
+        <div class="fc-location">Piazza Sacramento 17, Alberobello</div>
+      </div>
+      <div class="fc-badge attr-tag-green">מאומת ✓</div>
+    </div>
+    <div class="fc-desc">מסעדה בתוך מתחם טרולי עם גינת ירק פעילה — כל מה שמגיע לשולחן גדל כאן. אנטיפסטי ירקות מהמגרש, פסטה שדות, קינוחים עונתיים. פילוסופיית zero-kilometer.</div>
+    <div class="fc-row">
+      <div class="fc-tag">ב׳-א׳, 12:00-14:45 ו-19:00-22:00</div>
+      <div class="fc-tag">סגור ב׳</div>
+      <div class="fc-tag">€25-45/נפש</div>
+    </div>
+    <div class="fc-tip">הזמינו בטלפון מראש: +39 080 4324326. הגינה מסביב מרתקת ילדים.</div>
+    <div class="fc-links"><a href="tel:+390804324326" class="fc-link">📞 הזמנה</a></div>
+  </div>
+
+  <div class="sl">מסעדות לא מאומתות — לבדוק לפני</div>
+
+  <div class="food-card" style="border-right-color:#e5d8c5">
+    <div class="fc-head">
+      <div>
+        <div class="fc-name">Trattoria Fedele</div>
+        <div class="fc-location">אזור Monopoli/Fasano — לא מאומת</div>
+      </div>
+      <div class="fc-badge attr-tag-orange">⚠️ לא אומת</div>
+    </div>
+    <div class="fc-desc">המחקר לא הצליח לאמת את קיום המסעדה הזו באזור Monopoli/Fasano. ייתכן שנסגרה או שהשם לא מדויק. <strong>בדקו ב-Google Maps/TripAdvisor לפני.</strong></div>
+    <div class="fc-row"><div class="fc-tag">לבדוק</div></div>
+    <div class="fc-tip">חלופה מאומתת: Osteria Pericci (Monopoli) — דגים טריים, קווטלי עם צדפות.</div>
+  </div>
+
+  <div class="sl">אוכל שחובה לנסות בפוליה</div>
+
+  <div class="attr-card">
+    <div style="font-size:13px;font-weight:800;margin-bottom:10px;">🍽️ המנות שאי אפשר בלעדיהן</div>
+    <div style="font-size:12px;line-height:1.9;color:#444;">
+      <strong>Orecchiette alle cime di rapa</strong> — אורקיטה עם תרדיון מר, הפסטה של פוליה<br>
+      <strong>Burrata di Andria IGP</strong> — קנו ישירות מCaseificio Olanda ב-Andria<br>
+      <strong>Focaccia Barese</strong> — עגבניות שרי + זיתים, קנו מכל פורנו בבארי<br>
+      <strong>Bombetta</strong> — בלעדי לציסטרנינו, במרינדה על עצי זית<br>
+      <strong>Friselle</strong> — לחם יבש שמשרים במים, עם עגבניה ושמן זית<br>
+      <strong>Sgagliozze</strong> — ריבועי פולנטה מטוגנים, אוכל רחוב בבארי<br>
+      <strong>Tiella barese</strong> — תבשיל אורז+תפוחי אדמה+מולים, קלאסיקה בארית
+    </div>
+  </div>
+
+  <div class="sl">קינוחים וגלידריות</div>
+
+  <div class="attr-card">
+    <div style="font-size:13px;font-weight:800;margin-bottom:8px;">🍦 גלידריות מומלצות לילדים</div>
+    <div style="font-size:12px;line-height:1.8;color:#444;">
+      <strong>Arte Fredda</strong> (Alberobello) — פועלת מ-1880, טעמים עונתיים: שקד, תות שדה, חבוש<br>
+      <strong>Mia Gelateria</strong> (Alberobello) — אבטיח, תות עץ, תמר טרי<br>
+      <strong>Caffè Roma</strong> (Monopoli) — מפורסמת בפיסטוק ו"Supernutella"
+    </div>
+  </div>
+
+  <div class="sl">שווקים שבועיים</div>
+
+  <div class="attr-card">
+    <div style="font-size:13px;font-weight:800;margin-bottom:8px;">🧺 שווקים מקומיים</div>
+    <div style="font-size:12px;line-height:1.8;color:#444;">
+      <strong>יום ב׳</strong> — Cisternino (Via Dante Alighieri)<br>
+      <strong>יום ד׳</strong> — Fasano<br>
+      <strong>יום ה׳</strong> — Alberobello<br>
+      <strong>יום ו׳</strong> — Locorotondo<br>
+      <strong>יום ש׳</strong> — <strong>Ostuni</strong> — הגדול והציורי ביותר. גבינות, נקניקים, ירקות
+    </div>
+  </div>
+
+</div><!-- /tab-food -->
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB: ATTRACTIONS -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab-attr" class="tab-pane">
+
+  <div class="leg">
+    <div class="li"><div class="ld" style="background:var(--teal)"></div>פארקי מים</div>
+    <div class="li"><div class="ld" style="background:var(--itria)"></div>טבע וחופים</div>
+    <div class="li"><div class="ld" style="background:#7c5c2e)"></div>היסטוריה</div>
+  </div>
+
+  <div class="sl">💦 פארקי מים ושעשועים</div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Acquapark Egnazia</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Litoranea Capitolo-Savelletri, Monopoli</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-blue">מבוגר €23-28</span>
+      <span class="attr-badge attr-tag-green">ילד €17</span>
+      <span class="attr-badge attr-tag-green">מתחת 100ס"מ חינם</span>
+      <span class="attr-badge attr-tag-orange">10:00–18:00</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">פארק מים גדול עם מגלשות, בריכות עם גלים, Children's area. כורסאות ניתן לשריין מראש באתר.</div>
+    <div class="fc-tip">קופון €5 הנחה באתר aquaparkegnazia.it — הדפיסו לפני.</div>
+    <div class="fc-links"><a href="https://www.aquaparkegnazia.it" target="_blank" class="fc-link">אתר רשמי</a></div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Zoosafari Fasanolandia</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">SS172 dei Trulli, Fasano</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-blue">מבוגר €35</span>
+      <span class="attr-badge attr-tag-green">ילד 4-10: €27</span>
+      <span class="attr-badge attr-tag-green">מתחת 4: חינם</span>
+      <span class="attr-badge attr-tag-orange">9:30–15:00 כניסה אחרונה</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">ספארי ברכב (~1 שעה) + אזורי הליכה עם חיות. Fasanolandia = אטרקציות שעשועים בתשלום נפרד. 4-6 שעות.</div>
+    <div class="fc-tip">הגיעו ב-9:30 — החיות כי פעילות בבוקר לפני הצהריים.</div>
+    <div class="fc-links"><a href="https://zoosafari.it" target="_blank" class="fc-link">אתר רשמי</a></div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Splash Parco Acquatico</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Rivabella, Litoranea Nord Gallipoli</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-blue">€15 לאדם</span>
+      <span class="attr-badge attr-tag-green">מתחת 110ס"מ חינם</span>
+      <span class="attr-badge attr-tag-orange">10:00–18:30</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">14 מגלשות כולל Kamikaze, Caribbean River (נהר צף). שעות ערב 19:00-02:00 — אורות + מוזיקה. פחות עמוס ונעים.</div>
+    <div class="fc-links"><a href="https://lnx.splashparco.it" target="_blank" class="fc-link">אתר רשמי</a></div>
+  </div>
+
+  <div class="sl">🌿 טבע, חופים ומערות</div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Lama Monachile — חוף פוליניאנו</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Centro storico, Polignano a Mare</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-green">כניסה חינם</span>
+      <span class="attr-badge attr-tag-orange">⚠️ אין שמשיות</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">חוף חצץ מרהיב תחת גשר רומי עתיק בין צוקים. מגיעים מהעיר העתיקה ב-5 ד' הליכה. אין ציוד לשכירה — קחו הכל אתכם. חובה גם בלי שחייה.</div>
+    <div class="fc-tip">סנדלי ים — החצץ גדול ולא נוח. הגיעו לפני 9:00 בקיץ.</div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Grotte di Castellana</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Piazza della Repubblica, Castellana Grotte</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-blue">סיור ארוך: €18 מבוגר / €15 ילד</span>
+      <span class="attr-badge attr-tag-green">מתחת 5: חינם</span>
+      <span class="attr-badge attr-tag-orange">18°C בפנים</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">מערת נטיפים מרהיבה — 3 ק"מ, 100 דקות. Grotta Bianca בסיומה — לבן מוחלט. פתוח כל השנה.</div>
+    <div class="fc-tip">⚠️ קחו שכבה נוספת — 18°C עם לחות גבוהה מרגיש קר מאוד כשבחוץ 35°C. הזמינו מראש: grottedicastellana.it</div>
+    <div class="fc-links"><a href="https://www.grottedicastellana.it" target="_blank" class="fc-link">הזמנת כרטיסים</a></div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Cava di Bauxite</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">~2 ק"מ מאוטרנטו, לכיוון Torre del Serpe</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-green">כניסה חינם</span>
+      <span class="attr-badge attr-tag-red">שחייה אסורה</span>
+      <span class="attr-badge attr-tag-orange">⚠️ מצב גישה לא יציב</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">אגם ירוק-טורקיז בתוך מחצב נטוש — ניגוד עוצר נשימה בין המים לאדמה האדומה. גישה להולכי רגל חינמית (הסכם 2026). שחייה אסורה.</div>
+    <div class="ztl-warning"><strong>⚠️ חשוב:</strong> בדקו מצב גישה ב-comune.otranto.le.it בשבוע לפני הביקור — המצב המשפטי עדיין לא יציב.</div>
+    <div class="fc-tip">הגיעו עם שמש נמוכה (בוקר מוקדם) לצילומים המושלמים.</div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Baia dei Turchi</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">ליד אוטרנטו</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-green">חוף חינם</span>
+      <span class="attr-badge attr-tag-orange">חניה €5-10</span>
+      <span class="attr-badge attr-tag-blue">10-20 ד' הליכה ביער</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">אחד היפים ביותר בסלנטו — חול לבן, מים צלולים, יער אורנים עד הים. קחו ציוד שלכם. לא מתאים לעגלות.</div>
+    <div class="fc-tip">מתמלא עד 10:00 — תכוונו ל-8:00 ביולי-אוגוסט.</div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Spiaggia di Pescoluse — "המלדיביים"</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Marina di Pescoluse, Salve</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-green">חוף חינם</span>
+      <span class="attr-badge attr-tag-blue">ליד: €35-60/יום</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">חוף ארוך עם חול עדין כאבקה ומים רדודים וטורקיזים — מושלם לילדים קטנים. לידים מלאי שירותים לאורך החוף.</div>
+    <div class="fc-tip">הזמינו ליד מראש ב-spiagge.it — ביולי-אוגוסט לא תמצאו מקום ביום עצמו.</div>
+  </div>
+
+  <div class="sl">🏛️ היסטוריה ועיירות</div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Alberobello — כפר הטרולי</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Alberobello (BA) · אתר UNESCO</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-green">רחובות ציבוריים = חינם</span>
+      <span class="attr-badge attr-tag-orange">Rione Monti: €10 (עונת שיא)</span>
+      <span class="attr-badge attr-tag-blue">חניה €8/יום</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">~1,500 טרולי בתים עם גגות אבן קוניים. Rione Aia Piccola (200 טרולי) <strong>חינם תמיד</strong> ופחות צפוף.</div>
+    <div class="fc-tip">הגיעו לפני 9:00 לצילומים בלי המונים. בין 11:00-15:00 — כאוס.</div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Ostuni — "העיר הלבנה"</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Ostuni (BR)</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-green">כניסה חינם</span>
+      <span class="attr-badge attr-tag-orange">ZTL פעיל!</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">עיר לבנה על גבעה עם רחובות מפותלים, חומות מימי הביניים, קתדרלה עם חלון ורד ייחודי. Ape (תלת-אופן) סיורים לילדים.</div>
+    <div class="fc-tip">חנו ב-Parcheggio Al Giardino. אל תיכנסו ברכב לעיר ההיסטורית — ZTL עם מצלמות.</div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Torre dell'Orso</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">ליד לצ'ה</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-green">חוף ציבורי חינם</span>
+      <span class="attr-badge attr-tag-blue">ליד ~€15-35/יום</span>
+      <span class="attr-badge attr-tag-blue">Blue Flag ✓</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;">800 מטר חול לבן עם "Le Due Sorelle" — שני צוקי ים עם אגדה. מים שקטים, מושלם לילדים. מתמלא מהר בקיץ.</div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Grottaglie — כפר הקרמיקה</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Grottaglie (TA) · 15 ד׳ מTaranto</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-blue">סדנה: €20-40/נפש</span>
+      <span class="attr-badge attr-tag-orange">פתוח 9:00-12:30 ו-16:00-20:00</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">רחוב שלם של סדנאות קרמיקה בחלל-מערה. ילדים מ-3+ יכולים לנסות את גלגל הקדר. הזמינו מראש.</div>
+    <div class="fc-tip">אל תגיעו בין 12:30-16:00 — הכל סגור. מומלץ כעצירת חזרה לבארי.</div>
+  </div>
+
+</div><!-- /tab-attr -->
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB: ACCOMMODATION -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab-accom" class="tab-pane">
+
+  <div class="apt">
+    <h5>🗺️ אסטרטגיית הלינה</h5>
+    <p>2 בסיסים שמכסים את כל המסלול: אחד בצפון (Monopoli/Fasano) ואחד בדרום (Otranto). ככה לא עוברים מלון כל יום.</p>
+  </div>
+
+  <div style="font-size:15px;font-weight:900;margin:16px 0 10px;">🌾 בסיס צפוני — לילות 1–5</div>
+  <div class="accard">
+    <div class="accard-body">
+      <div class="accard-top">
+        <div>
+          <div class="accard-name">Agriturismo Tenuta Chianchizza</div>
+          <div class="accard-location">ליד Monopoli / Fasano (BA)</div>
+        </div>
+        <div class="accard-stars">🌾 אגריטוריסמו</div>
+      </div>
+      <div class="accard-desc">חווה על 16 דונם של עצי זית, חרובים ושקדים. 2 בריכות (כולל אינפינטי פול), גינת ילדים, מגרש כדורגל, חיות משק (חמורים, כלבים). מסעדה מהגינה שלהם — ירקות, טבעוני, אפשרויות ללא גלוטן. יש מערה (Grotta della Pecorona) בנכס!</div>
+      <div class="accard-pills">
+        <span class="acp acp-yes">🏊 2 בריכות</span>
+        <span class="acp acp-yes">🌿 חווה פעילה</span>
+        <span class="acp acp-yes">👶 ידידותי לילדים</span>
+        <span class="acp acp-yes">🍽️ מסעדה בנכס</span>
+        <span class="acp acp-yes">📶 WiFi</span>
+        <span class="acp acp-yes">🅿️ חניה חינם</span>
+      </div>
+      <div class="accard-quote">חווה אמיתית עם נשמה — לא מלון. ילדים אוהבים את החמורים ואת הבריכה.</div>
+      <div class="accard-links">
+        <a href="https://www.tenutachianchizza.it" target="_blank" class="acl acl-primary">אתר רשמי</a>
+        <a href="https://www.booking.com/hotel/it/agriturismo-tenuta-chianchizza.html" target="_blank" class="acl acl-book">Booking.com</a>
+        <a href="https://maps.google.com/?q=Tenuta+Chianchizza+Monopoli" target="_blank" class="acl acl-maps">מפה</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-size:15px;font-weight:900;margin:16px 0 10px;">🏰 בסיס דרומי — לילות 6–10</div>
+  <div class="accard">
+    <div class="accard-body">
+      <div class="accard-top">
+        <div>
+          <div class="accard-name">Masseria Mongiò dell'Elefante</div>
+          <div class="accard-location">ליד Otranto (LE)</div>
+        </div>
+        <div class="accard-stars">🏰 מסריה בוטיק</div>
+      </div>
+      <div class="accard-desc">מסריה בוטיק יוקרתית בסגנון עיצובי. בריכה גדולה ומוגנת מרוח, גישה ישירה לBaia dei Turchi, ספא מלא (ג'קוזי, סאונה, אמבטיה טורקית — 60 ד' כלול בהזמנה ישירה). אופניים חינם. מסעדה עם מטבח מקומי.</div>
+      <div class="accard-pills">
+        <span class="acp acp-yes">🏊 בריכה מוגנת</span>
+        <span class="acp acp-yes">🧖 ספא</span>
+        <span class="acp acp-yes">🚲 אופניים</span>
+        <span class="acp acp-yes">🌊 גישה לBaia dei Turchi</span>
+        <span class="acp acp-yes">🍽️ מסעדה</span>
+        <span class="acp acp-maybe">👶 מתאים לילדים (פחות "חווה")</span>
+      </div>
+      <div class="accard-quote">יוקרתי יותר מהחווה הצפונית — בריכה מרהיבה, ספא, ואוירה רומנטית. ילדים גדולים יותר יאהבו.</div>
+      <div class="accard-links">
+        <a href="https://www.masseriamongio.com/en/" target="_blank" class="acl acl-primary">אתר רשמי</a>
+        <a href="https://maps.google.com/?q=Masseria+Mongio+Elefante+Otranto" target="_blank" class="acl acl-maps">מפה</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-card" style="margin-top:14px;">
+    <div class="info-card-title">🏡 הבדל בין Agriturismo ל-Masseria</div>
+    <div class="info-row"><span class="info-row-label">Agriturismo</span><span class="info-row-val">חווה עובדת עם תיירות. מחויב מחקלאות. אווירה כפרית ואותנטית.</span></div>
+    <div class="info-row"><span class="info-row-label">Masseria</span><span class="info-row-val">אחוזה חקלאית היסטורית (16-18 מאה). יכולה להיות כל דבר — מפשוטה ועד לוקסוס.</span></div>
+    <div class="info-row"><span class="info-row-label">WiFi כפרי</span><span class="info-row-val">לרוב חלש. WhatsApp על WiFi — הצילו. הורידו מפות אוף-ליין לפני.</span></div>
+    <div class="info-row"><span class="info-row-label">רכב</span><span class="info-row-val">חובה בשניהם — אין תחבורה ציבורית לאזורים כפריים.</span></div>
+  </div>
+
+</div><!-- /tab-accom -->
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB: DRIVING -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab-drive" class="tab-pane">
+
+  <div class="drive-card">
+    <div class="drive-card-title">🛣️ מרחקים וזמני נסיעה</div>
+    <table class="route-table">
+      <tr><th>מסלול</th><th>כביש</th><th>מרחק</th><th>זמן רגיל</th><th>זמן קיץ</th></tr>
+      <tr><td>BRI → Monopoli</td><td>SP204 + SS16</td><td>45 ק"מ</td><td>50 ד׳</td><td>65-70 ד׳</td></tr>
+      <tr><td>Monopoli → Alberobello</td><td>SP172</td><td>22 ק"מ</td><td>35 ד׳</td><td>40 ד׳</td></tr>
+      <tr><td>Alberobello → Lecce</td><td>SP113→SS379→SS16</td><td>116 ק"מ</td><td>1:20 ש׳</td><td>1:45 ש׳</td></tr>
+      <tr><td>Lecce → Otranto</td><td>SP362</td><td>46 ק"מ</td><td>40 ד׳</td><td>55 ד׳</td></tr>
+      <tr><td>Otranto → Gallipoli</td><td>SP366</td><td>68 ק"מ</td><td>55 ד׳</td><td>75-80 ד׳</td></tr>
+      <tr><td>Gallipoli → BRI (חזרה)</td><td>SS101→A14→SS16</td><td>198 ק"מ</td><td>2:10 ש׳</td><td>2:30-45 ש׳</td></tr>
+    </table>
+  </div>
+
+  <div class="drive-card">
+    <div class="drive-card-title">💰 אגרות (Pedaggi)</div>
+    <div style="font-size:12px;color:#444;margin-bottom:10px;line-height:1.6;">
+      <strong>SS16 — ציר החוף האדריאטי:</strong> <span style="color:var(--itria);font-weight:700;">חינם לגמרי.</span> עובר דרך כל הערים המרכזיות. קצת איטי יותר מA14.<br><br>
+      <strong>A14 (Autostrada Adriatica):</strong> בתשלום, מהיר ב-15-20 ד'. לכביש חזרה לבארי — שווה.
+    </div>
+    <table class="route-table">
+      <tr><th>קטע A14</th><th>מחיר (רכב פרטי)</th></tr>
+      <tr><td>BRI → Monopoli</td><td>~€1.90</td></tr>
+      <tr><td>BRI → Fasano</td><td>~€2.50</td></tr>
+      <tr><td>Gallipoli → BRI (דרך Taranto)</td><td>~€4.50</td></tr>
+    </table>
+    <div style="font-size:11px;color:var(--muted);margin-top:8px;">Telepass — מומלץ לשכור עם הרכב אם משתמשים ב-A14 כמה פעמים.</div>
+  </div>
+
+  <div class="ztl-warning">
+    <strong>⚠️ ZTL — אזורי כניסה מוגבלת לרכב</strong><br>
+    מצלמות אוטומטיות. כניסה ללא אישור = קנס €80-335 שמגיע הביתה שבועות אחרי הטיול!
+  </div>
+
+  <div class="drive-card">
+    <div class="drive-card-title">🚫 ZTL לפי עיר</div>
+    <table class="route-table">
+      <tr><th>עיר</th><th>שעות ZTL</th><th>הערה</th></tr>
+      <tr><td>Polignano a Mare</td><td><strong>24/7 כל השנה</strong></td><td>אין יוצאים מהכלל לתיירים</td></tr>
+      <tr><td>Lecce</td><td>13:00-16:00 ו-19:00-10:00</td><td>לכלול לילה + בוקר</td></tr>
+      <tr><td>Alberobello</td><td>שעות מוגבלות</td><td>אזור הטרולי — ללא נהיגה</td></tr>
+      <tr><td>Ostuni</td><td>מרכז היסטורי</td><td>חנו ב-Via Specchia</td></tr>
+      <tr><td>Otranto/Gallipoli</td><td>עיר עתיקה</td><td>בדקו שלטים בכניסה</td></tr>
+    </table>
+  </div>
+
+  <div class="drive-card">
+    <div class="drive-card-title">🅿️ חניה בערים עיקריות</div>
+    <div style="font-size:12px;line-height:1.8;color:#444;">
+      <strong>Polignano a Mare:</strong> Parcheggio Marco Polo (Via Marco Polo) — ~€1.50/שעה, 10 ד' הליכה<br>
+      <strong>Alberobello:</strong> Piazzale Indipendenza — €8/יום. הגיעו לפני 9:00 בקיץ<br>
+      <strong>Lecce:</strong> Parcheggio Torre del Parco — מחוץ לZTL, מומלץ ביותר<br>
+      <strong>Ostuni:</strong> Parcheggio Al Giardino — ~€2-3 לכמה שעות, 5 ד' למרכז
+    </div>
+  </div>
+
+  <div class="tips">
+    <h4>טיפים לנהיגה בקיץ הפולייזי</h4>
+    <ul>
+      <li>שעות שקטות: לפני 9:00 ואחרי 20:00. בין 10:00-12:00 — פקק לים</li>
+      <li>15 באוגוסט (Ferragosto) — יום לאומי, כל החוף חסום. אל תנסו לנסוע לים</li>
+      <li>כבישי חוף אוטרנטו–גליפולי — צרים ועמוסים. העדיפו SS101 הפנימי (מהיר יותר ב-20 ד')</li>
+      <li>לעולם אל תשאירו חפצים ברכב — גנבות מרכביות שכיחות ליד חופים</li>
+      <li>GPS/Waze — הכרחי. שמות רחובות קטנים לא תמיד מסומנים בשטח</li>
+      <li>הורידו מפות Google אוף-ליין לפני היציאה — WiFi במסריות חלש</li>
+    </ul>
+  </div>
+
+</div><!-- /tab-drive -->
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB: INFO -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab-info" class="tab-pane">
+
+  <div class="info-section-title">☀️ מזג אוויר — יולי/אוגוסט</div>
+  <div class="info-card">
+    <div class="info-row"><span class="info-row-label">טמפ' מקסימום</span><span class="info-row-val">31-33°C (שיאים עד 38°C)</span></div>
+    <div class="info-row"><span class="info-row-label">לילות</span><span class="info-row-val">20-22°C — נעים</span></div>
+    <div class="info-row"><span class="info-row-label">גשם</span><span class="info-row-val">כמעט אפס ביולי-אוגוסט</span></div>
+    <div class="info-row"><span class="info-row-label">ים</span><span class="info-row-val">~26-28°C — מושלם לשחייה</span></div>
+    <div class="info-row"><span class="info-row-label">עצה</span><span class="info-row-val">פעילויות בחוץ — בוקר ואחרי 17:00. 12:00-16:00 = חם מדי</span></div>
+  </div>
+
+  <div class="info-section-title">💶 כסף ותשלומים</div>
+  <div class="info-card">
+    <div class="info-row"><span class="info-row-label">מטבע</span><span class="info-row-val">Euro (€)</span></div>
+    <div class="info-row"><span class="info-row-label">כרטיס אשראי</span><span class="info-row-val">מתקבל בכל מקום. ויזה/מאסטרקארד ✓</span></div>
+    <div class="info-row"><span class="info-row-label">מזומן מומלץ</span><span class="info-row-val">€200-300 לשבוע (שוק, גלידה, חניה, תבלין)</span></div>
+    <div class="info-row"><span class="info-row-label">ATM</span><span class="info-row-val">חפשו "Bancomat". הימנעו מEuronet — עמלות גרועות</span></div>
+    <div class="info-row"><span class="info-row-label">כרטיסי אשראי ישראלים</span><span class="info-row-val">עובדים, עמלת המרה ~2-3%</span></div>
+  </div>
+
+  <div class="info-section-title">📱 SIM ותקשורת</div>
+  <div class="info-card">
+    <div class="info-row"><span class="info-row-label">המלצה</span><span class="info-row-val">eSIM לפני היציאה (Airalo / Holafly)</span></div>
+    <div class="info-row"><span class="info-row-label">Holafly</span><span class="info-row-val">Unlimited ~$3.90/יום</span></div>
+    <div class="info-row"><span class="info-row-label">SIM מקומי</span><span class="info-row-val">WindTre/TIM ~€10-20 ל-20-50GB</span></div>
+    <div class="info-row"><span class="info-row-label">כיסוי כפרי</span><span class="info-row-val">במסריות — חלש. הורידו מפות אוף-ליין מראש!</span></div>
+  </div>
+
+  <div class="info-section-title">🔌 חשמל</div>
+  <div class="info-card">
+    <div class="info-row"><span class="info-row-label">שקעים</span><span class="info-row-val">Type F / Type C / Type L (איטלקי)</span></div>
+    <div class="info-row"><span class="info-row-label">מתאם</span><span class="info-row-val">ישראל Type H → צריך מתאם אירופי לשקעים ישנים</span></div>
+    <div class="info-row"><span class="info-row-label">מטענים</span><span class="info-row-val">Type C (פלאפון, לפטופ) — עובד ישירות בלי מתאם</span></div>
+    <div class="info-row"><span class="info-row-label">מתח</span><span class="info-row-val">230V / 50Hz — כמו בישראל, אין צורך בממיר</span></div>
+  </div>
+
+  <div class="info-section-title">🏥 בריאות ורפואה</div>
+  <div class="info-card">
+    <div class="info-card-title">מה לקחת בתיק</div>
+    <div class="info-row"><span class="info-row-label">שמש</span><span class="info-row-val">SPF 50+ + after-sun. חובה</span></div>
+    <div class="info-row"><span class="info-row-label">חרקים</span><span class="info-row-val">דוחה יתושים — פעיל בדמדומים ליד שדות זיתים</span></div>
+    <div class="info-row"><span class="info-row-label">EHIC</span><span class="info-row-val">ישראלים אינם אזרחי EU — ביטוח נסיעות פרטי הכרחי!</span></div>
+    <div class="info-row"><span class="info-row-label">בית חולים (צפון)</span><span class="info-row-val">Policlinico di Bari — עיקרי לאזור Monopoli/Fasano</span></div>
+    <div class="info-row"><span class="info-row-label">בית חולים (דרום)</span><span class="info-row-val">Vito Fazzi, Lecce — ~30 ד׳ מOtranto</span></div>
+  </div>
+
+  <div class="info-section-title">🚨 מספרי חירום</div>
+  <div class="emergency-grid">
+    <div class="emg-card">
+      <div class="emg-number">118</div>
+      <div class="emg-label">אמבולנס</div>
+      <div class="emg-sub">Italy Medical</div>
+    </div>
+    <div class="emg-card">
+      <div class="emg-number">112</div>
+      <div class="emg-label">חירום כללי</div>
+      <div class="emg-sub">All Europe</div>
+    </div>
+    <div class="emg-card">
+      <div class="emg-number">113</div>
+      <div class="emg-label">משטרה</div>
+      <div class="emg-sub">Polizia</div>
+    </div>
+    <div class="emg-card">
+      <div class="emg-number">115</div>
+      <div class="emg-label">כבאים</div>
+      <div class="emg-sub">Vigili del Fuoco</div>
+    </div>
+  </div>
+
+  <div class="info-section-title">🗣️ מילים שימושיות</div>
+  <div class="info-card">
+    <div class="info-row"><span class="info-row-label">Buongiorno</span><span class="info-row-val">בוקר טוב / שלום (רשמי)</span></div>
+    <div class="info-row"><span class="info-row-label">Grazie</span><span class="info-row-val">תודה</span></div>
+    <div class="info-row"><span class="info-row-label">Per favore</span><span class="info-row-val">בבקשה</span></div>
+    <div class="info-row"><span class="info-row-label">Il conto, per favore</span><span class="info-row-val">החשבון, בבקשה</span></div>
+    <div class="info-row"><span class="info-row-label">Dov'è il bagno?</span><span class="info-row-val">איפה השירותים?</span></div>
+    <div class="info-row"><span class="info-row-label">Acqua naturale/frizzante</span><span class="info-row-val">מים סטילס / עם גז</span></div>
+    <div class="info-row"><span class="info-row-label">È adatto ai bambini?</span><span class="info-row-val">זה מתאים לילדים?</span></div>
+    <div class="info-row"><span class="info-row-label">Aiuto!</span><span class="info-row-val">עזרה!</span></div>
+  </div>
+
+  <div class="info-section-title">🏪 שעות עסקים</div>
+  <div class="info-card">
+    <div class="info-row"><span class="info-row-label">חנויות קטנות</span><span class="info-row-val">9:00-13:00 ו-17:00-20:30. סגור בצהריים!</span></div>
+    <div class="info-row"><span class="info-row-label">סופרמרקט גדול</span><span class="info-row-val">8:00-22:00, ללא פסקה</span></div>
+    <div class="info-row"><span class="info-row-label">Farmacia</span><span class="info-row-val">8:30-12:30 ו-15:30-19:30. תורנות 24/7 מסתובבת</span></div>
+    <div class="info-row"><span class="info-row-label">מסעדות</span><span class="info-row-val">צהריים 12:30-15:00, ערב 19:30-23:00</span></div>
+    <div class="info-row"><span class="info-row-label">15 אוגוסט</span><span class="info-row-val">Ferragosto — חג לאומי. הכל סגור. קנו אוכל מראש!</span></div>
+  </div>
+
+</div><!-- /tab-info -->
+
+</div><!-- /wrap -->
+</div><!-- /clip -->
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tnb').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  if (id === 'map') initMap();
+}
+
+function navigateTo(section) {
+  var btn = document.querySelector('.tnb');
+  switchTab('trip', btn);
+  setTimeout(function() {
+    var el = document.getElementById('sec-' + section);
+    if (el) el.scrollIntoView({behavior:'smooth'});
+  }, 100);
+}
+
+window.addEventListener('scroll', function() {
+  document.getElementById('btt').classList.toggle('show', window.scrollY > 300);
+});
+
+var mapInitialized = false;
+function initMap() {
+  if (mapInitialized) return;
+  mapInitialized = true;
+  var map = L.map('map').setView([40.4, 17.9], 8);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors', maxZoom: 18
+  }).addTo(map);
+
+  function marker(lat, lng, color, title, desc) {
+    var icon = L.divIcon({
+      className: '',
+      html: '<div style="width:14px;height:14px;border-radius:50%;background:' + color + ';border:2px solid white;box-shadow:0 2px 5px rgba(0,0,0,0.35)"></div>',
+      iconSize: [14,14], iconAnchor: [7,7]
+    });
+    L.marker([lat,lng], {icon:icon}).addTo(map).bindPopup('<strong>' + title + '</strong><br><span style="font-size:12px">' + desc + '</span>');
+  }
+
+  // בארי ונסיעה
+  marker(41.1389,16.7606,'#1a2332','✈️ Bari Airport BRI','נקודת התחלה וסיום');
+  marker(40.9959,17.2194,'#0077b6','🏖️ Lama Monachile','חוף הצוקים של Polignano');
+  marker(40.9530,17.2965,'#0077b6','🏙️ Monopoli','עיר חוף + נמל');
+
+  // אטרקציות צפוניות
+  marker(40.8382,17.3598,'#0e7490','💦 Acquapark Egnazia','פארק מים ליד Fasano');
+  marker(40.8200,17.3700,'#0e7490','🦁 Zoosafari Fasano','ספארי + שעשועים');
+
+  // עמק איטריה
+  marker(40.7843,17.2394,'#7c5c2e','🍄 Alberobello','כפר הטרולי — UNESCO');
+  marker(40.7371,17.4224,'#be185d','🥩 Cisternino','Fornello Pronto');
+  marker(40.7539,17.3153,'#7c5c2e','🏘️ Locorotondo','כפר לבן עם גגות ייחודיים');
+  marker(40.8823,17.1740,'#4a7c59','🦇 Grotte di Castellana','מערת נטיפים');
+  marker(40.7280,17.5820,'#7c5c2e','🏛️ Ostuni','העיר הלבנה');
+
+  // לינה צפונית
+  marker(40.9000,17.3500,'#9333ea','🌾 Tenuta Chianchizza','לינה צפונית — Agriturismo');
+
+  // לצ'ה וסלנטו
+  marker(40.3516,18.1750,'#b45309','🏛️ Lecce','ברוק לצ׳י, אמפיתאטרון');
+  marker(40.1503,18.4969,'#0e7490','🏰 Otranto','מבצר + קתדרלה');
+  marker(40.1200,18.5200,'#4a7c59','🟥 Cava di Bauxite','אגם טורקיז באדמה אדומה');
+  marker(40.1400,18.5100,'#4a7c59','🌊 Baia dei Turchi','חוף יפהפה ביער אורנים');
+
+  // לינה דרומית
+  marker(40.1600,18.4700,'#9333ea','🏰 Masseria Mongiò','לינה דרומית — Otranto');
+
+  // דרום
+  marker(40.0559,17.9913,'#be185d','🏝️ Gallipoli','עיר עתיקה על איי + חופים');
+  marker(40.0500,18.0700,'#0e7490','💦 Splash Water Park','פארק מים ליד גליפולי');
+  marker(39.8600,18.0200,'#4a7c59','🌊 Pescoluse','המלדיביים של איטליה');
+
+  // הוספות שלי
+  marker(40.6100,17.4700,'#b45309','🏺 Grottaglie','כפר הקרמיקה');
+  marker(40.2800,18.3000,'#4a7c59','🏖️ Torre dell\'Orso','חוף עם Le Due Sorelle');
+}
+</script>
+</body>
+</html>
