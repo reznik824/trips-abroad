@@ -223,7 +223,7 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
 
 /* MOBILE */
 #tab-trip>*,#tab-map>*,#tab-food>*,#tab-attr>*,#tab-accom>*,#tab-drive>*,#tab-info>*{max-width:100%;box-sizing:border-box;overflow-wrap:break-word;word-break:break-word;}
-#tab-trip,#tab-map,#tab-food,#tab-attr,#tab-accom,#tab-drive,#tab-info,#tab-shop{overflow:hidden;width:100%;}
+#tab-trip,#tab-map,#tab-food,#tab-attr,#tab-accom,#tab-drive,#tab-info,#tab-shop,#tab-alt{overflow:hidden;width:100%;}
 @media(max-width:480px){.db{width:50px;}.tls{min-width:70px;font-size:10px;padding:8px 8px;}.emergency-grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -265,6 +265,7 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
   <button class="tnb" onclick="switchTab('drive',this)">🚗 נסיעה ונהיגה</button>
   <button class="tnb" onclick="switchTab('info',this)">📋 מידע חשוב</button>
   <button class="tnb" onclick="switchTab('shop',this)">🛍️ קניות</button>
+  <button class="tnb" onclick="switchTab('alt',this)">🔄 תוכנית חלופית</button>
 </div></div>
 
 <!-- ═══════════════════════════════════════════════ -->
@@ -1188,6 +1189,202 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
   </div>
 
 </div><!-- /tab-shop -->
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB: ALTERNATIVE PLAN (PDF-based) -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab-alt" class="tab-pane">
+
+  <div class="apt" style="background:#fef3c7;border-color:#fcd34d;">
+    <h5>🔄 תוכנית חלופית — לפי מדריך ה-PDF</h5>
+    <p>גישה שונה לגמרי: מתחילים ממטרה בצפון-מערב, עוברים דרומה ללצ'ה כבסיס, וחוזרים צפונה לאזור Monopoli. פחות אתרי בילוי לילדים, יותר עמק איטריה ויין.</p>
+  </div>
+
+  <div class="tips" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);margin-bottom:16px;">
+    <h4>ההבדל העיקרי מהתוכנית שלנו</h4>
+    <ul>
+      <li>מטרה (Matera) — מקבלת 2 ימים מלאים, כולל לינה שם (מדהים בלילה)</li>
+      <li>לצ'ה — בסיס לינה מרכזי ל-3 לילות (לא סתם עצירה)</li>
+      <li>Zoosafari ו-Acquapark — לא כלולים; ניתן להוסיף ביום פנוי</li>
+      <li>מרטינה פרנקה ו-Locorotondo — עצירה בדרך חזרה צפונה</li>
+      <li>Polignano + Monopoli — לסוף הטיול (ולא ההתחלה)</li>
+    </ul>
+  </div>
+
+  <!-- internal nav -->
+  <div style="display:flex;gap:8px;margin-bottom:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;">
+    <button onclick="document.getElementById('alt-matera').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#7c3aed;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🗿 מטרה</button>
+    <button onclick="document.getElementById('alt-itria').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--itria);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🫒 Valle d'Itria</button>
+    <button onclick="document.getElementById('alt-lecce').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--lecce);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏛️ לצ'ה</button>
+    <button onclick="document.getElementById('alt-galli').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--galli);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏖️ גליפולי</button>
+    <button onclick="document.getElementById('alt-otranto').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--otran);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏰 אוטרנטו</button>
+    <button onclick="document.getElementById('alt-mono').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--mono);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🌊 Monopoli</button>
+  </div>
+
+  <!-- DAY 1 — Bari → Matera -->
+  <div id="alt-matera" class="sh" style="background:linear-gradient(135deg,#4c1d95,#7c3aed);">
+    <h2>🗿 מטרה — יום ראשון + לינה</h2>
+    <p class="tag">27.7 · ספי המערה · UNESCO · מדהים בלילה</p>
+    <div class="pills"><span class="pill">~1:15 ש׳ מBRI</span><span class="pill">לינה בתוך ה-Sassi</span></div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h" style="background:#4c1d95;">27.7 — הגעה לבארי → מטרה</div>
+    <div class="dp-b">
+      <strong>טיסה 6H361:</strong> נחיתה BRI 09:20 · קחו רכב, צאו מיד לכיוון מטרה.<br><br>
+      <strong>בדרך (~1:15 ש׳):</strong> אין טעם לעצור בבארי עכשיו — תראו אותה ביום האחרון. ישר לA14/SS96 כיוון Matera.<br><br>
+      <strong>מטרה:</strong> עיר ספי מערה, בני אדם גרו כאן 9,000 שנה. התחילו ב-<strong>Piazza Vittorio Veneto</strong> — כיכר המרכז, נקודת ההתמצאות. הסתובבו ב-<strong>Sasso Caveoso</strong> (השקט יותר) ואחר כך ב-<strong>Sasso Barisano</strong> (יותר מסחרי).<br><br>
+      <strong>Casa Cisterna</strong> — בית מערה מקורי עם ריהוט עתיק, €3. מושלם לילדים — "ככה חיו אנשים".<br><br>
+      <strong>🌙 ה-PDF ממליץ בחום:</strong> מטרה בלילה היא חוויה אחרת לגמרי. האבן הבהירה מוארת, הגיאות מאירים, האווירה קסומה. <strong>ה-PDF אומר שעל זה אסור לוותר.</strong>
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h" style="background:#4c1d95;">28.7 — מטרה: Belvedere + Rupestre</div>
+    <div class="dp-b">
+      <strong>בוקר (לפני החום):</strong> טיול <strong>Belvedere Murgia Timone</strong> — 2-3 שעות, עוברים לצד השני של הגיא דרך גשר תלוי. כנסיות מגולפות בסלע מהמאה ה-8-13 (Rupestre). נוף הטוב ביותר על ה-Sassi. <strong>⚠️ לא בשיא החום — צאו ב-7:00.</strong><br><br>
+      <strong>אחה"צ:</strong> מנוחה, קפה בספי, קניית מזכרות קרמיקה מקומית.<br><br>
+      <strong>ערב:</strong> ארוחה ב"מסעדת מערה" — כמה מסעדות בעיר יושבות בתוך ספי עתיקים עם תאורת נרות. חוויה שלא תשכחו.
+    </div>
+  </div>
+
+  <div class="darrow">🚗 <strong>~2:30 ש׳ → אלבורובלו</strong> · A14 מזרחה → SS172</div>
+
+  <!-- ALBEROBELLO + OSTUNI -->
+  <div id="alt-itria" class="sh itria">
+    <h2>🫒 Valle d'Itria — מחציתו הדרומית</h2>
+    <p class="tag">29.7 · אלבורובלו + Ostuni + Polignano</p>
+    <div class="pills"><span class="pill">מהבוקר המוקדם</span><span class="pill">הגיעו לפני 9:00!</span></div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h itria">29.7 — אלבורובלו + Polignano a Mare</div>
+    <div class="dp-b">
+      <strong>לפני 9:00 באלבורובלו:</strong> Rione Aia Piccola (חינם) + Rione Monti. Trullo Sovrano (€3) — מוזיאון בפנים הטרולו.<br><br>
+      <strong>11:00 — Polignano a Mare:</strong> אוטובוס מAlberobello עוצר בPolignano (!) — אפשר לחנות רכב כאן, ללכת לPolignano באוטובוס 11:00 וחזרה. חניה בAlberobello ~€2/שעה, לא משלמים כפול.<br><br>
+      ב-Polignano: Lama Monachile (חוף הצוקים), Domenico Modugno, שפת המצוק. <strong>הגיעו עם נעלי ים</strong> לחוף החצץ.<br><br>
+      <strong>ערב:</strong> לינה באזור Alberobello / Locorotondo. תוכנית הלינה בPDF — ב"אזור אלבורובלו" ללא ספציפיות.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h itria">30.7 — Ostuni + נסיעה דרומה ללצ'ה</div>
+    <div class="dp-b">
+      <strong>בוקר: Ostuni</strong> — "העיר הלבנה". חנו ב-Via Specchia. Ape (תלת-אופן) סיור ייצא ישירות מהחניה. עלו לקתדרלה עם חלון הוורד הנדיר.<br><br>
+      <strong>בדרך דרומה (~1:20 ש׳):</strong> עצירה אפשרית בGrottaglie (קרמיקה, 30 ד' מטרגנטו) אם פתוח — 9:00-12:30 בלבד.<br><br>
+      <strong>ערב:</strong> הגעה ללצ'ה. לינה ראשונה מ-3 לילות ב-<strong>Lecce</strong> — הבסיס הדרומי.
+    </div>
+  </div>
+
+  <div class="darrow">🚗 <strong>~1:20 ש׳ → לצ'ה</strong> · SS16 דרומה</div>
+
+  <!-- LECCE BASE -->
+  <div id="alt-lecce" class="sh lecce">
+    <h2>🏛️ לצ'ה — בסיס לינה לסלנטו</h2>
+    <p class="tag">30.7–2.8 · 3 לילות · יציאות יומיות לגליפולי ואוטרנטו</p>
+    <div class="pills"><span class="pill">🏛️ ברוק לצ'י</span><span class="pill">🏖️ גליפולי 40 ד'</span><span class="pill">🏰 אוטרנטו 40 ד'</span></div>
+  </div>
+
+  <div class="apt">
+    <h5>💡 למה לצ'ה כבסיס?</h5>
+    <p>ה-PDF ממליץ 3+ לילות בלצ'ה: גליפולי, אוטרנטו, Torre dell'Orso — כולן 30-45 ד' ממנה. זזים כל יום ליעד אחר, וחוזרים לאותה מיטה. חוסך פריקה-העמסה.</p>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h lecce">31.7 — לצ'ה עיר</div>
+    <div class="dp-b">
+      <strong>בוקר:</strong> <strong>Cattedrale</strong> ו-Piazza del Duomo — הברוק הלצ'י בשיאו. <strong>Castello Carlo V</strong> — עם מדריך, בדקו שעות מראש.<br><br>
+      <strong>Anfiteatro Romano</strong> — 2,000 שנה, ממש במרכז העיר.<br><br>
+      <strong>Museo Ebraico di Lecce</strong> — המוזיאון היהודי. ה-PDF מגדיר: "מרגש, עם ממצאים יפהפיים". מכסה את ההיסטוריה של יהדות פוליה. מומלץ.<br><br>
+      <strong>קניות:</strong> Via Libertini — cartapesta (פסל נייר-מאשה) ואריחי פיאטרה לצ'יה. Vico dei Bolognesi — בגדים ברקמה ייחודיים.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h" style="background:var(--galli);" id="alt-galli">1.8 — גליפולי (יציאה מלצ'ה)</div>
+    <div class="dp-b">
+      <strong>בוקר מוקדם:</strong> <strong>שוק הדגים</strong> — ממש לפני הגשר לאי, צד ימין. דייגים מוכרים תפוסת הבוקר ישירות. אל תפספסו.<br><br>
+      <strong>עיר גליפולי העתיקה</strong> — האי המחובר בגשר. רחובות צרים, כנסיות, מבצר, נוף יפהפה לים היוני.<br><br>
+      <strong>חוף אחה"צ:</strong> Lido Sottovento ממש ליד העיר — מתקני חוף מלאים עם מקלחות.<br><br>
+      <strong>ערב:</strong> שקיעה על החוף המערבי — הצבעים של השמש נופלת לים היוני.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h otran" id="alt-otranto">2.8 — אוטרנטו (יציאה מלצ'ה)</div>
+    <div class="dp-b">
+      <strong>עיר אוטרנטו:</strong> <strong>קתדרלה</strong> עם הפסיפס הרצפתי מהמאה ה-12 — אחד הגדולים בעולם, ילדים אוהבים לחפש דמויות. <strong>Castello Aragonese.</strong><br><br>
+      <strong>Cava di Bauxite</strong> — 2 ק"מ מהעיר, אגם טורקיז-אדמה אדומה. <strong>בדקו גישה לפני!</strong><br><br>
+      <strong>Baia dei Turchi</strong> — 10-20 ד' הליכה ביער. הגיעו עם ציוד שלכם. מתמלא מהר.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h lecce">3.8 — Torre dell'Orso + Specchia</div>
+    <div class="dp-b">
+      <strong>בוקר: Torre dell'Orso</strong> — חוף Blue Flag עם "Le Due Sorelle" (שני סלעי ים עם אגדה). מים שקטים, מושלם לילדים. 30 ד' מלצ'ה.<br><br>
+      <strong>אחה"צ: Specchia</strong> — הכפר הסלנטינו היפה ביותר. טחנות שמן תת-קרקעיות מהמאה ה-15 — אפשר לסייר.
+    </div>
+  </div>
+
+  <div class="darrow">🚗 <strong>~1:10 ש׳ → Valle d'Itria</strong> · SS101 → SS16 צפונה</div>
+
+  <!-- NORTH -->
+  <div id="alt-mono" class="sh mono">
+    <h2>🌊 חזרה צפונה — Valle d'Itria + Monopoli</h2>
+    <p class="tag">4.8–6.8 · Locorotondo · Cisternino · Monopoli · Polignano</p>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h itria">4.8 — Locorotondo + Martina Franca + Cisternino</div>
+    <div class="dp-b">
+      <strong>בוקר: Locorotondo</strong> — כפר לבן עם גגות אנגולריים ייחודיים, Belvedere לתצפית על שדות הזיתים. 2 שעות מספיקות.<br><br>
+      <strong>אחה"צ: Martina Franca</strong> — ה-PDF מגדיר כ"אחת הערים היפות ביותר באזור". Piazza Roma ובזיליקה San Martino.<br><br>
+      <strong>ערב: Cisternino</strong> — Fornello Pronto. <strong>Da Zio Pietro</strong>, פתוח מ-18:30. בוחרים בשר, הם צולים. Bombetta — חובה.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h mono">5.8 — Monopoli + חוף</div>
+    <div class="dp-b">
+      <strong>Porto antico של Monopoli</strong> — הנמל הישן, מסעדות דגים, Cattedrale Maria Santissima della Madia (קתדרלה מרהיבה).<br><br>
+      <strong>Caseificio Aziendale Lamapecora</strong> — ליד Monopoli — סיור גבינות + בורטה טרייה טעימות.<br><br>
+      <strong>אחה"צ:</strong> חוף חופשי באחד מחופי Monopoli. בקיץ יש אוטובוס עירוני לחופים הסמוכים היפים.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h mono">6.8 — Polignano a Mare + ערב חופשי</div>
+    <div class="dp-b">
+      <strong>בוקר: Polignano a Mare</strong> — Lama Monachile (חוף הצוקים), פסל Domenico Modugno, שוטטות בעיר העתיקה.<br><br>
+      <strong>אחה"צ:</strong> Pescoluse (45 ד') — "המלדיביים של איטליה", מים רדודים וטורקיזים. או: יום חוף חופשי ב-Lido Le Macchie (חוף חולי ליד Polignano — אפשר לשלם רק חניה ולגשת לאזור החוף החינמי).<br><br>
+      <strong>ערב:</strong> חזרה לבסיס ליד Monopoli / Bari לקראת הטיסה.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h bari">7.8 — בארי + ✈️ הביתה</div>
+    <div class="dp-b">
+      <strong>בוקר בבארי:</strong> <strong>Basso Arco</strong> — רחוב הסבתות שמכינות אורקיטה ביד ברחוב (8:00-12:00). <strong>Basilica di San Nicola</strong> — הכנסייה היפה ביותר בבארי, הקדוש שממנו יצא בבא נואל.<br><br>
+      <strong>אוכל אחרון:</strong> Di Cosimo — פנזרוטי ענקיים מטוגנים, €2.50, ב-Largo Albicocca 19.<br><br>
+      <strong>טיסה 6H362:</strong> יציאה BRI 18:35. בנמל ב-16:30 לכל המאוחר.
+    </div>
+  </div>
+
+  <div class="tips">
+    <h4>מה ה-PDF אומר שאנחנו מפספסים בתוכנית המקורית</h4>
+    <ul>
+      <li>מטרה בלילה — "אל תוותרו על לינה שם" — ה-PDF מדגיש זאת יותר מכל יעד אחר</li>
+      <li>Museo Ebraico בלצ'ה — "מרגש, ייחודי, ממצאים יפהפיים" — לא מוזכר כלל בתוכנית המקורית</li>
+      <li>שוק הדגים בגליפולי — מיקום ספציפי (ימינה לפני הגשר) שקל לפספס</li>
+      <li>Martina Franca — לפי ה-PDF, יפה לא פחות מLocorotondo — ולא מוזכרת</li>
+      <li>Produttori di Manduria — יקב Primitivo, "מקום ייחודי", דרך עצירה בדרך מלצ'ה לצפון</li>
+      <li>Lido Le Macchie (Polignano) — חוף חולי + האפשרות לשלם רק חניה ולגשת לחוף חינמית</li>
+    </ul>
+  </div>
+
+</div><!-- /tab-alt -->
 
 </div><!-- /wrap -->
 </div><!-- /clip -->
