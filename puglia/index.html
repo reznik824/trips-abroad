@@ -223,7 +223,7 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
 
 /* MOBILE */
 #tab-trip>*,#tab-map>*,#tab-food>*,#tab-attr>*,#tab-accom>*,#tab-drive>*,#tab-info>*{max-width:100%;box-sizing:border-box;overflow-wrap:break-word;word-break:break-word;}
-#tab-trip,#tab-map,#tab-food,#tab-attr,#tab-accom,#tab-drive,#tab-info{overflow:hidden;width:100%;}
+#tab-trip,#tab-map,#tab-food,#tab-attr,#tab-accom,#tab-drive,#tab-info,#tab-shop{overflow:hidden;width:100%;}
 @media(max-width:480px){.db{width:50px;}.tls{min-width:70px;font-size:10px;padding:8px 8px;}.emergency-grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -264,6 +264,7 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
   <button class="tnb" onclick="switchTab('accom',this)">🏡 לינה</button>
   <button class="tnb" onclick="switchTab('drive',this)">🚗 נסיעה ונהיגה</button>
   <button class="tnb" onclick="switchTab('info',this)">📋 מידע חשוב</button>
+  <button class="tnb" onclick="switchTab('shop',this)">🛍️ קניות</button>
 </div></div>
 
 <!-- ═══════════════════════════════════════════════ -->
@@ -452,6 +453,8 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
     <div class="li"><div class="ld" style="background:var(--galli)"></div>אוכל</div>
     <div class="li"><div class="ld" style="background:#9333ea"></div>לינה</div>
     <div class="li"><div class="ld" style="background:var(--teal)"></div>פארקי מים</div>
+    <div class="li"><div class="ld" style="background:#f59e0b"></div>קניות</div>
+    <div class="li"><div class="ld" style="background:#1a2332"></div>נמל/בארי</div>
   </div>
   <div class="tips">
     <h4>ניווט במפה</h4>
@@ -1001,6 +1004,84 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
 
 </div><!-- /tab-info -->
 
+<!-- ═══════════════════════════════════════════════ -->
+<!-- TAB: SHOPPING -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="tab-shop" class="tab-pane">
+
+  <div class="hbox" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">
+    <h4>🛍️ מה שווה לקנות בפוליה</h4>
+    <p>האאוטלט הגדול נמצא ליד בארי — כדאי לעצור בהגעה או ביציאה. קניות מקומיות (קרמיקה, שמן זית, אומנות) מפוזרות לאורך כל המסלול.</p>
+  </div>
+
+  <div class="info-section-title">🏬 אאוטלט מעצבים</div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Puglia Village (לשעבר Fashion District)</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Via dei Portuali 12, Molfetta (BA) · pugliavillage.it</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-blue">140+ חנויות</span>
+      <span class="attr-badge attr-tag-green">20 ק"מ צפונית לבארי</span>
+      <span class="attr-badge attr-tag-orange">10:00–21:00 כל יום</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.6;margin-bottom:8px;">
+      <strong>האאוטלט היחיד בכל פוליה</strong> — מותגי יוקרה ומיד-רנג' עם הנחות 30-70%.<br>
+      לוקסוס: Armani, Gucci, Prada, Versace, Roberto Cavalli<br>
+      מיד-רנג': Calvin Klein, Tommy Hilfiger, Guess, Levi's, Nike, Adidas<br>
+      בית: Coincasa, Elena Mirò
+    </div>
+    <div class="fc-tip">שאטל חינמי מתחנת Bari Centrale + מ-Corso Vittorio Emanuele II — בדקו לוח זמנים באתר לפני.</div>
+    <div style="font-size:12px;color:#444;margin-top:8px;">
+      <strong>מתי לעצור:</strong> בדרך מהנמל ביום 1 (20 ד' מ-BRI) — או ביום 7.8 לפני הטיסה (פתוח עד 21:00, טיסה 18:35 — לא מומלץ ביום הטיסה). <strong>הכי טוב: יום 1 בהגעה, לפני Polignano.</strong>
+    </div>
+  </div>
+
+  <div class="ztl-warning" style="background:#f0fdf4;border-color:#86efac;color:#166534;">
+    <strong>ℹ️ McArthurGlen בפוליה?</strong> לא קיים. האאוטלט הקרוב ביותר של McArthurGlen הוא La Reggia ליד נאפולי (~4 שעות). אל תתכננו עצירה.
+  </div>
+
+  <div class="info-section-title">🏺 Grottaglie — קרמיקה (עצירת חזרה לבארי)</div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Quartiere delle Ceramiche, Grottaglie</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">15 ד' מTaranto · ~30 ד' מA14 בדרך חזרה לבארי</div>
+    <div style="font-size:12px;color:#444;line-height:1.6;margin-bottom:8px;">
+      רחוב שלם של סדנאות קרמיקה מגולפות בגיר. בחרו לפני שקונים — טווח איכות ומחירים גדול.<br><br>
+      <strong>מה לקנות:</strong><br>
+      🌸 <strong>Pumo</strong> — בצורת ניצן, סמל מזל פולייזי. מ-€8<br>
+      ☕ <strong>כוסות אספרסו</strong> מצויירות ביד — €12-20/יחידה<br>
+      🍽️ <strong>צלחות וקנקנים</strong> מסורתיים — €20-60<br>
+      🎨 <strong>ריבועי אריחים</strong> מצויירים — €15-40<br><br>
+      <strong>סדנה עם ילדים:</strong> FasanoCeramiche / Casa Vestita — נסו את גלגל הקדר. הזמינו מראש, €20-40 לנפש.
+    </div>
+    <div class="fc-tip">פתוח 9:00-12:30 ו-16:30-19:30 בלבד. אל תגיעו בין 13:00-16:30 — הכל סגור.</div>
+  </div>
+
+  <div class="info-section-title">🫒 מוצרים מקומיים לאורך המסלול</div>
+
+  <div class="drive-card">
+    <div class="drive-card-title">🗺️ מה לקנות ואיפה</div>
+    <table class="route-table">
+      <tr><th>עצירה</th><th>מה לקנות</th><th>איפה</th></tr>
+      <tr><td>בארי</td><td>Via Sparano — Gucci, Prada, Zara, H&M</td><td>רחוב הקניות הראשי</td></tr>
+      <tr><td>Andria (בדרך)</td><td>בורטה IGP טרייה ישירות מהיצרן</td><td>Caseificio Olanda / Montrone</td></tr>
+      <tr><td>Alberobello</td><td>שמן זית Olio Intini (אורגני, פרס), נקניקי עץ זית, ממתקי שקד</td><td>חנויות ברחוב הטרולי</td></tr>
+      <tr><td>Lecce</td><td>קרטאפסטה (פסל נייר), אריחי פיאטרה לצ׳יה, בגדים ברקמה</td><td>Via Libertini, Artego, Vico dei Bolognesi</td></tr>
+      <tr><td>Grottaglie</td><td>קרמיקה מסורתית, pumo, ערכות קפה</td><td>Quartiere delle Ceramiche</td></tr>
+      <tr><td>כל מסריה</td><td>שמן זית תוצרת החווה — שאלו!</td><td>ישירות בלינה</td></tr>
+    </table>
+  </div>
+
+  <div class="info-section-title">🛒 קניות יומיומיות</div>
+  <div class="info-card">
+    <div class="info-row"><span class="info-row-label">סופרמרקטים</span><span class="info-row-val">Conad, Eurospin, Coop — ברוב ערי המסלול</span></div>
+    <div class="info-row"><span class="info-row-label">שעות גדולים</span><span class="info-row-val">8:00-22:00, כולל ראשון (מוגבל)</span></div>
+    <div class="info-row"><span class="info-row-label">15 אוגוסט (Ferragosto)</span><span class="info-row-val">⚠️ הכל סגור! קנו מזון יום לפני</span></div>
+    <div class="info-row"><span class="info-row-label">Brindisi (בדרך)</span><span class="info-row-val">Colonne Shopping Centre — מרכז מסחרי מעשי עם היפר</span></div>
+  </div>
+
+</div><!-- /tab-shop -->
+
 </div><!-- /wrap -->
 </div><!-- /clip -->
 
@@ -1046,42 +1127,55 @@ function initMap() {
     L.marker([lat,lng], {icon:icon}).addTo(map).bindPopup('<strong>' + title + '</strong><br><span style="font-size:12px">' + desc + '</span>');
   }
 
-  // בארי ונסיעה
-  marker(41.1389,16.7606,'#1a2332','✈️ Bari Airport BRI','נקודת התחלה וסיום');
-  marker(40.9959,17.2194,'#0077b6','🏖️ Lama Monachile','חוף הצוקים של Polignano');
-  marker(40.9530,17.2965,'#0077b6','🏙️ Monopoli','עיר חוף + נמל');
+  // נמל + בארי
+  marker(41.1389,16.7606,'#1a2332','✈️ Bari Airport BRI','נקודת התחלה וסיום · 27.7 הגעה, 7.8 יציאה');
+  marker(41.1189,16.8717,'#1a2332','🏙️ Bari — Via Sparano','קניות יוקרה + Bari Vecchia: Di Cosimo, פנזרוטי');
+
+  // קניות ליד בארי
+  marker(41.2048,16.5938,'#f59e0b','🛍️ Puglia Village — Molfetta','אאוטלט יחיד בפוליה · 140+ מותגים · 20 ד׳ מBRI');
+  marker(41.2275,16.2938,'#f59e0b','🧀 Caseificio Olanda — Andria','בורטה IGP טרייה ישירות מהיצרן');
+
+  // חוף מרכזי
+  marker(40.9959,17.2194,'#0077b6','🏖️ Polignano a Mare','Lama Monachile · צוקים · פסל Modugno · ZTL 24/7');
+  marker(40.9530,17.2965,'#0077b6','🏙️ Monopoli','עיר חוף + נמל ישן');
 
   // אטרקציות צפוניות
-  marker(40.8382,17.3598,'#0e7490','💦 Acquapark Egnazia','פארק מים ליד Fasano');
-  marker(40.8200,17.3700,'#0e7490','🦁 Zoosafari Fasano','ספארי + שעשועים');
-
-  // עמק איטריה
-  marker(40.7843,17.2394,'#7c5c2e','🍄 Alberobello','כפר הטרולי — UNESCO');
-  marker(40.7371,17.4224,'#be185d','🥩 Cisternino','Fornello Pronto');
-  marker(40.7539,17.3153,'#7c5c2e','🏘️ Locorotondo','כפר לבן עם גגות ייחודיים');
-  marker(40.8823,17.1740,'#4a7c59','🦇 Grotte di Castellana','מערת נטיפים');
-  marker(40.7280,17.5820,'#7c5c2e','🏛️ Ostuni','העיר הלבנה');
+  marker(40.8382,17.3598,'#0e7490','💦 Acquapark Egnazia','פארק מים · 10:00 · €23-28');
+  marker(40.8200,17.3700,'#0e7490','🦁 Zoosafari Fasano','ספארי + שעשועים · הגיעו ב-9:30');
 
   // לינה צפונית
-  marker(40.9000,17.3500,'#9333ea','🌾 Tenuta Chianchizza','לינה צפונית — Agriturismo');
+  marker(40.9000,17.3500,'#9333ea','🌾 Tenuta Chianchizza','לינה צפונית · Agriturismo · בריכה + חווה');
 
-  // לצ'ה וסלנטו
-  marker(40.3516,18.1750,'#b45309','🏛️ Lecce','ברוק לצ׳י, אמפיתאטרון');
-  marker(40.1503,18.4969,'#0e7490','🏰 Otranto','מבצר + קתדרלה');
-  marker(40.1200,18.5200,'#4a7c59','🟥 Cava di Bauxite','אגם טורקיז באדמה אדומה');
-  marker(40.1400,18.5100,'#4a7c59','🌊 Baia dei Turchi','חוף יפהפה ביער אורנים');
+  // עמק איטריה
+  marker(40.8823,17.1740,'#4a7c59','🦇 Grotte di Castellana','מערת נטיפים · 18°C בפנים · הזמינו מראש!');
+  marker(40.7843,17.2394,'#7c5c2e','🍄 Alberobello','כפר הטרולי UNESCO · הגיעו לפני 9:00');
+  marker(40.7539,17.3153,'#7c5c2e','🏘️ Locorotondo','כפר לבן, גגות ייחודיים, Belvedere');
+  marker(40.7371,17.4224,'#be185d','🥩 Cisternino','Fornello Pronto · Da Zio Pietro · חובה!');
+  marker(40.7280,17.5820,'#7c5c2e','🏛️ Ostuni','העיר הלבנה · חנות ב-Via Specchia · ZTL');
+
+  // קרמיקה
+  marker(40.6100,17.4700,'#f59e0b','🏺 Grottaglie','כפר הקרמיקה · עצירת חזרה לבארי · 9:00-12:30 בלבד');
+
+  // לצ'ה
+  marker(40.3516,18.1750,'#b45309','🏛️ Lecce','ברוק לצ׳י · אמפיתאטרון · Castello Carlo V');
+
+  // סלנטו מזרחי
+  marker(40.2800,18.3000,'#0077b6','🏖️ Torre dell\'Orso','חוף Blue Flag · Le Due Sorelle · ליד לצ׳ה');
+  marker(40.1503,18.4969,'#7c5c2e','🏰 Otranto','מבצר + קתדרלה פסיפס · עיר מרהיבה');
+  marker(40.1200,18.5200,'#4a7c59','🟥 Cava di Bauxite','אגם טורקיז-אדמה אדומה · בדקו גישה לפני!');
+  marker(40.1400,18.5100,'#4a7c59','🌊 Baia dei Turchi','חוף+יער אורנים · הגיעו ב-8:00 · ציוד עצמי');
+  marker(39.9338,18.0674,'#7c5c2e','🏡 Specchia','כפר סלנטינו יפהפה · טחנות שמן תת-קרקעיות');
 
   // לינה דרומית
-  marker(40.1600,18.4700,'#9333ea','🏰 Masseria Mongiò','לינה דרומית — Otranto');
+  marker(40.1600,18.4700,'#9333ea','🏰 Masseria Mongiò','לינה דרומית · ספא + בריכה + גישה לBaia dei Turchi');
 
-  // דרום
-  marker(40.0559,17.9913,'#be185d','🏝️ Gallipoli','עיר עתיקה על איי + חופים');
-  marker(40.0500,18.0700,'#0e7490','💦 Splash Water Park','פארק מים ליד גליפולי');
-  marker(39.8600,18.0200,'#4a7c59','🌊 Pescoluse','המלדיביים של איטליה');
+  // גליפולי ודרום
+  marker(40.0559,17.9913,'#be185d','🏝️ Gallipoli','עיר עתיקה על איי · שקיעה ביוני · פירות ים');
+  marker(40.0500,18.0700,'#0e7490','💦 Splash Water Park','14 מגלשות · €15 · ליד גליפולי');
+  marker(39.8600,18.0200,'#0077b6','🌊 Pescoluse','המלדיביים של איטליה · מים רדודים · ילדים!');
 
-  // הוספות שלי
-  marker(40.6100,17.4700,'#b45309','🏺 Grottaglie','כפר הקרמיקה');
-  marker(40.2800,18.3000,'#4a7c59','🏖️ Torre dell\'Orso','חוף עם Le Due Sorelle');
+  // טיול יום מרחוק
+  marker(40.6664,16.6043,'#7c5c2e','🗿 Matera (טיול יום)','~1 ש׳ מבארי · ספי מערה · UNESCO · שווה מאוד');
 }
 </script>
 </body>
