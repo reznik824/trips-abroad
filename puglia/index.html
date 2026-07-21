@@ -233,7 +233,7 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
 <div class="hero">
   <a href="../" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:white;padding:5px 13px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none;margin-bottom:12px;">← כל הטיולים</a>
   <h1>🇮🇹 פוליה – קיץ 2026</h1>
-  <p class="sub">Bari · Monopoli · Alberobello · Lecce · Otranto · Gallipoli</p>
+  <p class="sub">Bari · Locorotondo (Valle d'Itria) · Lecce · Santa Cesarea Terme · Bari</p>
   <div class="dates-pill">✈️ 27.7 – 7.8.2026 &nbsp;·&nbsp; 11 לילות</div>
   <div class="meta-row">
     <div class="mp">🛫 TLV→BRI 07:05 (6H361)</div>
@@ -246,12 +246,11 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
 <!-- TIMELINE -->
 <div class="timeline">
   <div class="tl">
-    <div class="tls bari" onclick="navigateTo('bari')">✈️ בארי<div class="td">הגעה/יציאה</div></div>
-    <div class="tls mono" onclick="navigateTo('monopoli')">🌊 Monopoli<div class="td">לילות 1–3</div></div>
-    <div class="tls itria" onclick="navigateTo('itria')">🫒 Valle d'Itria<div class="td">לילות 4–5</div></div>
+    <div class="tls bari" onclick="navigateTo('bari')">✈️ בארי<div class="td">הגעה</div></div>
+    <div class="tls itria" onclick="navigateTo('itria')">🫒 Locorotondo<div class="td">לילות 1–5</div></div>
     <div class="tls lecce" onclick="navigateTo('lecce')">🏛️ Lecce<div class="td">בדרך דרומה</div></div>
-    <div class="tls otran" onclick="navigateTo('otranto')">🏰 Otranto<div class="td">לילות 6–8</div></div>
-    <div class="tls galli" onclick="navigateTo('gallipoli')">🏖️ Gallipoli<div class="td">לילות 9–10</div></div>
+    <div class="tls otran" onclick="navigateTo('otranto')">🌡️ S. Cesarea Terme<div class="td">לילות 6–9</div></div>
+    <div class="tls bari" onclick="navigateTo('baricity')">🏙️ בארי<div class="td">לילות 10–11</div></div>
   </div>
 </div>
 
@@ -276,18 +275,17 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
   <!-- internal nav -->
   <div style="display:flex;gap:8px;margin-bottom:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;">
     <button onclick="document.getElementById('sec-bari').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#1a2332;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">✈️ בארי</button>
-    <button onclick="document.getElementById('sec-monopoli').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--mono);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🌊 Monopoli</button>
-    <button onclick="document.getElementById('sec-itria').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--itria);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🫒 Valle d'Itria</button>
+    <button onclick="document.getElementById('sec-itria').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--itria);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🫒 Locorotondo</button>
     <button onclick="document.getElementById('sec-lecce').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--lecce);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏛️ Lecce</button>
-    <button onclick="document.getElementById('sec-otranto').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--otran);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏰 Otranto</button>
-    <button onclick="document.getElementById('sec-gallipoli').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--galli);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏖️ Gallipoli</button>
+    <button onclick="document.getElementById('sec-otranto').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:var(--otran);color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🌡️ S. Cesarea Terme</button>
+    <button onclick="document.getElementById('sec-baricity').scrollIntoView({behavior:'smooth'})" style="flex-shrink:0;background:#1a2332;color:white;border:none;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">🏙️ בארי</button>
   </div>
 
-  <!-- BARI -->
+  <!-- BARI ARRIVAL -->
   <div id="sec-bari" class="sh bari">
     <h2>✈️ הגעה לבארי</h2>
     <p class="tag">נמל תעופה BRI · יום 1</p>
-    <div class="pills"><span class="pill">~45 ד׳ לMonopoli</span><span class="pill">SS16 ללא אגרה</span></div>
+    <div class="pills"><span class="pill">~45-50 ד׳ ל-Locorotondo</span><span class="pill">SS16 ללא אגרה</span></div>
   </div>
 
   <div style="background:#e0f0ff;border:1px solid #90cdf4;border-radius:13px;padding:12px 16px;margin-bottom:10px;font-size:13px;color:#1e3a5f;">
@@ -297,30 +295,29 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
   <!-- OPTION A -->
   <div class="dp">
     <div class="dp-h bari" style="display:flex;justify-content:space-between;align-items:center;">
-      <span>27.7 — אפשרות א׳: Polignano בדרך → Monopoli</span>
+      <span>27.7 — אפשרות א׳: Polignano/Monopoli בדרך → Locorotondo</span>
       <span style="background:rgba(255,255,255,0.2);border-radius:20px;padding:2px 9px;font-size:11px;">מומלץ</span>
     </div>
     <div class="dp-b">
       <strong>09:20</strong> נחיתה BRI · <strong>~10:00</strong> איסוף רכב<br><br>
-      <strong>~10:45 — Polignano a Mare</strong> (35 ד׳ מBRI, על הדרך ממש)<br>
+      <strong>~10:45 — Polignano a Mare</strong> (35 ד׳ מBRI, כמעט על הדרך)<br>
       חנו ב-Parcheggio Marco Polo (€1.50/שעה) — <em>אל תשאירו כלום ברכב!</em><br>
       שעה-שעתיים: מצוק Lama Monachile, פסל Domenico Modugno, רחובות לבנים. לא להישאב — זה מקום צפוף בקיץ.<br><br>
       <strong>~13:00 — Monopoli</strong> (20 ד׳) — ארוחת צהריים על הנמל<br><br>
-      <strong>~15:00</strong> הגעה ל-Agriturismo Tenuta Chianchizza · בריכה · יין מקומי<br><br>
-      <strong>ערב:</strong> נוח באגריטוריזמו — יום ראשון ארוך, לא צריך עוד נסיעה.
+      <strong>~15:15</strong> המשך פנימה לעמק איטריה (~30-35 ד׳ ממונופולי) — הגעה ל-Tenuta Valle Incanto, Locorotondo · התארגנות · בריכה<br><br>
+      <strong>ערב:</strong> טיול רגלי קל בעיר העתיקה של Locorotondo (10 ד' מהנחלה) — רחובות מרוצפים, גגות "קופרטו a לוזה" הייחודיים, ותצפית Belvedere לשקיעה על עמק הזיתים.
     </div>
   </div>
 
   <!-- OPTION B -->
   <div class="dp">
-    <div class="dp-h bari">27.7 — אפשרות ב׳: Monopoli מרכזי + Locorotondo בערב</div>
+    <div class="dp-h bari">27.7 — אפשרות ב׳: ישר ל-Locorotondo, מנוחה</div>
     <div class="dp-b">
       <strong>09:20</strong> נחיתה BRI · <strong>~10:00</strong> איסוף רכב<br><br>
-      <strong>~11:00 — Monopoli</strong> (45 ד׳ מBRI) — סיור בעיר העתיקה, נמל הדייגים, חומות מימי הביניים<br>
-      <strong>13:00</strong> ארוחת צהריים במונופולי<br><br>
-      <strong>~15:00</strong> הגעה ל-Agriturismo Tenuta Chianchizza<br><br>
-      <strong>~18:30 — Locorotondo</strong> (35 ד׳ מהאגריטוריזמו) — אפריטיבו ושקיעה על גגות העיר הלבנה.<br>
-      <em>שימו לב: Polignano a Mare לא נכנסת ביום זה — תצטרכו לשלב אותה ביום אחר.</em>
+      <strong>~10:45-11:00</strong> נסיעה ישירה ל-Locorotondo (~45-50 ד' מBRI, ללא עצירות)<br>
+      התארגנות בנחלה, מנוחה ובריכה אחרי לילה ללא שינה.<br><br>
+      <strong>ערב:</strong> טיול קל בעיר העתיקה של Locorotondo + Belvedere בשקיעה.<br>
+      <em>שימו לב: Polignano a Mare ו-Monopoli לא נכנסות ביום זה — תוכלו לשלב אותן בדרך לזוספארי או לאקוופארק בהמשך.</em>
     </div>
   </div>
 
@@ -333,134 +330,154 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
     </ul>
   </div>
 
-  <!-- MONOPOLI/FASANO -->
-  <div id="sec-monopoli" class="sh mono">
-    <h2>🌊 Monopoli / Fasano — בסיס צפוני</h2>
-    <p class="tag">לילות 1–3 · Agriturismo Tenuta Chianchizza</p>
-    <div class="pills"><span class="pill">🏊 בריכה בחווה</span><span class="pill">🦁 Zoosafari</span><span class="pill">💦 Acquapark</span></div>
-  </div>
-
-  <div class="dp">
-    <div class="dp-h mono">28.7 — Zoosafari Fasano (יום שלם)</div>
-    <div class="dp-b">
-      <strong>הגיעו ב-9:30</strong> בדיוק כשהשערים נפתחים — החיות הכי פעילות בבוקר לפני שמחפשות צל. הסיור ברכב בין החיות (~1 שעה) + אזורי הליכה.<br><br>
-      <strong>Fasanolandia</strong> (אטרקציות שעשועים) — תשלום נפרד לכל מתקן. מומלץ לתכנן מראש אילו רוצים.<br><br>
-      <strong>ערב:</strong> 20 ד׳ נסיעה ל-<strong>Cisternino</strong> לארוחת בשר ב-Fornello Pronto — ניסיון קולינרי ייחודי (ראו לשונית אוכל).
-    </div>
-  </div>
-
-  <div class="dp">
-    <div class="dp-h mono">29.7 — Acquapark Egnazia</div>
-    <div class="dp-b">
-      פארק מים ענק ב-Capitolo di Monopoli. פתוח מ-10:00. כניסה ~€23-28 מבוגר, €17 ילד (100-130 ס״מ), חינם מתחת ל-100 ס״מ.<br><br>
-      <strong>לאחר מכן:</strong> חוף חופשי בקרבת מקום, או נגיעה ב-<strong>Lido Capitolo</strong> לשעות הצהריים.<br><br>
-      <strong>ערב:</strong> ארוחה ב-Monopoli — מסעדות דגים טריים על הנמל.
-    </div>
-  </div>
-
-  <div class="darrow">🚗 <strong>~45 ד׳ → עמק איטריה</strong> · SP172 פנימה</div>
-
-  <!-- VALLE D'ITRIA -->
+  <!-- VALLE D'ITRIA / LOCOROTONDO -->
   <div id="sec-itria" class="sh itria">
-    <h2>🫒 Valle d'Itria — עמק הטרולי</h2>
-    <p class="tag">לילות 4–5 · Alberobello · Cisternino · Locorotondo · Ostuni</p>
-    <div class="pills"><span class="pill">🍄 כפר הטרולי</span><span class="pill">🦇 מערות נטיפים</span><span class="pill">🏛️ העיר הלבנה</span></div>
+    <h2>🫒 Locorotondo — עמק הטרולי</h2>
+    <p class="tag">לילות 1–5 · Tenuta Valle Incanto</p>
+    <div class="pills"><span class="pill">🏊 בריכה בנחלה</span><span class="pill">🍄 כפר הטרולי</span><span class="pill">🦁 Zoosafari</span><span class="pill">💦 Acquapark</span><span class="pill">🦇 מערות נטיפים</span></div>
+  </div>
+
+  <div class="hbox">
+    <h4>💡 למה Locorotondo כבסיס יחיד</h4>
+    <p>Locorotondo יושבת ממש במרכז עמק איטריה — Alberobello (~15 ד'), Cisternino (~20 ד') ו-Martina Franca (~15 ד') כולן קרובות מאוד. Ostuni ומערות קסטלנה נגישות בנוחות (25-35 ד'). המחיר: זוספארי ואקוופארק, שהיו ליד הבסיס הישן במונופולי, הופכים לנסיעות של 35-45 ד' במקום 15-20 ד' — עדיין ריאלי ליום שלם, פשוט לצאת קצת יותר מוקדם.</p>
   </div>
 
   <div class="dp">
-    <div class="dp-h itria">30.7 — Alberobello + Locorotondo + Cisternino</div>
+    <div class="dp-h itria">28.7 — Zoosafari Fasanolandia (יום שלם)</div>
     <div class="dp-b">
-      <strong>לפני 9:00:</strong> הגיעו ל-Alberobello לפני ההמונים. חנו ב-Piazzale Indipendenza (€8/יום). Rione Aia Piccola — 200 טרולי נוספים, <strong>חינם</strong> ופחות צפוף.<br><br>
-      <strong>אחה"צ:</strong> 15 ד׳ נסיעה ל-<strong>Locorotondo</strong> — כפר לבן עם גגות אנגולריים ייחודיים. עלו ל-Belvedere לתצפית על עמק הזיתים.<br><br>
-      <strong>ערב:</strong> <strong>Cisternino</strong> — Fornello Pronto: בוחרים בשר גולמי מהקצב, הם צולים לכם. חובה לנסות <strong>bombetta</strong>.
+      <strong>נסיעה מ-Locorotondo:</strong> ~35-40 ד' (כ-27 ק"מ) — משמעותית רחוק יותר מאשר מהבסיס הישן במונופולי (שם זה היה ~20 ד'), אז לצאת מוקדם.<br><br>
+      <strong>הגיעו ב-9:30</strong> בדיוק כשהשערים נפתחים — החיות הכי פעילות בבוקר לפני שמחפשות צל. הסיור ברכב בין החיות (~1 שעה) + אזורי הליכה. <strong>Fasanolandia</strong> (אטרקציות שעשועים) — תשלום נפרד לכל מתקן.<br><br>
+      <strong>ערב:</strong> חזרה ל-Locorotondo, ערב רגוע בנחלה.
     </div>
   </div>
 
   <div class="dp">
-    <div class="dp-h itria">31.7 — Grotte di Castellana + Ostuni</div>
+    <div class="dp-h itria">29.7 — Alberobello + Martina Franca</div>
     <div class="dp-b">
-      <strong>בוקר:</strong> <strong>Grotte di Castellana</strong> — מערת הנטיפים. הזמינו מראש! סיור ארוך (3 ק"מ, 100 ד') ממש שווה — הגרוטה ביאנקה מדהימה. טמפרטורה פנים: 18°C — קחו שכבה נוספת.<br><br>
-      <strong>אחה"צ:</strong> 20 ד׳ ל-<strong>Ostuni</strong>, "העיר הלבנה". רחובות מפותלים, חומות עתיקות, קתדרלה עם חלון ורד. חנו ב-Via Specchia, ואפשר לקחת Ape (תלת-אופן) סיור עם הילדים.<br><br>
-      <strong>ערב:</strong> נסיעה דרומה לכיוון Lecce (~1 שעה).
+      <strong>לפני 9:00:</strong> Alberobello קרוב מאוד (~15 ד', 8 ק"מ) — הגיעו לפני האוטובוסים. חנו בחניוני הפאר-פארק בכניסה לעיר (לא ברכב לתוך רובע הטרולי). Rione Aia Piccola — 200 טרולי נוספים, <strong>חינם</strong> ופחות צפוף.<br><br>
+      <strong>צהריים:</strong> חזרה קצרה ל-Locorotondo למנוחה/בריכה.<br><br>
+      <strong>אחה"צ-ערב:</strong> <strong>Martina Franca</strong> (~15 ד', 10 ק"מ) — עיר בארוק מרשימה יותר משנדמה, Piazza Roma, פאלאצו דוקאלה ורחוב הקניות המרכזי. ארוחת ערב שם או חזרה ל-Locorotondo.
     </div>
   </div>
 
-  <div class="darrow">🚗 <strong>~1:20 שעות → לצ׳ה</strong> · SP113 → SS379 → SS16</div>
+  <div class="dp">
+    <div class="dp-h itria">30.7 — Grotte di Castellana + Ostuni</div>
+    <div class="dp-b">
+      <strong>בוקר:</strong> <strong>Grotte di Castellana</strong> (~25-30 ד', 20 ק"מ) — מערת הנטיפים. הזמינו מראש! סיור קצר (~שעה) או ארוך (3 ק"מ, 100 ד') — הגרוטה ביאנקה מדהימה. טמפרטורה פנים: 15-18°C — קחו שכבה נוספת.<br><br>
+      <strong>אחה"צ:</strong> <strong>Ostuni</strong> (~30-35 ד', 24 ק"מ), "העיר הלבנה" — הכי יפה לקראת שקיעה כשהאור מכה בבתים. חניה בשולי המורדות, עלייה ברגל דרך הסמטאות עד הקתדרלה עם חלון הוורד. אפשר Ape (תלת-אופן) סיור עם הילדים.<br><br>
+      <strong>ערב:</strong> ארוחה טובה באוסטוני או חזרה ל-Locorotondo.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h itria">31.7 — Acquapark Egnazia + Cisternino</div>
+    <div class="dp-b">
+      <strong>נסיעה מ-Locorotondo:</strong> ~40-45 ד' (30 ק"מ) — גם כאן רחוק משמעותית יותר מאשר ממונופולי עצמה (שם ~10-15 ד'). פארק מים ב-Capitolo di Monopoli, פתוח מ-10:00. כניסה ~€23-28 מבוגר, €17 ילד (100-130 ס״מ), חינם מתחת ל-100 ס״מ. קחו קרם הגנה וכובעים.<br><br>
+      <strong>ערב — החוויה המסכמת של הבסיס:</strong> <strong>Cisternino</strong> (~20 ד', 11 ק"מ) — Fornello Pronto ב-Da Zio Pietro: בוחרים בשר גולמי מהקצב, הם צולים לכם. חובה לנסות <strong>bombetta</strong>. הגיעו 18:30-19:00 — בשיא הקיץ מתמלא ותור לגריל מתארך.
+    </div>
+  </div>
+
+  <div class="darrow">🚗 <strong>~1:30 שעות → לצ׳ה</strong> · SP113 → SS379 → SS16 (עצירה בדרך לבסיס הבא)</div>
 
   <!-- LECCE -->
   <div id="sec-lecce" class="sh lecce">
     <h2>🏛️ Lecce — ברוק הפולייזי</h2>
-    <p class="tag">יום 6 · עצירה בדרך דרומה</p>
+    <p class="tag">יום 6 (1.8) · עצירה בדרך דרומה ל-Santa Cesarea Terme</p>
     <div class="pills"><span class="pill">🏛️ אמפיתאטרון רומי</span><span class="pill">🏰 Castello Carlo V</span><span class="pill">⛪ כנסיות ברוק</span></div>
   </div>
 
   <div class="dp">
-    <div class="dp-h lecce">1.8 — לצ׳ה + נסיעה לאוטרנטו</div>
+    <div class="dp-h lecce">1.8 — צ'ק-אאוט מ-Locorotondo → לצ'ה → Santa Cesarea Terme</div>
     <div class="dp-b">
-      <strong>בוקר:</strong> חנו ב-Parcheggio Torre del Parco (מחוץ לZTL). לצ'ה מפורסמת ב"ברוק הלצ'י" — כנסיות מפוסלות מאבן גיר צהובה. <strong>Anfiteatro Romano</strong> (2,000 שנה) ממש במרכז. <strong>Castello Carlo V</strong> הגדול.<br><br>
+      <strong>בוקר:</strong> צ'ק-אאוט רגוע מ-Tenuta Valle Incanto, נסיעה ללצ'ה (~1:20-1:30 ש').<br><br>
+      חנו ב-Parcheggio Torre del Parco (מחוץ לZTL). לצ'ה מפורסמת ב"ברוק הלצ'י" — כנסיות מפוסלות מאבן גיר צהובה. <strong>Anfiteatro Romano</strong> (2,000 שנה) ממש במרכז. <strong>Castello Carlo V</strong> הגדול.<br><br>
       <strong>ZTL:</strong> פעיל 13:00-16:00 ו-19:00-10:00 — אל תיכנסו ברכב לאזור ההיסטורי.<br><br>
-      <strong>אחה"צ:</strong> 40 ד' נסיעה לאוטרנטו ולמסריה Mongiò dell'Elefante.
+      <strong>אחה"צ:</strong> ~40-45 ד' נסיעה ל-Santa Cesarea Terme וצ'ק-אין ב-19 Summer Suites. השאר את הערב חופשי — פול קלאב האינפיניטי ושקיעה על הים.
     </div>
   </div>
 
-  <div class="darrow">🚗 <strong>~40 ד׳ → אוטרנטו</strong> · SP362</div>
+  <div class="darrow">🚗 <strong>~40-45 ד׳ → Santa Cesarea Terme</strong> · SP362</div>
 
-  <!-- OTRANTO -->
+  <!-- SANTA CESAREA TERME -->
   <div id="sec-otranto" class="sh otran">
-    <h2>🏰 Otranto / סלנטו</h2>
-    <p class="tag">לילות 6–8 · Masseria Mongiò dell'Elefante</p>
-    <div class="pills"><span class="pill">🟥 Cava di Bauxite</span><span class="pill">🌊 Baia dei Turchi</span><span class="pill">🏰 מבצר עתיק</span></div>
+    <h2>🌡️ Santa Cesarea Terme / סלנטו</h2>
+    <p class="tag">לילות 6–9 · 19 Summer Suites</p>
+    <div class="pills"><span class="pill">🏊 פול קלאב אינפיניטי</span><span class="pill">🌡️ גרוטות תרמיות</span><span class="pill">⛵ טיול סירה</span><span class="pill">🏰 Otranto</span><span class="pill">🟥 Cava di Bauxite</span></div>
   </div>
 
   <div class="dp">
-    <div class="dp-h otran">2.8 — עיר אוטרנטו + Cava di Bauxite</div>
+    <div class="dp-h otran">2.8 — עיר Otranto + Cava di Bauxite + Baia dei Turchi</div>
     <div class="dp-b">
-      <strong>בוקר:</strong> עיר אוטרנטו — הקתדרלה עם הפסיפס הרצפתי מהמאה ה-12 (אחד המדהימים בישו"א, ילדים אוהבים!). מבצר ה-Castello Aragonese.<br><br>
-      <strong>אחה"צ:</strong> <strong>Cava di Bauxite</strong> — 2 ק"מ מהעיר. אגם טורקיז מוקף אדמה אדומה-כתומה, ניגוד צבעים מדהים. גישה להולכי רגל (חינם). שחייה אסורה. <strong>חשוב: בדקו מצב גישה לפני הנסיעה</strong> (ראו לשונית אטרקציות).<br><br>
-      <strong>ערב:</strong> ארוחת דגים טרי בעיר אוטרנטו.
+      <strong>בוקר (עד 9:30):</strong> נסיעה קצרה ל-Otranto (~15-18 ד', 18 ק"מ) — הגיעו מוקדם לחניה. הקתדרלה עם הפסיפס הרצפתי מהמאה ה-12 (אחד המדהימים בעולם, ילדים אוהבים לחפש דמויות!) — היכנסו לפני 10:00. מבצר ה-Castello Aragonese.<br><br>
+      <strong>צהריים:</strong> <strong>Cava di Bauxite</strong> — עוד 10 ד' משם. אגם טורקיז מוקף אדמה אדומה-כתומה. גישה להולכי רגל (חינם), 30-45 ד' מספיקות. שחייה אסורה. <strong>בדקו מצב גישה לפני</strong> (ראו לשונית אטרקציות).<br><br>
+      <strong>אחה"צ:</strong> <strong>Baia dei Turchi</strong> (דומה במרחק) — 10-15 ד' הליכה ביער אורנים. הגיעו לא מאוחר מ-11:00 בשיא העונה לחניה.<br><br>
+      <strong>ערב:</strong> חזרה למלון, ארוחה ופול קלאב לשקיעה.
     </div>
   </div>
 
   <div class="dp">
-    <div class="dp-h otran">3.8 — Baia dei Turchi + Specchia</div>
+    <div class="dp-h otran">3.8 — יום Santa Cesarea Terme: גרוטות תרמיות + טיול סירה</div>
     <div class="dp-b">
-      <strong>בוקר מוקדם (~8:00):</strong> <strong>Baia dei Turchi</strong> — 10-20 ד' הליכה דרך יער אורנים עד לחוף מרהיב. קחו ציוד שלכם (שמשייה, מחצלת). מתמלא עד 10:00.<br><br>
-      <strong>אחה"צ:</strong> <strong>Specchia</strong> — כפר סלנטינו קטן, "הכי יפה של סלנטו". הגשות בVia Fondo Maglio לטיול ב-טחנות שמן תת-קרקעיות. מגדל מהמאה ה-15.<br><br>
-      <strong>ערב:</strong> חזרה למסריה.
-    </div>
-  </div>
-
-  <div class="darrow">🚗 <strong>~55 ד׳ → גליפולי</strong> · כבישי חוף (עמוסים בשיא — צאו מוקדם)</div>
-
-  <!-- GALLIPOLI -->
-  <div id="sec-gallipoli" class="sh galli">
-    <h2>🏖️ Gallipoli / Pescoluse</h2>
-    <p class="tag">לילות 9–10 · החוף המערבי / שפיץ המגף</p>
-    <div class="pills"><span class="pill">💦 Splash Water Park</span><span class="pill">🌊 Pescoluse "מלדיביים"</span><span class="pill">🏝️ גליפולי עתיקה</span></div>
-  </div>
-
-  <div class="dp">
-    <div class="dp-h galli">4.8 — Splash Water Park + גליפולי</div>
-    <div class="dp-b">
-      <strong>בוקר-אחה"צ:</strong> <strong>Splash Parco Acquatico</strong> — 14 מגלשות כולל Kamikaze, Caribbean River (נהר צף), Fabilandia לקטנים. פתוח 10:00-18:30. €15/אדם, חינם מתחת ל-110 ס״מ.<br><br>
-      <strong>ערב:</strong> עיר גליפולי — מבצר על אי קטן מחובר לגשר, שוק ישן, מסעדות פירות ים. שקיעה צבאית על הים היוני.
+      <strong>היום המיוחד של הבסיס הזה:</strong> Santa Cesarea Terme ידועה במעיינות גופרית תרמיים הנובעים בתוך ארבע מערות טבעיות בצוק — <strong>Grotta Gattulla, Grotta Sulfurea, Grotta Solfatara</strong> ו-<strong>Grotta Fetida</strong> (השם, "המסריחה", בגלל ריח הגופרית). המים נובעים בכ-30°C ומוכרים לטיפולי עור/נשימה עוד מהמאה ה-16. את Grotta Fetida אפשר לבקר בסיור מודרך (מתואם דרך Terme di Santa Cesarea) — מתאים בעיקר למבוגרים.<br><br>
+      <strong>מומלץ למשפחה:</strong> <strong>טיול בסירה</strong> לאורך החוף (יוצא מ-Santa Cesarea או Castro הסמוכה) — צפייה בפתחי הגרוטות התרמיות מהים וגם במערות ים נוספות (Zinzulusa, Romanelli). סירת נוסעים קבוצתית: 2.5-4 שעות, ~€20-35 מבוגר / €15-20 ילד — הזמינו יום-יומיים מראש באוגוסט.<br><br>
+      <strong>אחה"צ:</strong> חופשי בפול קלאב.
     </div>
   </div>
 
   <div class="dp">
-    <div class="dp-h galli">5.8–6.8 — Pescoluse + יום רגוע</div>
+    <div class="dp-h otran">4.8 — יום חופשי / Specchia (אופציונלי)</div>
     <div class="dp-b">
-      יום שלם בחוף Pescoluse — חול לבן עדין, מים רדודים וטורקיזים, מושלם לילדים. <strong>הגיעו לפני 9:00</strong> לחנייה חינמית.<br><br>
-      לידים (€35-60 לשמשייה + 2 כורסאות) — <strong>כדאי להזמין מראש</strong> ביולי-אוגוסט ב-spiagge.it.
+      יום רגוע בפול קלאב או בחוף (10 ד' הליכה מהמלון). למי שרוצה לצאת עוד: <strong>Specchia</strong> — כפר סלנטו קטן ויפהפה עם טחנות שמן תת-קרקעיות מהמאות ה-15-19 — כ-30-35 ד' נסיעה (25-30 ק"מ), שעה-שעתיים מספיקות לביקור קצר.
+    </div>
+  </div>
+
+  <div class="tips" style="background:linear-gradient(135deg,#0e7490,#155e75);">
+    <h4>🏝️ למה Gallipoli / Pescoluse לא בתוכנית</h4>
+    <ul>
+      <li>Gallipoli נמצאת בצד השני של חצי-האי (חוף יוני) — כ-50-55 ד' נסיעה מ-Santa Cesarea Terme, ו-Pescoluse כ-40 ד'</li>
+      <li>עם פול קלאב מרהיב ו-Baia dei Turchi בטווח נגיעה, נסיעה של שעה-שעה ורבע לכל כיוון רק "כדי להגיע לחוף" לא משתלמת על 4 לילות</li>
+      <li>מי שבכל זאת רוצה — הכרטיסים ל-Splash Water Park ותיאור Pescoluse עדיין מופיעים בלשונית "אטרקציות" כאופציה מרוחקת</li>
+    </ul>
+  </div>
+
+  <div class="darrow">🚗 <strong>~2-2:30 שעות → בארי</strong> · SS16/A14 צפונה</div>
+
+  <!-- BARI CITY -->
+  <div id="sec-baricity" class="sh bari">
+    <h2>🏙️ בארי — סיום הטיול בעיר</h2>
+    <p class="tag">לילות 10–11 · IL FICO – Appartamento 1</p>
+    <div class="pills"><span class="pill">⛪ בזיליקת סן ניקולה</span><span class="pill">🏰 Castello Svevo</span><span class="pill">🏖️ Pane e Pomodoro</span><span class="pill">🛍️ Via Sparano</span></div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h bari">5.8 — יום ההגעה לבארי</div>
+    <div class="dp-b">
+      נסיעה מ-Santa Cesarea Terme לבארי (~2-2:30 ש', 150 ק"מ) — לצאת אחרי בוקר רגוע, בלי למהר. עדיף להגיע אחה"צ מוקדם (~14:00-15:00) מבלי לדחוס עוד עצירות. <strong>הדירה ברובע האומברטינו/מוראט — מחוץ ל-ZTL</strong>, אבל כדאי לשאול את בעל הבית מראש איפה לחנות.<br><br>
+      <strong>מנוחה קצרה</strong> בדירה אחרי הנסיעה — חום אוגוסט, טוב לילדים.<br><br>
+      <strong>אחה"צ מאוחר (מ-18:00):</strong> טיול רגלי לבארי וקיה — הצצה לבזיליקת סן ניקולה מבחוץ, סמטת Arco Basso (רחוב הנונות שמכינות אורקייטה — בעיקר בבוקר, אז זו רק היכרות ראשונה). שקיעה על הטיילת (Lungomare).<br><br>
+      <strong>ארוחת ערב:</strong> Pizzeria Di Cosimo (פנזרוטי, פוקצ'ה) — או Antò Cucina e Sapori Tipici, כ-200 מ' מהבזיליקה, אורקייטה עם צימי רפה ופירות ים.
     </div>
   </div>
 
   <div class="dp">
-    <div class="dp-h bari">7.8 — חזרה לבארי ✈️ הביתה</div>
+    <div class="dp-h bari">6.8 — יום מלא בבארי</div>
     <div class="dp-b">
-      <strong>טיסה 6H362:</strong> יציאה BRI 18:35 · נחיתה TLV 22:35<br><br>
-      <strong>SS101 → A14 צפונה</strong> (~2:10 שעות). היכנסו לנמל לפחות 2 שעות לפני — המראה 18:35, כלומר ב-16:30 כבר בנמל.<br><br>
-      עצירת בוקר אפשרית ב-<strong>Grottaglie</strong> (כפר הקרמיקה, 15 ד' מTaranto) — ילדים יכולים לצבוע קרמיקה. הזמינו מראש! פתוח 9:00-12:30.
+      <strong>בוקר (9:00-9:30, לפני החום):</strong> חזרה ל-Arco Basso לתפוס את הנונות בשיאן, מכינות אורקייטה על שולחנות ברחוב — כדאי לקנות שקית לטעימה. המשך לבזיליקת סן ניקולה (כניסה חופשית, נדרש כיסוי כתפיים/ברכיים) — הזדמנות לספר לילדים על הקשר לסנטה קלאוס. קתדרלת בארי (סן סבינו) ממש בסמוך.<br><br>
+      <strong>Castello Svevo:</strong> כניסה בשעות קבועות בקיץ, עד 80 מבקרים לשעה — <strong>הזמינו כרטיס מראש אונליין</strong>. מבוגר €10, ילדים חינם. שעה מספיקה.<br><br>
+      <strong>צהריים:</strong> ארוחה קלה — פוקצ'ה/פנצרוטי, או Sood (Via Principe Amedeo 222) לביסטרו קז'ואל.<br><br>
+      <strong>13:00-16:00:</strong> סיאסטה בדירה — חשוב עם ילדים בחום אוגוסט.<br><br>
+      <strong>מ-16:30:</strong> חוף <strong>Pane e Pomodoro</strong> — חוף עירוני חינמי עם מצילים, כניסה מדורגת ורדודה מתאימה לילדים, מקלחות ושירותים. הביאו שמשייה/מגבות. הליכה מהדירה ~20-25 ד'.<br><br>
+      <strong>ערב:</strong> חזרה דרך הטיילת, עצירת צילום בתיאטרון פטרוצ'ילי (סיורים מודרכים בעיקר בסופ"ש — לבדוק ולתאם מראש, לא להסתמך). המשך ל-Via Sparano — הרחוב ההולכי-רגל עם גוצ'י, פראדה, זארה, H&M — פאסאג'טה ערבית עם גלידה.<br><br>
+      <strong>ארוחת ערב:</strong> PerBacco (Via Principe Amedeo 173) לדגים ברמה גבוהה יותר, או פוקצ'ה/פיצה קלה אם הילדים עייפים.
+    </div>
+  </div>
+
+  <div class="dp">
+    <div class="dp-h bari">7.8 — יום היציאה ✈️ הביתה</div>
+    <div class="dp-b">
+      <strong>בוקר רגוע:</strong> ארוחת בוקר, אריזה, צ'ק-אאוט (לוודא מראש שעת יציאה מול בעל הבית). אם נשאר משהו בבארי וקיה או ב-Via Sparano — הבוקר הזה.<br><br>
+      <strong>~12:00-12:30:</strong> יציאה לכיוון Molfetta (~25-30 ד') ל-<strong>Puglia Village</strong> (פתוח 10:00-21:00) — האאוטלט היחיד בפוליה, כאן דווקא מתאים גיאוגרפית כי הוא בכיוון השדה (~20 ד' משם). שעה-שעה וחצי בלבד — לא לתת לקניות לגלוש.<br><br>
+      <strong>טיסה 6H362:</strong> יציאה BRI 18:35 · נחיתה TLV 22:35. היכנסו לנמל עד 16:30 לכל המאוחר — עדיף להגיע מוקדם מאשר להסתכן בפקק ליד מולפטה בשיא הקיץ.
     </div>
   </div>
 
@@ -519,6 +536,40 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
       <div class="fc-tag">€2-7</div>
     </div>
     <div class="fc-tip">חובה לנסות: פנזרוטי + פוקצ'ה בארית (עגבניות שרי, זיתים) מכל פורנו בבארי וקיה</div>
+  </div>
+
+  <div class="food-card">
+    <div class="fc-head">
+      <div>
+        <div class="fc-name">Antò Cucina e Sapori Tipici</div>
+        <div class="fc-location">כ-200 מ' מבזיליקת סן ניקולה, בארי וקיה</div>
+      </div>
+      <div class="fc-badge attr-tag-blue">משפחתי</div>
+    </div>
+    <div class="fc-desc">מסעדה משפחתית קטנה — פוקצ'ות עמוסות, אורקייטה עם צימי רפה, ופירות ים. אופציה טובה לערב ההגעה לבארי (5.8).</div>
+    <div class="fc-row"><div class="fc-tag">ידידותי לילדים</div><div class="fc-tag">מטבח פולייזי מסורתי</div></div>
+  </div>
+
+  <div class="food-card">
+    <div class="fc-head">
+      <div>
+        <div class="fc-name">Sood</div>
+        <div class="fc-location">Via Principe Amedeo 222, בארי</div>
+      </div>
+      <div class="fc-badge attr-tag-green">ביסטרו קז'ואל</div>
+    </div>
+    <div class="fc-desc">ביסטרו קז'ואל טוב למשפחות, מנות לשיתוף — אופציה נוחה לצהריים בין הבזיליקה לקסטלו סבבו.</div>
+  </div>
+
+  <div class="food-card">
+    <div class="fc-head">
+      <div>
+        <div class="fc-name">PerBacco</div>
+        <div class="fc-location">Via Principe Amedeo 173, בארי</div>
+      </div>
+      <div class="fc-badge attr-tag-blue">רמה גבוהה יותר</div>
+    </div>
+    <div class="fc-desc">דגים טובים ואווירה נעימה — מומלץ לארוחת ערב אחרונה בבארי (6.8), קרוב לדירה.</div>
   </div>
 
   <div class="sl">Cisternino — חווית הפורנלו פרונטו (ייחודית בעולם!)</div>
@@ -686,8 +737,8 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
   </div>
 
   <div class="attr-card">
-    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Splash Parco Acquatico</div>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Rivabella, Litoranea Nord Gallipoli</div>
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Splash Parco Acquatico ⚠️ רחוק מהבסיס</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Rivabella, Litoranea Nord Gallipoli · ~50-55 ד' מ-Santa Cesarea Terme — לא בתוכנית הראשית</div>
     <div class="attr-price-row">
       <span class="attr-badge attr-tag-blue">€15 לאדם</span>
       <span class="attr-badge attr-tag-green">מתחת 110ס"מ חינם</span>
@@ -723,9 +774,21 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
     <div class="fc-links"><a href="https://www.grottedicastellana.it" target="_blank" class="fc-link">הזמנת כרטיסים</a></div>
   </div>
 
+  <div class="attr-card" style="border-right:4px solid var(--otran);">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">🌡️ גרוטות תרמיות + טיול סירה — Santa Cesarea Terme</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Santa Cesarea Terme (LE) · ליד המלון</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-blue">סירה קבוצתית €20-35 מבוגר / €15-20 ילד</span>
+      <span class="attr-badge attr-tag-orange">30°C במעיינות</span>
+      <span class="attr-badge attr-tag-green">2.5-4 שעות</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">ארבע מערות טבעיות בצוק עם מעיינות גופרית תרמיים — <strong>Grotta Gattulla, Grotta Sulfurea, Grotta Solfatara</strong> ו-<strong>Grotta Fetida</strong> ("המסריחה", בגלל ריח הגופרית). מוכרות לטיפולי עור ונשימה מהמאה ה-16. <strong>מומלץ למשפחות:</strong> טיול בסירה קבוצתית לאורך החוף — רואים את פתחי הגרוטות התרמיות מהים וגם מערות ים נוספות (Zinzulusa, Romanelli).</div>
+    <div class="fc-tip">הזמינו יום-יומיים מראש באוגוסט. סיור מודרך בתוך Grotta Fetida עצמה מתאים בעיקר למבוגרים — לילדים עדיף טיול הסירה.</div>
+  </div>
+
   <div class="attr-card">
     <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Cava di Bauxite</div>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">~2 ק"מ מאוטרנטו, לכיוון Torre del Serpe</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">~2 ק"מ מאוטרנטו · ~20 ד' מ-Santa Cesarea Terme</div>
     <div class="attr-price-row">
       <span class="attr-badge attr-tag-green">כניסה חינם</span>
       <span class="attr-badge attr-tag-red">שחייה אסורה</span>
@@ -738,7 +801,7 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
 
   <div class="attr-card">
     <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Baia dei Turchi</div>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">ליד אוטרנטו</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">ליד אוטרנטו · ~15-18 ד' מ-Santa Cesarea Terme</div>
     <div class="attr-price-row">
       <span class="attr-badge attr-tag-green">חוף חינם</span>
       <span class="attr-badge attr-tag-orange">חניה €5-10</span>
@@ -749,14 +812,15 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
   </div>
 
   <div class="attr-card">
-    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Spiaggia di Pescoluse — "המלדיביים"</div>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Marina di Pescoluse, Salve</div>
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Spiaggia di Pescoluse — "המלדיביים" ⚠️ רחוק מהבסיס</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Marina di Pescoluse, Salve · ~40 ד' מ-Santa Cesarea Terme</div>
     <div class="attr-price-row">
       <span class="attr-badge attr-tag-green">חוף חינם</span>
       <span class="attr-badge attr-tag-blue">ליד: €35-60/יום</span>
+      <span class="attr-badge attr-tag-orange">לא בתוכנית הראשית</span>
     </div>
-    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">חוף ארוך עם חול עדין כאבקה ומים רדודים וטורקיזים — מושלם לילדים קטנים. לידים מלאי שירותים לאורך החוף.</div>
-    <div class="fc-tip">הזמינו ליד מראש ב-spiagge.it — ביולי-אוגוסט לא תמצאו מקום ביום עצמו.</div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">חוף ארוך עם חול עדין כאבקה ומים רדודים וטורקיזים — מושלם לילדים קטנים. לידים מלאי שירותים לאורך החוף. <strong>לא הוכנס לתוכנית הראשית</strong> — עם פול קלאב ו-Baia dei Turchi קרובים לבסיס, 40 ד' כל כיוון לא הצדיקו עצמם על 4 לילות.</div>
+    <div class="fc-tip">אם בכל זאת רוצים — הזמינו ליד מראש ב-spiagge.it. ביולי-אוגוסט לא תמצאו מקום ביום עצמו.</div>
   </div>
 
   <div class="sl">🏛️ היסטוריה ועיירות</div>
@@ -806,6 +870,42 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
     <div class="fc-tip">אל תגיעו בין 12:30-16:00 — הכל סגור. מומלץ כעצירת חזרה לבארי.</div>
   </div>
 
+  <div class="sl">🏙️ בארי — 2 לילות בעיר (לילות 10-11)</div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">Castello Svevo</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Piazza Federico II di Svevia, Bari</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-blue">מבוגר €10</span>
+      <span class="attr-badge attr-tag-green">ילדים חינם</span>
+      <span class="attr-badge attr-tag-orange">כניסה בשעות קבועות בקיץ</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">מבצר נורמנדי-שוואבי מהמאה ה-12, שופץ ע"י פרידריך השני. בקיץ הכניסה מוגבלת ל-80 מבקרים לשעה. שעה מספיקה, כולל הפסקות צל.</div>
+    <div class="fc-tip">הזמינו כרטיס עם שעת כניסה מראש אונליין — אוגוסט = עומס.</div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">חוף Pane e Pomodoro</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Lungomare, Bari · ~20-25 ד' הליכה מהדירה</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-green">חוף עירוני חינמי</span>
+      <span class="attr-badge attr-tag-blue">מצילים + מקלחות</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">חוף עירוני נגיש עם כניסה מדורגת ורדודה למים — מתאים היטב לילדים. שירותים ודוכני שכירות ציוד זמינים.</div>
+    <div class="fc-tip">הגיעו אחרי 16:00 כשקצת פחות חם. קחו שמשייה/מגבות עצמאיות.</div>
+  </div>
+
+  <div class="attr-card">
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">תיאטרון פטרוצ'ילי</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Corso Cavour, Bari</div>
+    <div class="attr-price-row">
+      <span class="attr-badge attr-tag-green">חזית — חינם לצפייה</span>
+      <span class="attr-badge attr-tag-orange">סיורים מודרכים — בעיקר סופ"ש</span>
+    </div>
+    <div style="font-size:12px;color:#444;line-height:1.5;margin-bottom:8px;">אחד מבתי האופרה היפים באיטליה, חזית מרשימה. סיורים מודרכים (~30 ד', ~€5 מבוגר/€1 ילד) לפי לוח משתנה — לא מובטחים כל יום.</div>
+    <div class="fc-tip">בדקו ותאמו מראש במייל אם רוצים סיור — אחרת מספיק גם ליהנות מהחזית וצילום בערב.</div>
+  </div>
+
   <div class="sl">✨ חוויות אותנטיות — מה-PDF</div>
 
   <div class="attr-card">
@@ -852,8 +952,8 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
   </div>
 
   <div class="attr-card">
-    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">שוק הדגים של גליפולי</div>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">ממש לפני הגשר לעיר העתיקה, צד ימין</div>
+    <div style="font-size:14px;font-weight:800;margin-bottom:6px;">שוק הדגים של גליפולי ⚠️ רחוק מהבסיס</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">ממש לפני הגשר לעיר העתיקה, צד ימין · Gallipoli לא בתוכנית הראשית (~50-55 ד' מהבסיס)</div>
     <div class="attr-price-row">
       <span class="attr-badge attr-tag-green">חינם לביקור</span>
       <span class="attr-badge attr-tag-orange">בוקר מוקדם</span>
@@ -879,71 +979,102 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
 <div id="tab-accom" class="tab-pane">
 
   <div class="apt">
-    <h5>🗺️ אסטרטגיית הלינה</h5>
-    <p>2 בסיסים שמכסים את כל המסלול: אחד בצפון (Monopoli/Fasano) ואחד בדרום (Otranto). ככה לא עוברים מלון כל יום.</p>
+    <h5>🗺️ אסטרטגיית הלינה — 3 הזמנות מאושרות ✓</h5>
+    <p>3 בסיסים לאורך המסלול: Valle d'Itria (עמק הטרולי) → Santa Cesarea Terme (חוף סלנטו) → בארי עצמה לסיום. כל ההזמנות שולמו ואושרו.</p>
   </div>
 
-  <div style="font-size:15px;font-weight:900;margin:16px 0 10px;">🌾 בסיס צפוני — לילות 1–5</div>
+  <div style="font-size:15px;font-weight:900;margin:16px 0 10px;">🫒 בסיס 1 — לילות 1–5 · 27.7–1.8</div>
   <div class="accard">
     <div class="accard-body">
       <div class="accard-top">
         <div>
-          <div class="accard-name">Agriturismo Tenuta Chianchizza</div>
-          <div class="accard-location">ליד Monopoli / Fasano (BA)</div>
+          <div class="accard-name">Tenuta Valle Incanto</div>
+          <div class="accard-location">Contrada Polaccio, Locorotondo (BA) — עמק איטריה</div>
         </div>
         <div class="accard-stars">🌾 אגריטוריסמו</div>
       </div>
-      <div class="accard-desc">חווה על 16 דונם של עצי זית, חרובים ושקדים. 2 בריכות (כולל אינפינטי פול), גינת ילדים, מגרש כדורגל, חיות משק (חמורים, כלבים). מסעדה מהגינה שלהם — ירקות, טבעוני, אפשרויות ללא גלוטן. יש מערה (Grotta della Pecorona) בנכס!</div>
       <div class="accard-pills">
-        <span class="acp acp-yes">🏊 2 בריכות</span>
-        <span class="acp acp-yes">🌿 חווה פעילה</span>
-        <span class="acp acp-yes">👶 ידידותי לילדים</span>
-        <span class="acp acp-yes">🍽️ מסעדה בנכס</span>
-        <span class="acp acp-yes">📶 WiFi</span>
-        <span class="acp acp-yes">🅿️ חניה חינם</span>
+        <span class="acp acp-yes">✓ מאושר ומשולם — ₪10,711.57</span>
+        <span class="acp acp-yes">27.7–1.8 (5 לילות)</span>
       </div>
-      <div class="accard-quote">חווה אמיתית עם נשמה — לא מלון. ילדים אוהבים את החמורים ואת הבריכה.</div>
+      <div class="accard-desc">וילה כפרית בין גרמי זית, כ-2 ק"מ מהמרכז ההיסטורי של Locorotondo. בריכה חיצונית עונתית וגינת ישיבה, פטיו/מרפסת פרטיים, מטבחון מאובזר בכל יחידה, חניה חינם בנכס. ~8 ק"מ מאלברובלו, ~19 ק"מ ממונופולי, ~26 ק"מ מפוליניאנו a מארה — מיקום מרכזי לעמק איטריה.</div>
+      <div class="accard-pills">
+        <span class="acp acp-yes">🏊 בריכה</span>
+        <span class="acp acp-yes">🫒 חורשת זיתים</span>
+        <span class="acp acp-yes">🍳 מטבח מאובזר</span>
+        <span class="acp acp-yes">🅿️ חניה חינם</span>
+        <span class="acp acp-yes">📶 WiFi</span>
+      </div>
       <div class="accard-links">
-        <a href="https://www.tenutachianchizza.it" target="_blank" class="acl acl-primary">אתר רשמי</a>
-        <a href="https://www.booking.com/hotel/it/agriturismo-tenuta-chianchizza.html" target="_blank" class="acl acl-book">Booking.com</a>
-        <a href="https://maps.google.com/?q=Tenuta+Chianchizza+Monopoli" target="_blank" class="acl acl-maps">מפה</a>
+        <a href="https://www.booking.com/hotel/it/tenuta-valle-incanto-locorotondo.html" target="_blank" class="acl acl-book">Booking.com</a>
+        <a href="https://maps.google.com/?q=Tenuta+Valle+Incanto+Locorotondo" target="_blank" class="acl acl-maps">מפה</a>
       </div>
     </div>
   </div>
 
-  <div style="font-size:15px;font-weight:900;margin:16px 0 10px;">🏰 בסיס דרומי — לילות 6–10</div>
+  <div style="font-size:15px;font-weight:900;margin:16px 0 10px;">🌡️ בסיס 2 — לילות 6–9 · 1.8–5.8</div>
   <div class="accard">
     <div class="accard-body">
       <div class="accard-top">
         <div>
-          <div class="accard-name">Masseria Mongiò dell'Elefante</div>
-          <div class="accard-location">ליד Otranto (LE)</div>
+          <div class="accard-name">19 Summer Suites</div>
+          <div class="accard-location">Via Paolo Borsellino, Santa Cesarea Terme (LE) — חוף סלנטו</div>
         </div>
-        <div class="accard-stars">🏰 מסריה בוטיק</div>
+        <div class="accard-stars">🏨 בוטיק חוף</div>
       </div>
-      <div class="accard-desc">מסריה בוטיק יוקרתית בסגנון עיצובי. בריכה גדולה ומוגנת מרוח, גישה ישירה לBaia dei Turchi, ספא מלא (ג'קוזי, סאונה, אמבטיה טורקית — 60 ד' כלול בהזמנה ישירה). אופניים חינם. מסעדה עם מטבח מקומי.</div>
       <div class="accard-pills">
-        <span class="acp acp-yes">🏊 בריכה מוגנת</span>
-        <span class="acp acp-yes">🧖 ספא</span>
-        <span class="acp acp-yes">🚲 אופניים</span>
-        <span class="acp acp-yes">🌊 גישה לBaia dei Turchi</span>
-        <span class="acp acp-yes">🍽️ מסעדה</span>
-        <span class="acp acp-maybe">👶 מתאים לילדים (פחות "חווה")</span>
+        <span class="acp acp-yes">✓ מאושר ומשולם — ₪4,034.78</span>
+        <span class="acp acp-yes">1.8–5.8 (4 לילות)</span>
       </div>
-      <div class="accard-quote">יוקרתי יותר מהחווה הצפונית — בריכה מרהיבה, ספא, ואוירה רומנטית. ילדים גדולים יותר יאהבו.</div>
+      <div class="accard-desc">מלון בוטיק (4★, 74 חדרים) על הצוק, מרכזו "19 Summer Club" — כ-3,000 מ"ר בריכות אינפיניטי במים מלוחים-מתוקים חקוקות בצוק עם נוף פתוח לים, בריכת ילדים, ג'קוזי, בר ומסעדה (La Cucina del 19). כ-10 דקות הליכה לחוף Santa Cesarea Terme. ~18 ק"מ (15-18 ד') מ-Otranto ומ-Baia dei Turchi.</div>
+      <div class="accard-pills">
+        <span class="acp acp-yes">🏊 פול קלאב אינפיניטי</span>
+        <span class="acp acp-yes">🌊 נוף ים</span>
+        <span class="acp acp-yes">🍽️ מסעדה + בר</span>
+        <span class="acp acp-yes">📶 WiFi</span>
+        <span class="acp acp-maybe">👶 מתאים למשפחות — לבדוק שעות שקטות בפול קלאב</span>
+      </div>
       <div class="accard-links">
-        <a href="https://www.masseriamongio.com/en/" target="_blank" class="acl acl-primary">אתר רשמי</a>
-        <a href="https://maps.google.com/?q=Masseria+Mongio+Elefante+Otranto" target="_blank" class="acl acl-maps">מפה</a>
+        <a href="https://19summersuites.it/" target="_blank" class="acl acl-primary">אתר רשמי</a>
+        <a href="https://maps.google.com/?q=19+Summer+Suites+Santa+Cesarea+Terme" target="_blank" class="acl acl-maps">מפה</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-size:15px;font-weight:900;margin:16px 0 10px;">🏙️ בסיס 3 — לילות 10–11 · 5.8–7.8</div>
+  <div class="accard">
+    <div class="accard-body">
+      <div class="accard-top">
+        <div>
+          <div class="accard-name">IL FICO – Appartamento 1</div>
+          <div class="accard-location">Via Principe Amedeo 50/1, בארי — מרכז העיר</div>
+        </div>
+        <div class="accard-stars">🏠 דירת עיצוב</div>
+      </div>
+      <div class="accard-pills">
+        <span class="acp acp-yes">✓ מאושר ומשולם — ₪1,045.44</span>
+        <span class="acp acp-yes">5.8–7.8 (2 לילות)</span>
+      </div>
+      <div class="accard-desc">דירת עיצוב מחודשת (~45 מ"ר, חדר שינה אחד), ברובע האומברטינו/מוראט — מחוץ ל-ZTL של בארי וקיה. כניסה פרטית, מעלית, מטבח מאובזר. הליכה (5-10 ד') לתיאטרון פטרוצ'ילי, קתדרלת בארי, קסטלו סבבו וחוף Pane e Pomodoro. דירוג 9.8/10 בבוקינג.</div>
+      <div class="accard-pills">
+        <span class="acp acp-yes">🎨 עיצוב מודרני</span>
+        <span class="acp acp-yes">🍳 מטבח מאובזר</span>
+        <span class="acp acp-yes">🚶 מרכז העיר</span>
+        <span class="acp acp-yes">📶 WiFi</span>
+      </div>
+      <div class="accard-links">
+        <a href="https://www.booking.com/reviews/it/hotel/il-fico-appartamento-1-lux-amp-design-made-in-puglia.html" target="_blank" class="acl acl-book">Booking.com</a>
+        <a href="https://maps.google.com/?q=Via+Principe+Amedeo+50+Bari" target="_blank" class="acl acl-maps">מפה</a>
       </div>
     </div>
   </div>
 
   <div class="info-card" style="margin-top:14px;">
-    <div class="info-card-title">🏡 הבדל בין Agriturismo ל-Masseria</div>
-    <div class="info-row"><span class="info-row-label">Agriturismo</span><span class="info-row-val">חווה עובדת עם תיירות. מחויב מחקלאות. אווירה כפרית ואותנטית.</span></div>
-    <div class="info-row"><span class="info-row-label">Masseria</span><span class="info-row-val">אחוזה חקלאית היסטורית (16-18 מאה). יכולה להיות כל דבר — מפשוטה ועד לוקסוס.</span></div>
-    <div class="info-row"><span class="info-row-label">WiFi כפרי</span><span class="info-row-val">לרוב חלש. WhatsApp על WiFi — הצילו. הורידו מפות אוף-ליין לפני.</span></div>
-    <div class="info-row"><span class="info-row-label">רכב</span><span class="info-row-val">חובה בשניהם — אין תחבורה ציבורית לאזורים כפריים.</span></div>
+    <div class="info-card-title">🏡 3 סוגי לינה שונים בטיול הזה</div>
+    <div class="info-row"><span class="info-row-label">Agriturismo (Valle Incanto)</span><span class="info-row-val">וילה כפרית בין זיתים. אווירה כפרית, WiFi לרוב חלש יותר.</span></div>
+    <div class="info-row"><span class="info-row-label">בוטיק חוף (19 Summer)</span><span class="info-row-val">מלון מלא עם שירות, פול קלאב על הצוק. WiFi טוב.</span></div>
+    <div class="info-row"><span class="info-row-label">דירה עירונית (IL FICO)</span><span class="info-row-val">דירה פרטית במרכז בארי, הליכה לכל מקום. לוודא חניה מול המארח מראש.</span></div>
+    <div class="info-row"><span class="info-row-label">רכב</span><span class="info-row-val">הכרחי בבסיס 1 ו-2 — אין תחבורה ציבורית לאזורים כפריים/החוף. בבארי עצמה אפשר גם ברגל.</span></div>
   </div>
 
 </div><!-- /tab-accom -->
@@ -957,12 +1088,16 @@ body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);mar
     <div class="drive-card-title">🛣️ מרחקים וזמני נסיעה</div>
     <table class="route-table">
       <tr><th>מסלול</th><th>כביש</th><th>מרחק</th><th>זמן רגיל</th><th>זמן קיץ</th></tr>
-      <tr><td>BRI → Monopoli</td><td>SP204 + SS16</td><td>45 ק"מ</td><td>50 ד׳</td><td>65-70 ד׳</td></tr>
-      <tr><td>Monopoli → Alberobello</td><td>SP172</td><td>22 ק"מ</td><td>35 ד׳</td><td>40 ד׳</td></tr>
-      <tr><td>Alberobello → Lecce</td><td>SP113→SS379→SS16</td><td>116 ק"מ</td><td>1:20 ש׳</td><td>1:45 ש׳</td></tr>
-      <tr><td>Lecce → Otranto</td><td>SP362</td><td>46 ק"מ</td><td>40 ד׳</td><td>55 ד׳</td></tr>
-      <tr><td>Otranto → Gallipoli</td><td>SP366</td><td>68 ק"מ</td><td>55 ד׳</td><td>75-80 ד׳</td></tr>
-      <tr><td>Gallipoli → BRI (חזרה)</td><td>SS101→A14→SS16</td><td>198 ק"מ</td><td>2:10 ש׳</td><td>2:30-45 ש׳</td></tr>
+      <tr><td>BRI → Locorotondo</td><td>SP204/SS16→SP172</td><td>~50 ק"מ</td><td>45-50 ד׳</td><td>60-65 ד׳</td></tr>
+      <tr><td>Locorotondo → Zoosafari (Fasano)</td><td>SP113/SP90</td><td>~27 ק"מ</td><td>35-40 ד׳</td><td>45 ד׳</td></tr>
+      <tr><td>Locorotondo → Alberobello</td><td>SP113</td><td>~8 ק"מ</td><td>15 ד׳</td><td>20 ד׳</td></tr>
+      <tr><td>Locorotondo → Acquapark Egnazia</td><td>SP113→SP17</td><td>~30 ק"מ</td><td>40-45 ד׳</td><td>50 ד׳</td></tr>
+      <tr><td>Locorotondo → Lecce</td><td>SP113→SS379→SS16</td><td>~90 ק"מ</td><td>1:20-1:30 ש׳</td><td>1:45 ש׳</td></tr>
+      <tr><td>Lecce → Santa Cesarea Terme</td><td>SS16→SP362</td><td>~48 ק"מ</td><td>40-45 ד׳</td><td>55 ד׳</td></tr>
+      <tr><td>Santa Cesarea Terme → Otranto</td><td>SP358</td><td>~18 ק"מ</td><td>15-18 ד׳</td><td>25 ד׳</td></tr>
+      <tr><td>Santa Cesarea Terme → Gallipoli (אופציונלי)</td><td>SP363/SS274</td><td>~47 ק"מ</td><td>50-55 ד׳</td><td>65-70 ד׳</td></tr>
+      <tr><td>Santa Cesarea Terme → בארי</td><td>SP363→SS16/A14</td><td>~150 ק"מ</td><td>2:00-2:10 ש׳</td><td>2:20-2:40 ש׳</td></tr>
+      <tr><td>בארי → Puglia Village (Molfetta) → BRI</td><td>SS16 צפונה</td><td>~25 ק"מ</td><td>25-30 ד׳ + 20 ד׳</td><td>35 ד׳ + 25 ד׳</td></tr>
     </table>
   </div>
 
@@ -1471,6 +1606,10 @@ function initMap() {
   // נמל + בארי
   marker(41.1389,16.7606,'#1a2332','✈️ Bari Airport BRI','נקודת התחלה וסיום · 27.7 הגעה, 7.8 יציאה');
   marker(41.1189,16.8717,'#1a2332','🏙️ Bari — Via Sparano','קניות יוקרה + Bari Vecchia: Di Cosimo, פנזרוטי');
+  marker(41.1177,16.8719,'#9333ea','🏠 IL FICO – Appartamento 1','לינה 3 · לילות 10-11 · Via Principe Amedeo 50/1');
+  marker(41.1256,16.8712,'#7c5c2e','⛪ Basilica di San Nicola','בזיליקת סן ניקולה · חינם · Bari Vecchia');
+  marker(41.1289,16.8688,'#7c5c2e','🏰 Castello Svevo','מבצר · €10 · הזמינו כרטיס מראש בקיץ');
+  marker(41.1231,16.8583,'#0077b6','🏖️ Pane e Pomodoro','חוף עירוני חינמי · מים רדודים · מתאים לילדים');
 
   // קניות ליד בארי
   marker(41.2048,16.5938,'#f59e0b','🛍️ Puglia Village — Molfetta','אאוטלט יחיד בפוליה · 140+ מותגים · 20 ד׳ מBRI');
@@ -1484,13 +1623,13 @@ function initMap() {
   marker(40.8382,17.3598,'#0e7490','💦 Acquapark Egnazia','פארק מים · 10:00 · €23-28');
   marker(40.8200,17.3700,'#0e7490','🦁 Zoosafari Fasano','ספארי + שעשועים · הגיעו ב-9:30');
 
-  // לינה צפונית
-  marker(40.9000,17.3500,'#9333ea','🌾 Tenuta Chianchizza','לינה צפונית · Agriturismo · בריכה + חווה');
+  // לינה — בסיס 1
+  marker(40.7539,17.3153,'#9333ea','🫒 Tenuta Valle Incanto','לינה 1 · לילות 1-5 · Agriturismo · בריכה · Locorotondo');
 
   // עמק איטריה
   marker(40.8823,17.1740,'#4a7c59','🦇 Grotte di Castellana','מערת נטיפים · 18°C בפנים · הזמינו מראש!');
   marker(40.7843,17.2394,'#7c5c2e','🍄 Alberobello','כפר הטרולי UNESCO · הגיעו לפני 9:00');
-  marker(40.7539,17.3153,'#7c5c2e','🏘️ Locorotondo','כפר לבן, גגות ייחודיים, Belvedere');
+  marker(40.7539,17.3153,'#7c5c2e','🏘️ Locorotondo','כפר לבן, גגות ייחודיים, Belvedere · בסיס 1');
   marker(40.7371,17.4224,'#be185d','🥩 Cisternino','Fornello Pronto · Da Zio Pietro · חובה!');
   marker(40.7280,17.5820,'#7c5c2e','🏛️ Ostuni','העיר הלבנה · חנות ב-Via Specchia · ZTL');
 
@@ -1505,15 +1644,16 @@ function initMap() {
   marker(40.1503,18.4969,'#7c5c2e','🏰 Otranto','מבצר + קתדרלה פסיפס · עיר מרהיבה');
   marker(40.1200,18.5200,'#4a7c59','🟥 Cava di Bauxite','אגם טורקיז-אדמה אדומה · בדקו גישה לפני!');
   marker(40.1400,18.5100,'#4a7c59','🌊 Baia dei Turchi','חוף+יער אורנים · הגיעו ב-8:00 · ציוד עצמי');
-  marker(39.9338,18.0674,'#7c5c2e','🏡 Specchia','כפר סלנטינו יפהפה · טחנות שמן תת-קרקעיות');
+  marker(39.9338,18.0674,'#7c5c2e','🏡 Specchia','כפר סלנטינו יפהפה · טחנות שמן תת-קרקעיות · אופציונלי');
 
-  // לינה דרומית
-  marker(40.1600,18.4700,'#9333ea','🏰 Masseria Mongiò','לינה דרומית · ספא + בריכה + גישה לBaia dei Turchi');
+  // לינה — בסיס 2
+  marker(39.9822,18.4614,'#9333ea','🌡️ 19 Summer Suites','לינה 2 · לילות 6-9 · Santa Cesarea Terme · פול קלאב אינפיניטי');
+  marker(39.9822,18.4614,'#0e7490','🌡️ גרוטות תרמיות + טיול סירה','Grotta Fetida/Sulfurea/Gattulla · סירה ל-Zinzulusa · ~€20-35');
 
-  // גליפולי ודרום
-  marker(40.0559,17.9913,'#be185d','🏝️ Gallipoli','עיר עתיקה על איי · שקיעה ביוני · פירות ים');
-  marker(40.0500,18.0700,'#0e7490','💦 Splash Water Park','14 מגלשות · €15 · ליד גליפולי');
-  marker(39.8600,18.0200,'#0077b6','🌊 Pescoluse','המלדיביים של איטליה · מים רדודים · ילדים!');
+  // גליפולי ודרום — לא בתוכנית הראשית (רחוק מדי מהבסיס, ראו טיפ בלשונית התוכנית)
+  marker(40.0559,17.9913,'#be185d','🏝️ Gallipoli (אופציונלי, רחוק)','~50-55 ד׳ מ-Santa Cesarea Terme · לא הוכנס לתוכנית הראשית');
+  marker(40.0500,18.0700,'#0e7490','💦 Splash Water Park (אופציונלי)','14 מגלשות · €15 · ליד גליפולי · רחוק מהבסיס');
+  marker(39.8600,18.0200,'#0077b6','🌊 Pescoluse (אופציונלי, רחוק)','המלדיביים של איטליה · ~40 ד׳ מ-Santa Cesarea Terme');
 
   // טיול יום מרחוק
   marker(40.6664,16.6043,'#7c5c2e','🗿 Matera (טיול יום)','~1 ש׳ מבארי · ספי מערה · UNESCO · ללינה: מדהים בלילה!');
