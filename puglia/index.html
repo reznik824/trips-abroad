@@ -28,6 +28,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 *,*::before,*::after{box-sizing:border-box;max-width:100%;}
+#map, #map *, #map *::before, #map *::after{max-width:none;}
 html{overflow-x:hidden;}
 body{font-family:'Heebo',sans-serif;background:var(--sand);color:var(--dark);margin:0;padding:0;width:100%;word-break:break-word;}
 #clip{overflow-x:hidden;width:100%;position:relative;}
@@ -1597,8 +1598,8 @@ function initMap() {
   function marker(lat, lng, color, title, desc) {
     var icon = L.divIcon({
       className: '',
-      html: '<div style="width:14px;height:14px;border-radius:50%;background:' + color + ';border:2px solid white;box-shadow:0 2px 5px rgba(0,0,0,0.35)"></div>',
-      iconSize: [14,14], iconAnchor: [7,7]
+      html: '<div style="width:20px;height:20px;border-radius:50%;background:' + color + ';border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.6)"></div>',
+      iconSize: [20,20], iconAnchor: [10,10]
     });
     L.marker([lat,lng], {icon:icon}).addTo(map).bindPopup('<strong>' + title + '</strong><br><span style="font-size:12px">' + desc + '</span>');
   }
